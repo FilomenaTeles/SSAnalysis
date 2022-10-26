@@ -15,7 +15,15 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('group_id')->constrained();
+            $table->string('name');
+            $table->string('city');
+            $table->date('birth_date');
+            $table->string('email');
+            $table->string('phone_number');
+            $table->boolean('isActive')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

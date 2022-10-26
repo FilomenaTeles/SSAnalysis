@@ -15,6 +15,9 @@ class CreateStudentTestsTable extends Migration
     {
         Schema::create('student_tests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained();
+            $table->foreignId('test_id')->constrained();
+            $table->integer('grade');
             $table->timestamps();
         });
     }

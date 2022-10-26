@@ -15,6 +15,9 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('test_type_id')->constrained();
+            $table->foreignId('test_phase_id')->constrained();
+            $table->date('test_date');
             $table->timestamps();
         });
     }

@@ -11,6 +11,13 @@ class TestTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \DB::table('test_types')->insert([
+            'description'   => 'Técnico'
+        ]);
+
+        \DB::table('test_types')->insert([
+            'description'   => 'Dinâmicas de Grupo'
+        ]);
+
     }
 }
