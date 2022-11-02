@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    //
+    public function students()
+    {
+        return $this->hasMany('App\Student');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
 }
