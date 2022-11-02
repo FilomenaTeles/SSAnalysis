@@ -2,27 +2,27 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <header>
-<<<<<<< HEAD
+
             <img id="logo" src="images/cesae.png" alt="">
-=======
->>>>>>> d343fc7afb792963a3779a1282f017250a27246d
+
 
         </header>
+
         <ul class="nav flex-column" id="sidenav">
-            <li  data-toggle="collapse" data-target="#softskills" class="collapsed active">
+            <li data-target="#softskills" class="collapsed active">
                 <a class="nav-link" href="#">Análise de Soft Skills</a>
             </li>
-            <ul class="sub-menu collapse" id="softskills">
+            <ul id="softskills">
                 <a class="nav-link" href="#">Criar testes</a>
                 <a class="nav-link" href="#">Registar notas</a>
                 <a class="nav-link" href="#">Análise Comparativa</a>
             </ul>
-            <li  data-toggle="collapse" data-target="#managment" class="collapsed active">
+            <li data-toggle="collapse" data-target="#managment" class="collapsed active">
                 <a class="nav-link" href="#">Gestão</a>
             </li>
             <ul class="sub-menu collapse" id="managment">
                 <a class="nav-link" href="#">Turmas</a>
-                <a class="nav-link" href="#">Alunos</a>
+                <a class="nav-link" href="{{url('/students')}}">Alunos</a>
                 <a class="nav-link" href="#">Técnicos</a>
             </ul>
         </ul>
@@ -36,13 +36,36 @@
                         <a href="#"></a>
                     </li>
                     <li>
-                        <a href="#"></a>
+                        <a href="#"> </a>
+
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="container-fluid">
-            <h1>Soft Skills Analysis</h1>
+            <nav class="navbar navbar-default">
+
+                    <div class="container-fluid col-9">
+                        <h1>Soft Skills Analysis</h1>
+
+                    </div>
+                    <div class="container text-right col-3">
+                        <img src="" alt="">
+                        <h5>Nome</h5>
+                        <ul class="nav flex-column" >
+
+                            <li data-toggle="collapse"  data-target="#user" class="collapsed active">
+
+                                <a class="nav-link" href="#" style="color: black">Seta</a>
+                            </li>
+                            <ul class="sub-menu collapse" id="user">
+                                <a class="nav-link" href="#">Editar</a>
+                                <a class="nav-link" href="#">Logout</a>
+                            </ul>
+                        </ul>
+
+                    </div>
+            </nav>
         </div>
     </div>
 </div>

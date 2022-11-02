@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('students')->group(function(){
+    Route::get('', 'StudentController@index');
+    Route::get('create', 'StudentController@create');
+    Route::post('', 'StudentController@store');
+    Route::get('{student}', 'StudentController@show');
+    Route::get('{student}/edit', 'StudentController@edit');
+    Route::put('{student}', 'StudentController@update');
+    Route::delete('{student}', 'StudentController@destroy');
+});

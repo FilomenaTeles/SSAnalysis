@@ -10,4 +10,8 @@ class StudentTest extends Model
     {
         return $this ->belongsTo('App\Student');
     }
+    public function test()
+    {
+        return $this ->belongsTo('App\Test');
+    }
 }
