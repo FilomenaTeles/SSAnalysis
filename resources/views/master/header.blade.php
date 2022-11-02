@@ -2,7 +2,10 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <header>
+<<<<<<< HEAD
             <img id="logo" src="images/cesae.png" alt="">
+=======
+>>>>>>> d343fc7afb792963a3779a1282f017250a27246d
 
         </header>
         <ul class="nav flex-column" id="sidenav">
