@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Soft Skills Analysis</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
 
     <!-- Fonts -->

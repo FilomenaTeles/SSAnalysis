@@ -56,7 +56,7 @@
 
                             <li data-toggle="collapse"  data-target="#user" class="collapsed active">
 
-                                <a class="nav-link" href="#" style="color: black">Seta</a>
+                                <a class="nav-link" href="#" style="color: black"><i class="bi bi-caret-down text-danger"></i></a>
                             </li>
                             <ul class="sub-menu collapse" id="user">
                                 <a class="nav-link" href="#">Editar</a>
