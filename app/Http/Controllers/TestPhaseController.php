@@ -14,7 +14,7 @@ class TestPhaseController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.testPhases.index');
     }
 
     /**

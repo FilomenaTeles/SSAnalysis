@@ -14,7 +14,7 @@ class TestTypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.testTypes.index');
     }
 
     /**

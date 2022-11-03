@@ -14,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.tests.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.tests.create');
     }
 
     /**
