@@ -59,7 +59,7 @@
 }
 
 #sidenav{
-    margin-top: 70%;
+    margin-top: 20%;
 }
 
 .dropdown-item a{
@@ -80,12 +80,16 @@ footer h5{
     font-size: small;
 }
 
-
 #logo{
-    width: 50%;
+    width: 80%;
+    margin-top: 25px;
+    margin-left: 20px;
 }
 
 .box{
     padding-left: 8rem;
     padding-top: 3rem;
 }
+
+
+
