@@ -44,7 +44,7 @@
 
                             <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                                  width="30%" alt="">
-                            <button class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button id="btn-drop" class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </button>
