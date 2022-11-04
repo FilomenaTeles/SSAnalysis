@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container box">
-        <h1>Create Courses</h1>
+        <h1>Criar cursos</h1>
 
         @component('components.courses.course-form-create', [])
         @endcomponent

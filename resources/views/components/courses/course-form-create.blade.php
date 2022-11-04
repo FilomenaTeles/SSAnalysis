@@ -1,60 +1,37 @@
-<form method="POST" action="{{ url('courses') }}">
-    @csrf
 
-    <div class="form-group">
-        <label for="name">Nome</label>
-        <input
-            type="text"
-            id="nameCourse"
-            autocomplete="name"
-            placeholder="Informe o nome do curso"
-            class="form-control
-{{--@error('name') is-invalid @enderror"--}}
+<div class="container">
+    <form method="POST" action="{{ url('courses') }}">
+        @csrf
+        <div class="form-group">
+            <label for="test_date">Nome</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Informe o nome do curso"
+                value="{{old('name')}}"
+                required
+            >
 
-            disabled>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="test_date">Sigla</label>
+            <input
+                type="text"
+                id="acronym"
+                name="acronym"
+                placeholder="Informe a sigla do curso"
+                class="form-control"
+                value="{{old('acronym')}}"
+                required
+            >
+        </div>
 
-        @error('name')
-        <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
-
-    <div class="form-group">
-        <label for="inputAddress">Sigla do curso</label>
-        <input
-            type="text"
-            id="inputAddress"
-            name="address"
-            autocomplete="address"
-            placeholder="Informe a sigla do curso"
-            class="form-control
-{{--            @error('address') is-invalid @enderror"--}}
-
-            disabled
-        >
-        @error('address')
-        <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
+        <button type="submit" class="mt-2 mb-5 btn btn-primary">Criar curso</button>
+        <a href="{{ URL::previous() }}" type="button" class="mt-2 mb-5 btn btn-danger">Cancelar</a>
+    </form>
+</div>
 
 
-    <div class="form-group">
-{{--        <label for="country">Selecione o curso:</label>--}}
-{{--        <select name="country" id="country" disabled>--}}
-{{--            @foreach($countries as $country)--}}
-
-{{--            @endforeach--}}
-        </select>
-    </div>
-
-
-
-    <br>
-    <button type="button" class="btn btn-danger">Cancelar</button>
-    <button type="button" class="btn btn-primary">Adicionar</button>
-
-
-</form>

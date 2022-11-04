@@ -13,7 +13,6 @@
         @component('components.courses.course-form-show'
 
         )
-
         @endcomponent
 
     </div>

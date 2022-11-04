@@ -10,7 +10,7 @@
     <div class="container box">
         <h1>Cursos</h1>
 
-        @component('components.courses.course-form-create', [])
+        @component('components.courses.courses-list', ['courses' =>$courses]);
         @endcomponent
     </div>
 

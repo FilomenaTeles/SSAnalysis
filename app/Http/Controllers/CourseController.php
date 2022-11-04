@@ -14,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('pages.courses.index');
+        return view('pages.courses.index', ['courses' => Course::all()]);
+//        return view('pages.courses.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class CourseController extends Controller
     public function create()
     {
         //
+        return view('pages.courses.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this -> Validate($request, [
+            'name' => 'required',
+            'acronym' => 'required',
+        ]);
+        Course::create($request->all());
+        return redirect('courses')->with('status','Item criado com sucesso');
     }
 
     /**
