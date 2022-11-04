@@ -8,7 +8,10 @@
 
 @section('content')
     <div class="container box">
-        <h1>Show Users</h1>
+        @component('components.users.user-form-show',[
+            'user'=>$user
+        ])
+        @endcomponent
     </div>
 
 @endsection

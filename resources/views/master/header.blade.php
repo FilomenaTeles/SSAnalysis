@@ -4,7 +4,7 @@
         <header>
 
             <a class="nav-link" href="{{ url('/home') }}">
-                <img id="logo" src="images/logoCesae.png" alt="">
+                <img id="logo" src="images/cesae.png" alt="">
             </a>
 
         </header>
@@ -52,7 +52,7 @@
                                 {{ Auth::user()->name }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{url('/user/' . Auth::user()->id)}}">Detalhes</a>
+                                <a class="dropdown-item" href="{{url('/users/' . Auth::user()->id)}}">Detalhes</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
 document.getElementById('logout-form').submit();">Logout</a>

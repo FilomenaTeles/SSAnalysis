@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\UserType;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -9,54 +11,67 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('pages.users.index');
+        return view('pages.users.index',['users' => User::with('userType')->get(),'userTypes'=>UserType::with('users')->get()]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
-        //
+        return view('pages.users.create',['userTypes'=>UserType::with('users')->get()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'name'          => 'required',
+            'email'         => 'required',
+            'user_type_id'  =>'required',
+            'image'         => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $user               = new User();
+        $user->user_type_id = $request->userType;
+        $user->name         = $request->name;
+        $user->email        = $request->email;
+        $user->save();
+
+
+
+        return redirect('users')->with('status','Utilizador criado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('pages.users.show',['user'=>$user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('pages.users.edit',['user'=>$user]);
     }
 
     /**

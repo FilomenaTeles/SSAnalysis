@@ -95,10 +95,11 @@ Route::prefix('testTypes')->group(function(){
 Route::prefix('users')->group(function(){
 
 
-    Route::get('', 'UserController@index');
+
 
     // Admin Middleware
     Route::group(['middleware' => 'isAdmin'], function () {
+        Route::get('', 'UserController@index');
         Route::get('create', 'UserController@create');
     });
 

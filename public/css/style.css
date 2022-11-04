@@ -75,9 +75,9 @@ body{
 
 
 footer{
-    position:absolute;
+    position:relative;
     bottom:0;
-    margin-left: 400px;
+    margin-left: 250px;
 }
 
 footer h5{
