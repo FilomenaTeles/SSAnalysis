@@ -1,9 +1,9 @@
 <div class="container text-right">
-    <a href="{{url('/users/create')}}">Criar novo utilizador</a>
+    <a href="{{url('/users/create')}}" type="button" class="btn btn-light"> Adicionar utilizador <i class="bi bi-person-plus-fill"></i></a>
 </div>
 <br>
 
-<table class="table table-striped table-bordered text-center" style="margin: auto">
+<table class="table table-striped  text-center" style="margin: auto">
     <thead>
     <tr>
         <th scope="col"></th>
