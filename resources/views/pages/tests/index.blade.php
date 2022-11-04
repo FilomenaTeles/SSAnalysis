@@ -23,7 +23,10 @@
     @component('components.tests.tests-list', [
    'tests' => $tests,
    'testTypes' => $testTypes,
-   'testPhases' => $testPhases
+   'testPhases' => $testPhases,
+   'groups' => $groups,
+   'studentTests' => $studentTests,
+   'students'     => $students,
    ])
     @endcomponent
     </div>

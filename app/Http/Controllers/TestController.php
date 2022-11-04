@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
+use App\Person;
+use App\Student;
+use App\StudentTest;
 use App\Test;
 use App\TestPhase;
 use App\TestType;
@@ -15,10 +19,15 @@ class TestController extends Controller
      */
     public function index()
     {
+
+
         return view('pages.tests.index', [
             'tests'      => Test::with('testType','testPhase')->get() ,
             'testTypes'  => TestType::with('tests')->get(),
-            'testPhases' => TestPhase::with('tests')->get()
+            'testPhases' => TestPhase::with('tests')->get(),
+            'groups'     => Group:: with('students')->get(),
+            'students'   =>Student::with ('group', 'studentTests.test')->get(),
+            'studentTests' => StudentTest::with('test', 'student.group'),
         ]);
     }
 
@@ -28,10 +37,11 @@ class TestController extends Controller
      */
     public function create()
     {
+
         return view('pages.tests.create', [
             'tests'      => Test::with('testType','testPhase')->get() ,
             'testTypes'  => TestType::with('tests')->get(),
-            'testPhases' => TestPhase::with('tests')->get()
+            'testPhases' => TestPhase::with('tests')->get(),
         ]);
     }
 
@@ -40,6 +50,7 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'test_type_id'  => 'required',
             'test_phase_id' => 'required',
@@ -53,8 +64,8 @@ class TestController extends Controller
         $test->test_phase_id = $request->test_phase_id;
         $test->test_date     = $request->test_date;
 
-        $test->save();*/
-        return redirect('/tests')->with('status','Teste criado com sucesso!');
+        $test->save(); */
+        return redirect('tests')->with('status','Teste criado com sucesso!');
 
     }
 
