@@ -18,9 +18,7 @@ body{
 }
 
 #content {
-    width: 100%;
-    position: relative;
-    margin-right: 0;
+    margin-left: 240px;
     background-color: #00ADEF;
     padding: 40px;
 }
@@ -73,11 +71,19 @@ body{
     margin-left: 100px;
 }
 
+main{
+    margin-left: 240px;
+}
+
 
 footer{
-    position:relative;
+    position:fixed;
     bottom:0;
     text-align: center;
+    width: 100%;
+}
+#col1footer{
+    width: 240px;
 }
 
 footer h5{
@@ -89,11 +95,15 @@ footer h5{
     margin-top: 25px;
     margin-left: 20px;
 }
-
-.box{
-    padding-left: 8rem;
-    padding-top: 3rem;
-}
+/*
+@media screen and (max-width: 800px){
+    #sidebar{
+        width: 200px;
+    }
+    #content, main{
+        margin-left: 200px;
+    }
+}*/
 
 
 

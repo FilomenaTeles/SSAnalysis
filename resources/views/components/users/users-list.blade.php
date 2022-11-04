@@ -37,12 +37,11 @@
         </td>
         @endif
         <td>
-            <a href="{{url('/users/'.$user->id.'/edit')}}" type="button">
+            <a href="{{url('/users/'.$user->id.'/edit')}}" type="button" class="btn btn-primary">
                 <i class="bi bi-pencil-square"></i>
             </a>
-            <a href="">
-                <i class="bi bi-trash3"></i>
-            </a>
+
+
         </td>
     </tr>
     @endforeach
