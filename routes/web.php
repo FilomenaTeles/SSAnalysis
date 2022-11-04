@@ -98,18 +98,20 @@ Route::prefix('testTypes')->group(function(){
 Route::prefix('users')->group(function(){
 
 
-    Route::get('', 'UserController@index');
+
 
     // Admin Middleware
     Route::group(['middleware' => 'isAdmin'], function () {
+        Route::get('', 'UserController@index');
         Route::get('create', 'UserController@create');
+        Route::delete('{user}', 'UserController@destroy');
     });
 
     Route::post('', 'UserController@store');
     Route::get('{user}', 'UserController@show');
     Route::get('{user}/edit', 'UserController@edit');
     Route::put('{user}', 'UserController@update');
-    Route::delete('{user}', 'UserController@destroy');
+
 });
 
 Route::prefix('userTypes')->group(function(){

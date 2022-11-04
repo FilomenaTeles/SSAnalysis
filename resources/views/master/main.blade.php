@@ -28,6 +28,10 @@
 </head>
 
 <body>
+<!-- SideBar -->
+
+@component('master.sidebar')
+@endcomponent
 
 <!-- Header -->
 @component('master.header')
@@ -38,7 +42,6 @@
 <!-- .content -->
 <main>
     @yield('content')
-
 </main>
 <!-- .content -->
 

@@ -8,7 +8,10 @@
 
 @section('content')
     <div class="container box">
-        <h1>Create Users</h1>
+        @component('components.users.user-form-create',[
+            'userTypes'=>$userTypes
+        ])
+        @endcomponent
     </div>
 
 @endsection

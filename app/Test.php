@@ -21,4 +21,9 @@ class Test extends Model
         return $this ->hasMany('App\StudentTest');
     }
 
+    protected $fillable = [
+        'test_type_id',
+        'test_phase_id',
+        'test_date'
+    ];
 }
