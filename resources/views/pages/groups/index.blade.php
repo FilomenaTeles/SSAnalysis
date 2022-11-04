@@ -9,6 +9,8 @@
 @section('content')
     <div class="container box">
         <h1>Groups</h1>
+
+
     </div>
 
 @endsection
