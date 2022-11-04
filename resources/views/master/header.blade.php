@@ -14,7 +14,7 @@
                 <a class="nav-link" href="#">Análise de Soft Skills</a>
             </li>
             <ul id="softskills">
-                <a class="nav-link" href="{{url('/tests/create')}}">Criar testes</a>
+                <a class="nav-link" href="{{url('/tests')}}">Criar testes</a>
                 <a class="nav-link" href="{{url('/studentTests')}}">Registar notas</a>
                 <a class="nav-link" href="">Análise Comparativa</a>
             </ul>
@@ -47,7 +47,7 @@
 
                             <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                                  width="30%" alt="">
-                            <button class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button id="btn-drop" class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </button>
