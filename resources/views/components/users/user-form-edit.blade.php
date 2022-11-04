@@ -1,7 +1,7 @@
 <h4>Editar utilizador</h4>
 <br>
 <div class="container">
-    <form method="POST" action="{{ url('/users'.$user->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data">
         @csrf   <!--Metodo de segurança para envio de forms-->
         @method('PUT')
 
@@ -52,10 +52,10 @@
                 @if( Auth::user()->user_type_id ==1)
 
                     <div class="form-group">
-                        <label for="userType">Tipo de Utilizador</label>
+                        <label for="userType">Estado:</label>
                         <div class="row">
-                            <div class="form-group col-2 mr-0">
-                                <label for="admin">Administrador</label>
+                            <div class="form-group col-4 mr-0">
+                                <label for="admin">Ativo</label>
                                 <input
                                     type="radio"
                                     id="admin"
@@ -63,11 +63,14 @@
                                     autocomplete="userType"
                                     class="@error('userType') is-invalid @enderror"
                                     value="1"
+                                    @if($user->user_type_id==1)
+                                        checked
+                                    @endif
                                     required>
 
                             </div>
-                            <div class="form-group col-2 ml-0">
-                                <label for="tecnico">Técnico</label>
+                            <div class="form-group col-3 ml-0">
+                                <label for="tecnico">Inativo</label>
                                 <input
                                     type="radio"
                                     id="tecnico"
@@ -86,7 +89,10 @@
             </span>
                         @enderror
                     </div>
-                @else()
+
+                @endif
+
+                @if(Auth::user()->id==$user->id)
                     <div class="form-group">
                         <label for="name">Password</label>
                         <input
@@ -108,6 +114,7 @@
                         @enderror
                     </div>
                 @endif
+
             </div>
         </div>
 

@@ -18,7 +18,8 @@
         @endif
         @component('components.users.users-list',[
         'users' => $users,
-         'userTypes' =>$userTypes
+         'userTypes' =>$userTypes,
+
         ])
         @endcomponent
     </div>
