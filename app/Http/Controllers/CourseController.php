@@ -66,6 +66,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         //
+        return view('pages.courses.edit', ['course' => $course -> get()]);
     }
 
     /**

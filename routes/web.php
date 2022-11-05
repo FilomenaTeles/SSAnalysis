@@ -123,17 +123,3 @@ Route::prefix('userTypes')->group(function(){
     Route::delete('{userType}', 'UserTypeController@destroy');
 });
 
-
-
-  Route::prefix('groups')->group(function () {
-      Route::get('', 'GroupController@index');
-// Auth Middleware
-      Route::group(['middleware' => 'auth'], function () {
-          Route::get('create', 'GroupController@create');
-          Route::post('', 'GroupController@group');
-          Route::get('{group}/edit', 'GroupController@edit');
-          Route::put('{group', 'GroupController@update');
-          Route::delete('{group}', 'GroupController@destroy');
-      });
-      Route::get('{group}', 'GroupController@show');
-  });
