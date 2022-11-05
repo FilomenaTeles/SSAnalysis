@@ -16,8 +16,8 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="test_type">Escolha o tipo de teste</label>
-            <select name="test_type" id="test_type">
+            <label for="test_type_id">Escolha o tipo de teste</label>
+            <select name="test_type_id" id="test_type_id">
                 @foreach($testTypes as $testType)
                     <option value="{{ $testType->id}}">{{ $testType->description}} </option>
                 @endforeach
@@ -25,19 +25,17 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="test_phase">Escolha a fase do teste</label>
-            <select name="test_phase" id="test_phase">
+            <label for="test_phase_id">Escolha a fase do teste</label>
+            <select name="test_phase_id" id="test_phase_id">
                 @foreach($testPhases as $testPhase)
                     <option value="{{ $testPhase->id}}">{{ $testPhase->description}} </option>
                 @endforeach
             </select>
         </div>
-        <div>
-            <button type="submit" class="mt-2 mb-5 btn btn-primary">Criar teste</button>
-        </div>
-        <div>
-            <a type="button" href="{{ url('/tests') }}" class="btn btn-primary mb-2 ">Cancelar</a>
-        </div>
+
+        <button type="submit" class="mt-2 mb-5 btn btn-primary">Criar teste</button>
+        <a href="{{ URL::previous() }}" type="button" class="mt-2 mb-5 btn btn-danger">Cancelar</a>
+
     </form>
 </div>
 

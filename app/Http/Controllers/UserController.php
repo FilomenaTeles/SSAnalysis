@@ -33,6 +33,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'name'          => 'required',
             'email'         => 'required',
@@ -41,7 +42,8 @@ class UserController extends Controller
         ]);
 
         $user               = new User();
-        $user->user_type_id = $request->userType;
+        $user->user_type_id = $request->user_type_id;
+        $user->password     = '123';
         $user->name         = $request->name;
         $user->email        = $request->email;
         $user->save();

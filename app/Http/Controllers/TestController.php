@@ -57,14 +57,14 @@ class TestController extends Controller
             'test_date'     => 'required',
         ]);
 
-        Test::create($request->all());
+       // Test::create($request->all());
 
-       /* $test = new Test();
+       $test = new Test();
         $test->test_type_id  = $request->test_type_id;
         $test->test_phase_id = $request->test_phase_id;
         $test->test_date     = $request->test_date;
 
-        $test->save(); */
+        $test->save();
         return redirect('tests')->with('status','Teste criado com sucesso!');
 
     }

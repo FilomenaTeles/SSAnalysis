@@ -53,7 +53,7 @@
                     <input
                         type="radio"
                         id="admin"
-                        name="userType"
+                        name="user_type_id"
                         autocomplete="userType"
                         class="@error('userType') is-invalid @enderror"
                         value="1"
@@ -65,7 +65,7 @@
                     <input
                         type="radio"
                         id="tecnico"
-                        name="userType"
+                        name="user_type_id"
                         autocomplete="userType"
                         class="@error('userType') is-invalid @enderror"
                         value="2"
