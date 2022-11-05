@@ -19,7 +19,7 @@
             <td>
                 <div class="d-inline-flex p-1 bd-highlight">
 
-                    <a href="{{url('course/' . $course->id . '/edit')}}" type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{{url('courses/' . $course->id . '/edit')}}" type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                 </div>
             </td>
         </tr>

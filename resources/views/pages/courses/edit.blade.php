@@ -8,10 +8,10 @@
 
 @section('content')
     <div class="container box">
-        <h1>Edit Courses</h1>
+        <h1>Editar curso</h1>
 
         @component('components.courses.course-form-edit'
-//       ['couser' => $course]
+           /* ['course' => $course ]*/
         )
         @endcomponent
     </div>
