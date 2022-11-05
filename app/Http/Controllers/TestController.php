@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Group;
-use App\Person;
 use App\Student;
 use App\StudentTest;
 use App\Test;
@@ -19,10 +18,10 @@ class TestController extends Controller
      */
     public function index()
     {
-
+     //   $testOrder = Test::orderBy('test_date', 'asc')->get();
 
         return view('pages.tests.index', [
-            'tests'      => Test::with('testType','testPhase')->get() ,
+            'tests'      => Test::with('testType','testPhase')->orderBy('test_date', 'asc')->get(),
             'testTypes'  => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
             'groups'     => Group:: with('students')->get(),
@@ -59,7 +58,7 @@ class TestController extends Controller
 
        // Test::create($request->all());
 
-       $test = new Test();
+        $test = new Test();
         $test->test_type_id  = $request->test_type_id;
         $test->test_phase_id = $request->test_phase_id;
         $test->test_date     = $request->test_date;
@@ -88,7 +87,11 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        return view('pages.tests.edit', [
+            'test'      => $test,
+            'testTypes'  => TestType::all(),
+            'testPhases' => TestPhase::all(),
+        ]);
     }
 
     /**
@@ -100,7 +103,14 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $test                = Test::find($test->id);
+        $test->test_type_id  = $request->test_type_id;
+        $test->test_phase_id = $request->test_phase_id;
+        $test->test_date     = $request->test_date;
+        $test->save();
+
+        return redirect('tests')->with('status','Teste editado com sucesso!');
+
     }
 
     /**

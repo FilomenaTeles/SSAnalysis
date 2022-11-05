@@ -8,7 +8,14 @@
 
 @section('content')
     <div class="container box">
-        <h1>Test edit</h1>
+
+    @component('components.tests.test-form-edit',
+    [
+    'test' => $test,
+    'testTypes' => $testTypes,
+    'testPhases' => $testPhases
+    ])
+    @endcomponent
     </div>
 
 @endsection

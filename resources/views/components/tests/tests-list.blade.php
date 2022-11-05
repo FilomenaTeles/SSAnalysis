@@ -6,6 +6,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th scope="col">ID</th>
         <th scope="col">Data do Teste</th>
         <th scope="col">Turma</th>
         <th scope="col">Tipo de Teste</th>
@@ -16,7 +17,8 @@
     <tbody>
     @foreach($tests as $test)
         <tr>
-            <th scope="row">{{$test->test_date}}</th>
+            <th scope="row">{{$test->id}}</th>
+            <td>{{$test->test_date}}</td>
             <td>
                 @foreach($test -> studentTests as $studentTest)
                     @if(($test->id) == ($studentTest-> test_id))
@@ -38,7 +40,7 @@
             <td>
                 <div class="d-inline-flex p-1 bd-highlight">
 
-                    <a href="{{url('test/' . $test->id . '/edit')}}" type="button" class="btn btn-primary"><i
+                    <a href="{{url('/tests/'.$test->id.'/edit')}}" type="button" class="btn btn-primary"><i
                             class="bi bi-pencil-square"></i></a>
                 </div>
             </td>

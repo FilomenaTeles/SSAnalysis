@@ -1,5 +1,6 @@
 <?php
 
+use App\Test;
 use Illuminate\Database\Seeder;
 
 class TestSeeder extends Seeder
@@ -16,6 +17,7 @@ class TestSeeder extends Seeder
             'test_phase_id'      => 1,
             'test_date'      => '2022-06-22'
         ]);
+
         \DB::table('tests')->insert([
             'test_type_id'   => 2,
             'test_phase_id'      => 1,
@@ -41,7 +43,7 @@ class TestSeeder extends Seeder
         \DB::table('tests')->insert([
             'test_type_id'   => 2,
             'test_phase_id'      => 3,
-            'test_date'      => '2022-11-15'
+            'test_date'      => '2022-11-15',
         ]);
     }
 }

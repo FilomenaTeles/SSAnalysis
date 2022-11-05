@@ -11,3 +11,4 @@ class TestType extends Model
         return $this->hasMany('App\Test');
     }
 }
+
