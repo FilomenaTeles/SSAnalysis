@@ -1,12 +1,11 @@
 <div class="container text-right">
-    <a href="{{url('/tests/create')}}" type="button" class="btn btn-light">Adicionar teste <i
+    <a href="{{url('/tests/create')}}" type="button" id="add-btn" class="btn btn-light">Adicionar teste <i
             class="bi bi-plus-circle-fill"></i></a>
 </div>
 <br>
 <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">ID</th>
         <th scope="col">Data do Teste</th>
         <th scope="col">Turma</th>
         <th scope="col">Tipo de Teste</th>
@@ -17,7 +16,6 @@
     <tbody>
     @foreach($tests as $test)
         <tr>
-            <th scope="row">{{$test->id}}</th>
             <td>{{$test->test_date}}</td>
             <td>
                 @foreach($test -> studentTests as $studentTest)

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="container-fluid col-sm-9 col-12">
-                <h1>Soft Skills Analysis</h1>
+                <h1 id="title">Soft Skills Analysis</h1>
             </div>
 
             <div class="container text-right col-sm-3 col-12">

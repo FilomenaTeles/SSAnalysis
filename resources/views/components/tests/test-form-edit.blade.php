@@ -22,9 +22,10 @@
         <select name="test_type_id" id="test_type_id">
             @foreach($testTypes as $testType)
                 @if($testType->id === $test->test_type_id)
-                <option selected>{{ $testType->description}} </option>
-                @endif
+                <option value="{{ $testType->id}}" selected>{{ $testType->description}} </option>
+                @else
                 <option value="{{ $testType->id}}">{{ $testType->description}} </option>
+                @endif
             @endforeach
         </select>
     </div>
@@ -34,13 +35,14 @@
         <select name="test_phase_id" id="test_phase_id">
             @foreach($testPhases as $testPhase)
                 @if($testPhase->id === $test->test_phase_id)
-                <option selected>{{ $testPhase->description}} </option>
-                @endif
+                <option value="{{ $testPhase->id}}" selected>{{ $testPhase->description}} </option>
+                @else
                 <option value="{{ $testPhase->id}}">{{ $testPhase->description}} </option>
+                @endif
             @endforeach
         </select>
     </div>
     <button type="submit" class="mt-2 mb-5 btn btn-primary">Salvar</button>
-    <a href="{{ URL::previous() }}" type="button" class="mt-2 mb-5 btn btn-danger">Cancelar</a>
+    <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
 </form>
 </div>

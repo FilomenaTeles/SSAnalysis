@@ -16,11 +16,54 @@ body{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;*/
 }
+#add-btn{
+    background-color: #201544;
+    color: white;
+}
+
+#add-btn:hover{
+    opacity: 0.8;
+}
+
+#back-btn{
+    background-color: #36236a;
+    color: white;
+}
+
+#back-btn:hover{
+    opacity: 0.8;
+}
+
+#btn-card-grades{
+    background-color: #ec008b;
+    font-weight: bold;
+}
+
+#btn-card-grades:hover{
+    opacity: 0.85;
+}
 
 #content {
     margin-left: 240px;
-    background-color: #00ADEF;
+    /*BG original */
+    /*background-color: #00adef; */
+    /*BG 2 */
+    /*background: rgb(32,21,68);
+    background: linear-gradient(90deg, rgba(32,21,68,1) 11%, rgba(54,35,106,1) 47%, rgba(0,212,255,1) 100%);*/
+    /*BG 3 */
+    /*background: rgb(2,1,84);
+    background: linear-gradient(90deg, rgba(2,1,84,1) 22%, rgba(54,35,106,1) 70%, rgba(236,0,139,1) 86%, rgba(0,212,255,1) 100%);*/
+    /*BG 4*/
+    background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);
+    /*BG 5 */
+    /*background-image: linear-gradient(to right top, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);*/
     padding: 40px;
+}
+
+#title{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
 }
 
 /* Sidebar Styles */
@@ -44,8 +87,10 @@ body{
     background-color: #817C7C;
 }
 
-#sidebar header a {
-
+#logo{
+    width: 90%;
+    margin-top: 45px;
+    margin-left: 15px;
 }
 
 #sidebar .nav a{
@@ -74,9 +119,15 @@ body{
 main{
     margin-left: 240px;
     margin-top: 20px;
-
 }
 
+h1, h4{
+    font-family: 'Montserrat', sans-serif;
+    color: #201544;
+    font-weight: bold;
+    text-align: start;
+    font-variant: small-caps;
+}
 
 footer{
     /*position:fixed;*/
@@ -94,11 +145,7 @@ footer h5{
     font-size: small;
 }
 
-#logo{
-    width: 80%;
-    margin-top: 25px;
-    margin-left: 20px;
-}
+
 /*
 @media screen and (max-width: 800px){
     #sidebar{

@@ -8,7 +8,10 @@
 
 @section('content')
     <div class="container box">
-        <h1>StudentTests</h1>
+        <h1>Registar notas dos testes</h1>
+
+        @component('components.studentTests.studentTests-list')
+        @endcomponent
     </div>
 
 @endsection

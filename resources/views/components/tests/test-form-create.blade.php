@@ -32,9 +32,16 @@
                 @endforeach
             </select>
         </div>
+        <br>
+        <div class="form-group">
+            <label for="">Escolha a(s) turma(s)</label>
+            <select name="" id="">
+            <!--- Terminar -->
+            </select>
+        </div>
 
         <button type="submit" class="mt-2 mb-5 btn btn-primary">Criar teste</button>
-        <a href="{{ URL::previous() }}" type="button" class="mt-2 mb-5 btn btn-danger">Cancelar</a>
+        <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
 
     </form>
 </div>
