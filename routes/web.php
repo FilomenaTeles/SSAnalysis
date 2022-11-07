@@ -56,13 +56,13 @@ Route::prefix('students')->group(function(){
 });
 
 Route::prefix('studentTests')->group(function(){
-    Route::get('', 'StudentTestController@index');
-    Route::get('create', 'StudentTestController@create');
-    Route::post('', 'StudentTestController@store');
-    Route::get('{studentTest}', 'StudentTestController@show');
-    Route::get('{studentTest}/edit', 'StudentTestController@edit');
-    Route::put('{studentTest}', 'StudentTestController@update');
-    Route::delete('{studentTest}', 'StudentTestController@destroy');
+    Route::get('', 'TestController@stIndex');
+    Route::get('create', 'TestController@stCreate');
+    Route::post('', 'TestController@stStore');
+    Route::get('{studentTest}', 'TestController@stShow');
+    Route::get('{studentTest}/edit', 'TestController@stEdit');
+    Route::put('{studentTest}', 'TestController@stUpdate');
+    Route::delete('{studentTest}', 'TestController@stDestroy');
 });
 
 Route::prefix('tests')->group(function(){
@@ -123,3 +123,4 @@ Route::prefix('userTypes')->group(function(){
     Route::delete('{userType}', 'UserTypeController@destroy');
 });
 
+Route::get('grades', 'TestController@grades');

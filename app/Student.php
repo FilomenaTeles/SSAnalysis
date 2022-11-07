@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    public function studentTests()
+    public function tests()
     {
-        return $this->hasMany('App\StudentTest');
+        return $this->belongsToMany('App\Test')
+                    ->withPivot('grade');
     }
 
     public function group()

@@ -18,11 +18,8 @@
         <tr>
             <td>{{$test->test_date}}</td>
             <td>
-                @foreach($test -> studentTests as $studentTest)
-                    @if(($test->id) == ($studentTest-> test_id))
-
-                        <li>{{$studentTest->student->group->edition}}</li>
-                    @endif
+                @foreach($test-> students as $student)
+                    <li>{{$student->group->edition}}</li>
                 @endforeach
             </td>
             @foreach($testTypes as $testType)
@@ -41,9 +38,18 @@
                     <a href="{{url('/tests/'.$test->id.'/edit')}}" type="button" class="btn btn-primary"><i
                             class="bi bi-pencil-square"></i></a>
                 </div>
+                <div class="d-inline-flex p-1 bd-highlight">
+
+                    <form action="{{url('tests/' . $test->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                    </form>
+                </div>
             </td>
         </tr>
     @endforeach
     </tbody>
 </table>
 
+{{$tests -> links()}}
