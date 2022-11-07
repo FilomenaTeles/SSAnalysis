@@ -43,7 +43,7 @@ class CourseController extends Controller
             'acronym' => 'required',
         ]);
         Course::create($request->all());
-        return redirect('courses')->with('status','Item criado com sucesso');
+        return redirect('courses')->with('status','Curso criado com sucesso');
     }
 
     /**
@@ -66,7 +66,9 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         //
-        return view('pages.courses.edit', ['course' => $course -> get()]);
+        return view('pages.courses.edit', [
+            'course' => $course,
+        ]);
     }
 
     /**
@@ -79,6 +81,11 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         //
+        $course                = Course::find($course->id);
+        $course->name  = $request->name;
+        $course->acronym = $request->acronym;
+        $course->save();
+        return redirect('courses')->with('status','Curso editado com sucesso!');
     }
 
     /**

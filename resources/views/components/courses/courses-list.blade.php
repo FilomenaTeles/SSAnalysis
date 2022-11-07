@@ -28,3 +28,5 @@
     </tbody>
 </table>
 
+{{--{{$courses -> links()}}--}}
+

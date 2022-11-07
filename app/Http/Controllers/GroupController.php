@@ -14,7 +14,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('pages.groups.index');
+        return view('pages.groups.index', ['groups' => Group::all()]);
     }
 
     /**
@@ -25,6 +25,7 @@ class GroupController extends Controller
     public function create()
     {
         //
+        return view('pages.groups.create');
     }
 
     /**
