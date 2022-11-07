@@ -34,9 +34,14 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="">Escolha a(s) turma(s)</label>
-            <select name="" id="">
-            <!--- Terminar -->
+            <label for="group_id">Escolha a(s) turma(s)</label>
+            <select name="group_id[]" id="group_id" class="custom-select" multiple>
+                <option selected>Turmas</option>
+                <option value="1">WMD0622</option>
+                <option value="2">GRSI0921</option>
+                <option value="3">SD1122</option>
+                <option value="4">CISEG0921</option>
+                <option value="5">TPSI1021</option>
             </select>
         </div>
 

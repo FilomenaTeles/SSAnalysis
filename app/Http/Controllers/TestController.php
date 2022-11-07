@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Student;
+
 use App\StudentTest;
 use App\Test;
 use App\TestPhase;
@@ -18,15 +19,15 @@ class TestController extends Controller
      */
     public function index()
     {
-     //   $testOrder = Test::orderBy('test_date', 'asc')->get();
 
         return view('pages.tests.index', [
-            'tests'      => Test::with('testType','testPhase')->orderBy('test_date', 'asc')->get(),
+
+            'tests'      => Test::paginate(5),Test::with('testType','testPhase', 'students')->orderBy('test_date', 'asc')->get(),
             'testTypes'  => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
             'groups'     => Group:: with('students')->get(),
-            'students'   =>Student::with ('group', 'studentTests.test')->get(),
-            'studentTests' => StudentTest::with('test', 'student.group'),
+            'students'   =>Student::with ('group')->get(),
+           // 'studentTests' => StudentTest::with('test', 'student.group'),
         ]);
     }
 
@@ -56,7 +57,6 @@ class TestController extends Controller
             'test_date'     => 'required',
         ]);
 
-       // Test::create($request->all());
 
         $test = new Test();
         $test->test_type_id  = $request->test_type_id;
@@ -64,8 +64,13 @@ class TestController extends Controller
         $test->test_date     = $request->test_date;
 
         $test->save();
-        return redirect('tests')->with('status','Teste criado com sucesso!');
 
+        $turma_id = $request->group_id;
+
+        $test->students()->sync($turma_id);
+        $test->load('students');
+
+        return redirect('tests')->with('status','Teste criado com sucesso!');
     }
 
     /**
@@ -121,6 +126,75 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
+        //$test = Test::find($test->id);
+        $test->delete();
+        return redirect('tests')->with('status','Item apagado com sucesso!');
+    }
+
+    public function stIndex()
+    {
+        return view ('pages.studentTests.index');
+    }
+
+    public function stCreate()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function stStore(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\StudentTest  $studentTest
+     * @return \Illuminate\Http\Response
+     */
+    public function stShow(Test $studentTest)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\StudentTest  $studentTest
+     * @return \Illuminate\Http\Response
+     */
+    public function stEdit(Test $studentTest)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\StudentTest  $studentTest
+     * @return \Illuminate\Http\Response
+     */
+    public function stUpdate(Request $request, Test $studentTest)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\StudentTest  $studentTest
+     * @return \Illuminate\Http\Response
+     */
+    public function stDestroy(Test $studentTest)
+    {
         //
     }
 }
+

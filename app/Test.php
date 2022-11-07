@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
+
     public function testType()
     {
         return $this ->belongsTo('App\TestType');
@@ -16,14 +17,19 @@ class Test extends Model
         return $this ->belongsTo('App\TestPhase');
     }
 
-    public function studentTests()
+    public function students()
     {
-        return $this ->hasMany('App\StudentTest');
+        return $this ->belongsToMany('App\Student')
+
+                        ->withPivot('grade');
     }
+
 
     protected $fillable = [
         'test_type_id',
         'test_phase_id',
         'test_date'
     ];
+
 }
+

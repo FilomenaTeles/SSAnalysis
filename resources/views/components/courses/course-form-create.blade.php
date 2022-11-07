@@ -3,13 +3,13 @@
     <form method="POST" action="{{ url('courses') }}">
         @csrf
         <div class="form-group">
-            <label for="test_date">Nome</label>
+            <label for="name">Nome</label>
             <input
                 type="text"
                 id="name"
                 name="name"
                 class="form-control"
-                placeholder="Informe o nome do curso"
+                placeholder="Nome do curso"
                 value="{{old('name')}}"
                 required
             >
@@ -17,12 +17,12 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="test_date">Sigla</label>
+            <label for="acronym">Sigla</label>
             <input
                 type="text"
                 id="acronym"
                 name="acronym"
-                placeholder="Informe a sigla do curso"
+                placeholder="Sigla do curso"
                 class="form-control"
                 value="{{old('acronym')}}"
                 required
