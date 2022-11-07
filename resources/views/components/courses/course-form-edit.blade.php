@@ -1,92 +1,48 @@
-<form method="POST" action="{{ url('courses/' . $course->id) }}">
-    {{ csrf_field() }}
-    {{ method_field('put') }}
+<h4>Editar Curso</h4>
+<br>
+<div class="container">
 
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input
-            type="text"
-            id="name"
-            name="name"
-            autocomplete="name"
-            placeholder="Editar o nome do curso"
-            class="form-control
-            value="{{old('name')}}"
-            required
-        >
-
-    </div>
-
-    <div class="form-group">
-        <label for="inputAddress">Sigla</label>
-        <input
-            type="text"
-            id="acronym"
-            name="acronym"
-            autocomplete="acronym"
-            placeholder="Editar a sigla do curso"
-            class="form-control
-            value="{{old('acronym')}}"
-            required
-        >
-
-    </div>
-
-    <div class="form-group">
-
-        <label for="country">Choose a Uma turma:</label>
-
-        <select name="country_id" id="country">
-            {{--@foreach($countries as $country)
-                @if(($country -> id) == ($player -> country_id))
-                    <option selected>{{ $country->name}} </option>
-                @endif
-                <option value="{{ $country->id}}">{{ $country->name}} </option>
-            @endforeach--}}
-        </select>
-    </div>
-
-
-    <div class="form-container w-25">
-        <label for="retired">Retired</label>
-        <div class="form-row">
-            {{--@if($player->retired === 1)
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="retired" id="retired1" value="1" checked>
-                        <label class="form-check-label" for="retired1">
-                            Yes
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="retired" id="retired2" value="0" >
-                        <label class="form-check-label" for="retired2">
-                            No
-                        </label>
-                    </div>
-                </div>
-            @else
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="retired" id="retired1" value="1" >
-                        <label class="form-check-label" for="retired1">
-                            Yes
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="retired" id="retired2" value="0" checked>
-                        <label class="form-check-label" for="retired2">
-                            No
-                        </label>
-                    </div>
-                </div>
-            @endif--}}
+    <form method="POST" action="{{ url('/tests/'.$course->id) }}">
+        {{ csrf_field() }}
+        {{ method_field('put') }}
+        <div class="form-group">
+            <label for="test_date">Data do teste</label>
+            <input
+                type="date"
+                id="test_date"
+                name="test_date"
+                class="form-control"
+                value="{{$test->test_date}}"
+                required
+            >
         </div>
-    </div>
-
-    <button type="submit" class="mt-2 mb-5 btn btn-primary">Confirmar</button>
-</form>
+        <br>
+        <div class="form-group">
+            <label for="test_type_id">Escolha o tipo de teste</label>
+            <select name="test_type_id" id="test_type_id">
+                @foreach($testTypes as $testType)
+                    @if($testType->id === $test->test_type_id)
+                        <option value="{{ $testType->id}}" selected>{{ $testType->description}} </option>
+                    @else
+                        <option value="{{ $testType->id}}">{{ $testType->description}} </option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="test_phase_id">Escolha a fase do teste</label>
+            <select name="test_phase_id" id="test_phase_id">
+                @foreach($testPhases as $testPhase)
+                    @if($testPhase->id === $test->test_phase_id)
+                        <option value="{{ $testPhase->id}}" selected>{{ $testPhase->description}} </option>
+                    @else
+                        <option value="{{ $testPhase->id}}">{{ $testPhase->description}} </option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        <button type="submit" class="mt-2 mb-5 btn btn-primary">Salvar</button>
+        <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
+    </form>
+</div>

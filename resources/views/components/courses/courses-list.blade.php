@@ -1,6 +1,6 @@
 
 <div class="container text-right">
-    <a href="{{url('/courses/create')}}" type="button" class="btn btn-light">Adicionar Curso <i class="bi bi-plus-circle-fill"></i></a>
+    <a href="{{url('/courses/create')}}" type="button" id="add-btn" class="btn btn-light">Adicionar Curso <i class="bi bi-plus-circle-fill"></i></a>
 </div>
 <br>
 <table class="table table-striped">
@@ -8,6 +8,7 @@
     <tr>
         <th scope="col">Nome</th>
         <th scope="col">Sigla</th>
+        <th scope="col">Editar</th>
     </tr>
     </thead>
     <tbody>
