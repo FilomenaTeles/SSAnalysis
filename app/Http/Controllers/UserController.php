@@ -43,11 +43,23 @@ class UserController extends Controller
 
         $user               = new User();
         $user->user_type_id = $request->user_type_id;
-        $user->password     = '123';
+        $user->password     = bcrypt($request->password);
         $user->name         = $request->name;
         $user->email        = $request->email;
         $user->save();
 
+        if ($request->file('photo')) {
+            // Get Image File
+            $imagePath = $request->file('photo');
+            // Define Image Name
+            $imageName = $user->id . '_' . time() . '_' . $imagePath->getClientOriginalName();
+            // Save Image on Storage
+            $path = $request->file('photo')->storeAs('images/users/' . $user->id, $imageName, 'public');
+            //Save Image Path
+            $user->photo = $path;
+        }
+
+        $user->save();
 
 
        return redirect('users')->with('status','Utilizador criado com sucesso!');
@@ -78,13 +90,29 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(Request $request, $id)
     {
-        //
+        $user              = User::find($id);
+        $user->password     = bcrypt($request->password);
+        $user->name         = $request->name;
+        $user->email        = $request->email;
+        $user->save();
+
+        if ($request->file('photo')) {
+            // Get Image File
+            $imagePath = $request->file('photo');
+            // Define Image Name
+            $imageName = $user->id . '_' . time() . '_' . $imagePath->getClientOriginalName();
+            // Save Image on Storage
+            $path = $request->file('photo')->storeAs('images/users/' . $user->id, $imageName, 'public');
+            //Save Image Path
+            $user->photo = $path;
+        }
+
+        $user->save();
+        return redirect('users')->with('status','User editado com sucesso!');
     }
 
     /**

@@ -10,8 +10,8 @@
     <div class="container box">
         <h1>Editar curso</h1>
 
-        @component('components.courses.course-form-edit'
-           /* ['course' => $course ]*/
+        @component('components.courses.course-form-edit',
+           ['course' => $course ]
         )
         @endcomponent
     </div>

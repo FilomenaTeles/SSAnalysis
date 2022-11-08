@@ -2,7 +2,7 @@
 <h4>Criar utilizador</h4>
 <br>
 <div class="container">
-    <form method="POST" action="{{ url('/users') }}">
+    <form method="POST" action="{{ url('/users') }}" enctype="multipart/form-data">
         @csrf   <!--Metodo de segurança para envio de forms-->
         <div class="form-group">
             <label for="name">Nome</label>
@@ -46,6 +46,26 @@
         </div>
 
         <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="password"
+                value="{{old('password')}}"
+                class="form-control
+            @error('password') is-invalid @enderror"
+
+                required>
+
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="form-group">
             <label for="userType">Tipo de Utilizador</label>
             <div class="row">
                 <div class="form-group col-2 mr-0">
@@ -75,6 +95,23 @@
             </div>
 
             @error('userType')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Imagem</label>
+            <input type="file"
+                   id="photo"
+                   name="photo"
+                   autocomplete="photo"
+                   class="form-control
+                   @error('photo') is-invalid @enderror"
+                   value="{{old('photo')}}"
+            >
+            @error('photo')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

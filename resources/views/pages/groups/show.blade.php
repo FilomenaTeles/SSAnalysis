@@ -8,7 +8,12 @@
 
 @section('content')
     <div class="container box">
-        <h1>Show groups</h1>
+        <h1>Visualizar turmas</h1>
+
+        @component('components.groups.group-form-show'
+
+        )
+        @endcomponent
     </div>
 
 @endsection

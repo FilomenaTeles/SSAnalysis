@@ -7,12 +7,30 @@
 
         <div class="row">
             <div class="col align-items-center ml-5">
-                @if($user->image)
-                    <img src="{{asset('storage/'.$user->image)}}" alt="">
+                @if($user->photo)
+                    <img src="{{asset('storage/'.$user->photo)}}" alt="">
                 @else
                     <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                          width="30%" alt="">
                 @endif
+                    <br>
+
+                    <div class="form-group">
+                        <label for="photo">Imagem</label>
+                        <input type="file"
+                               id="photo"
+                               name="photo"
+                               autocomplete="photo"
+                               class="form-control
+                   @error('photo') is-invalid @enderror"
+                               value="{{old('photo')}}"
+                        >
+                        @error('photo')
+                        <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+                        @enderror
+                    </div>
             </div>
 
             <div class="col align-items-center mr-3">
@@ -78,6 +96,9 @@
                                     autocomplete="userType"
                                     class="@error('userType') is-invalid @enderror"
                                     value="2"
+                                    @if($user->user_type_id==2)
+                                        checked
+                                    @endif
                                     required>
 
                             </div>
@@ -94,20 +115,19 @@
 
                 @if(Auth::user()->id==$user->id)
                     <div class="form-group">
-                        <label for="name">Password</label>
+                        <label for="password">Password</label>
                         <input
                             type="password"
-                            id="name"
-                            name="name"
-                            autocomplete="name"
-                            value="{{$user->name}}"
+                            id="password"
+                            name="password"
+                            autocomplete="password"
+                            value="{{$user->password}}"
                             class="form-control
-            @error('name') is-invalid @enderror"
+            @error('password') is-invalid @enderror"
 
-                            required
-                            aria-describedby="nameHelp">
+                            required>
 
-                        @error('name')
+                        @error('password')
                         <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
