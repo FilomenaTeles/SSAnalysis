@@ -22,7 +22,7 @@ class TestController extends Controller
         return view('pages.tests.index', [
 
 
-            'tests' => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->get(),
+            'tests' => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->where('test_date')->get(),
             'testTypes' => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
             'groups' => Group:: with('students')->get(),
@@ -67,6 +67,7 @@ class TestController extends Controller
         $test->save();
 
         $turma_id = $request->group_id;
+
 
         $test->students()->sync($turma_id);
         $test->load('students');
@@ -142,10 +143,21 @@ class TestController extends Controller
 
     }
 
-    public function stOptionIndex()
+    public function stOptionIndex(Group $groupTest)
     {
-        return view('pages.studentTests.option');
+        return view('pages.studentTests.option', [
+
+            'groupTest' => $groupTest,
+            'tests' => Test::with('students')->get(),
+            'groups' => Group:: with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'courses' => Course::with('groups')->get(),
+            'testTypes' => TestType::with('tests')->get(),
+            'testPhases' => TestPhase::with('tests')->get(),
+
+        ]);
     }
+
     public function stCreate()
     {
         //
@@ -173,15 +185,16 @@ class TestController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\StudentTest $studentTest
-     * @return \Illuminate\Http\Response
-     */
-    public function stEdit(Test $studentTest)
+
+    public function stEdit(Group $groupTest, Test $testID)
     {
-        //
+        return view('pages.studentTests.edit', [
+            'groupTest' => $groupTest,
+            'testID' => $testID,
+            'students'    => Student::with('group')->get(),
+            'tests'   => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
+        ]);
     }
 
     /**

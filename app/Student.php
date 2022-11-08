@@ -18,7 +18,7 @@ class Student extends Model
     public function tests()
     {
         return $this->belongsToMany('App\Test')
-            ->withPivot('grade');
+            ->withPivot('id','grade');
     }
 
     public function group()

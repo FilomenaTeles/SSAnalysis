@@ -16,8 +16,8 @@ class CreateStudentTestTable extends Migration
         Schema::create('student_test', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('test_id')->constrained()->onDelete('cascade');;
-            $table->integer('grade')->nullable();
+            $table->foreignId('test_id')->constrained()->onDelete('cascade');
+            $table->double('grade')->nullable();
             $table->timestamps();
         });
     }

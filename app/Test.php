@@ -21,7 +21,7 @@ class Test extends Model
     {
         return $this ->belongsToMany('App\Student')
 
-                        ->withPivot('grade');
+                        ->withPivot('id','grade');
     }
 
 

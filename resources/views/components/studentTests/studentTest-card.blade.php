@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$course->name}}</h5>
                                 <p class="card-text">{{$group->edition}}</p>
-                                <a href="{{url('/studentTests/option')}}" type="button" id="btn-card-grades" class="btn">Registar notas</a>
+                                <a href="{{url('/studentTests/'.$group->id.'/option')}}" type="button" id="btn-card-grades" class="btn">Registar notas</a>
                             </div>
                         </div>
                     </div>
