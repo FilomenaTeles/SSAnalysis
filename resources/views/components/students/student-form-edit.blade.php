@@ -149,7 +149,7 @@
                 </div>
         <br>
 
-        <div class="container text-right col">
+        <<div class="container text-right col">>
             <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
             <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
         </div>
