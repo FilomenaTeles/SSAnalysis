@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\UserType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
