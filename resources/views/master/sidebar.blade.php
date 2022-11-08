@@ -14,7 +14,7 @@
                 <a class="nav-link" href="#">Análise de Soft Skills</a>
             </li>
             <ul id="softskills">
-                <a class="nav-link" href="{{url('/tests')}}">Criar testes</a>
+                <a class="nav-link" href="{{url('/tests')}}">Testes</a>
                 <a class="nav-link" href="{{url('/studentTests')}}">Registar notas</a>
                 <a class="nav-link" href="">Análise Comparativa</a>
             </ul>

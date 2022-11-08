@@ -57,11 +57,11 @@ Route::prefix('students')->group(function(){
 
 Route::prefix('studentTests')->group(function(){
     Route::get('', 'TestController@stIndex');
-    Route::get('option', 'TestController@stOptionIndex');
-    Route::get('create', 'TestController@stCreate');
-    Route::post('', 'TestController@stStore');
+    Route::get('{groupTest}/option', 'TestController@stOptionIndex');
+    //Route::get('create', 'TestController@stCreate');
+    //Route::post('', 'TestController@stStore');
     Route::get('{studentTest}', 'TestController@stShow');
-    Route::get('{studentTest}/edit', 'TestController@stEdit');
+    Route::get('{groupTest}/{testID}/edit', 'TestController@stEdit');
     Route::put('{studentTest}', 'TestController@stUpdate');
     Route::delete('{studentTest}', 'TestController@stDestroy');
 });

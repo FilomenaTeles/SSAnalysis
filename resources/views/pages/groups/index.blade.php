@@ -19,7 +19,11 @@
             </div>
         @endif
 
-        @component('components.groups.groups-list', ['groups' =>$groups]);
+        @component('components.groups.groups-list', [
+            'groups' =>$groups,
+            'courses' => $courses
+
+            ]);
         @endcomponent
 
     </div>
