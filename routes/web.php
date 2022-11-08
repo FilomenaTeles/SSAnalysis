@@ -57,6 +57,7 @@ Route::prefix('students')->group(function(){
 
 Route::prefix('studentTests')->group(function(){
     Route::get('', 'TestController@stIndex');
+    Route::get('option', 'TestController@stOptionIndex');
     Route::get('create', 'TestController@stCreate');
     Route::post('', 'TestController@stStore');
     Route::get('{studentTest}', 'TestController@stShow');
@@ -123,4 +124,3 @@ Route::prefix('userTypes')->group(function(){
     Route::delete('{userType}', 'UserTypeController@destroy');
 });
 
-Route::get('grades', 'TestController@grades');

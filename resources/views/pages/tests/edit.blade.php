@@ -13,7 +13,9 @@
     [
     'test' => $test,
     'testTypes' => $testTypes,
-    'testPhases' => $testPhases
+    'testPhases' => $testPhases,
+    'students' => $students, //added
+    'groups' => $groups         //added
     ])
     @endcomponent
     </div>
