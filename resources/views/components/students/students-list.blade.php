@@ -1,5 +1,5 @@
 <div class="container text-right">
-    <a href="{{url('/students/create')}}" type="button" class="btn btn-light"> Adicionar aluno <i class="bi bi-person-plus-fill"></i></a>
+    <a href="{{url('/students/create')}}" ype="button" id="add-btn" class="btn btn-light">Adicionar aluno <i class="bi bi-person-plus-fill"></i></a>
 </div>
 <br>
 
