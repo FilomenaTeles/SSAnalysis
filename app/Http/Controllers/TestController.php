@@ -64,6 +64,8 @@ class TestController extends Controller
         $test->test_date     = $request->test_date;
 
         $test->save();
+
+
         return redirect('tests')->with('status','Teste criado com sucesso!');
 
     }

@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    protected $fillable = [
+        'name',
+        'city',
+        'birth_date',
+        'email',
+        'phone_number',
+        'group_id'
+    ];
+
     public function studentTests()
     {
         return $this->hasMany('App\StudentTest');

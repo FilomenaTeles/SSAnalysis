@@ -8,7 +8,11 @@
 
 @section('content')
     <div class="container box">
-        <h1>Edit Alunos</h1>
+        @component('components.students.student-form-edit',[
+            'student' => $student,
+            'groups' => $groups
+])
+        @endcomponent
     </div>
 
 @endsection

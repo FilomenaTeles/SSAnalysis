@@ -8,6 +8,7 @@
     <tr>
         <th scope="col">Nome</th>
         <th scope="col">Sigla</th>
+        <th cope="col"></th>
     </tr>
     </thead>
     <tbody>

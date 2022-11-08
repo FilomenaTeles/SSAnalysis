@@ -8,8 +8,8 @@
 
     <div class="row">
         <div class="col align-items-center ml-5">
-            @if($user->image)
-                <img src="{{asset('storage/'.$user->image)}}" alt="">
+            @if($user->photo)
+                <img src="{{asset('storage/'.$user->photo)}}" alt="">
             @else
                 <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                      width="30%" alt="">
@@ -40,6 +40,20 @@
                     value="{{$user->email}}"
                     class="form-control"
                     readonly>
+
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="password"
+                    value="{{$user->password}}"
+                    class="form-control"
+                    readonly
+                    required>
+
 
             </div>
         </div>
