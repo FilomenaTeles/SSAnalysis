@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Group;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class GroupController extends Controller
     public function create()
     {
         //
-        return view('pages.groups.create');
+        return view('pages.groups.create', ['courses' => Course::all()]);
     }
 
     /**
@@ -37,6 +38,12 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         //
+        $this -> Validate($request, [
+            'course_id' => 'required',
+            'edition' => 'required',
+        ]);
+        Group::create($request->all());
+        return redirect('groups')->with('status','Turma criada com sucesso');
     }
 
     /**
