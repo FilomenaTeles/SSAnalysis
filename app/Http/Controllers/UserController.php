@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\UserType;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
 {
@@ -95,7 +96,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user              = User::find($id);
-        $user->password     = bcrypt($request->password);
+        if (!isEmpty($request->password)){
+            $user->password     = bcrypt($request->password);
+        }
+
         $user->name         = $request->name;
         $user->email        = $request->email;
         $user->save();
@@ -105,8 +109,11 @@ class UserController extends Controller
             $imagePath = $request->file('photo');
             // Define Image Name
             $imageName = $user->id . '_' . time() . '_' . $imagePath->getClientOriginalName();
+            //Delete previouse photo
+            Storage::deleteDirectory('public/images/users/' . $user->id);;
             // Save Image on Storage
             $path = $request->file('photo')->storeAs('images/users/' . $user->id, $imageName, 'public');
+
             //Save Image Path
             $user->photo = $path;
         }

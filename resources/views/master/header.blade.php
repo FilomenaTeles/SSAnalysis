@@ -9,9 +9,15 @@
 
             <div class="container text-right col-sm-3 col-12">
                 <div class="dropdown">
+                    @if(Auth::user()->photo)
+                        <img src="{{asset('storage/' . Auth::user()->photo)}}" alt="">
+                    @else
+                        <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
+                             width="30%" alt="">
+                    @endif
 
-                    <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
-                         width="30%" alt="">
+{{--                    <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"--}}
+{{--                         width="30%" alt="">--}}
                     <button id="btn-drop" class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
