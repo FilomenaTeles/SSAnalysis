@@ -42,6 +42,20 @@
             @endforeach
         </select>
     </div>
+
+    <div class="form-group">
+        <label for="group_id">Escolha a(s) turma(s)</label>
+        <select name="group_id[]" id="group_id" class="custom-select" multiple>
+            @foreach($test->students as $student) <!--VER FOREACH -->
+                @if($student->id === $student-> group_id)
+                <option value="{{ $student->group->id }}" selected>{{ $student-> group->edition }} </option>
+                @else
+                <option value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+
     <button type="submit" class="mt-2 mb-5 btn btn-primary">Salvar</button>
     <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
 </form>

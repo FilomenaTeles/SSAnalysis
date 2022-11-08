@@ -28,20 +28,17 @@
             <label for="test_phase_id">Escolha a fase do teste</label>
             <select name="test_phase_id" id="test_phase_id">
                 @foreach($testPhases as $testPhase)
-                    <option value="{{ $testPhase->id}}">{{ $testPhase->description}} </option>
+                    <option value="{{ $testPhase->id }}">{{ $testPhase->description }} </option>
                 @endforeach
             </select>
         </div>
         <br>
         <div class="form-group">
             <label for="group_id">Escolha a(s) turma(s)</label>
-            <select name="group_id[]" id="group_id" class="custom-select" multiple>
-                <option selected>Turmas</option>
-                <option value="1">WMD0622</option>
-                <option value="2">GRSI0921</option>
-                <option value="3">SD1122</option>
-                <option value="4">CISEG0921</option>
-                <option value="5">TPSI1021</option>
+            <select name="group_id[]" id="group_id" class="custom-select" multiple required>
+                @foreach($students as $student)
+                    <option value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
+                @endforeach
             </select>
         </div>
 

@@ -25,7 +25,6 @@
    'testTypes' => $testTypes,
    'testPhases' => $testPhases,
    'groups' => $groups,
-  // 'studentTests' => $studentTests,
    'students'     => $students,
    ])
     @endcomponent
