@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col align-items-center ml-5">
                 @if($user->photo)
-                    <img src="{{asset('storage/'.$user->photo)}}" alt="">
+                    <img src="{{asset('storage/' . $user->photo)}}" alt="">
                 @else
                     <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                          width="30%" alt="">
