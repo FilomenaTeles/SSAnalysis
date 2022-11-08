@@ -1,6 +1,6 @@
 
 <div class="container text-right">
-    <a href="{{url('/groups/create')}}" type="button" id="add-btn" class="btn btn-light">Adicionar turma <i class="bi bi-plus-circle-fill"></i></a>
+    <a href="{{url('/groups/create')}}" type="button" class="btn btn-primary mb-2">Adicionar turma <i class="bi bi-plus-circle-fill"></i></a>
 </div>
 <br>
 <table class="table table-striped">
@@ -15,8 +15,11 @@
     @foreach($groups as $group)
         <tr>
             <th scope="row">{{$group->edition}}</th>
-            <th scope="row">{{$group->course_id}}</th>
-            
+            @foreach($courses as $course)
+                @if(($course -> id) == ($group -> course_id))
+                    <td>{{$course -> name}}</td>
+                @endif
+            @endforeach
 
             <td>
                 <a href="{{url('/groups/'.$group->id)}}" type="button" class="btn btn-primary">

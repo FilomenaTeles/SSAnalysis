@@ -15,7 +15,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('pages.groups.index', ['groups' => Group::all()]);
+        return view('pages.groups.index', ['groups' => Group::all(), 'courses' => Course::all()]);
     }
 
     /**
@@ -55,6 +55,10 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         //
+        return view('pages.groups.show',[
+            'group'=>$group,
+            'courses' =>Course::with('groups')->get()
+        ]);
     }
 
     /**
@@ -66,6 +70,10 @@ class GroupController extends Controller
     public function edit(Group $group)
     {
         //
+        return view('pages.groups.edit',[
+            'group'=>$group,
+            'courses' =>Course::with('groups')->get()
+        ]);
     }
 
     /**
@@ -78,6 +86,12 @@ class GroupController extends Controller
     public function update(Request $request, Group $group)
     {
         //
+        $group                = Group::find($group->id);
+        $group -> edition            = $request -> edition;
+        $group -> course_id        = $request -> course_id;
+
+        $group->save();
+        return redirect('groups')->with('status','Turma editada com sucesso!');
     }
 
     /**

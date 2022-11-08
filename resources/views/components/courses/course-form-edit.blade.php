@@ -32,7 +32,7 @@
         </div>
 
         <br>
-        <button type="submit" class="mt-2 mb-5 btn btn-primary">Salvar</button>
-        <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
+        <button type="submit" class="btn btn-primary mb-2">Salvar</button>
+        <a href="{{ URL::previous() }}" type="button" class="btn btn-primary mb-2">Cancelar</a>
     </form>
 </div>
