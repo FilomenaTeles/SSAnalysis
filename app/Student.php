@@ -15,9 +15,10 @@ class Student extends Model
         'group_id'
     ];
 
-    public function studentTests()
+    public function tests()
     {
-        return $this->hasMany('App\StudentTest');
+        return $this->belongsToMany('App\Test')
+            ->withPivot('grade');
     }
 
     public function group()

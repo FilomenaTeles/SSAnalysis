@@ -25,16 +25,17 @@
             </span>
             @enderror
         </div>
-
         <div class="form-group col">
-            <label for="group_id">Escolha a turma:</label> <br>
-            <select name="group_id" id="group_id">
-                @foreach($groups as $group)
-                    <option value="{{ $group->id}}" @if($student->group_id == $group->id) selected
-                        @endif>{{ $group->edition}} </option>
-                @endforeach
-            </select>
+            <label for="birth_date">Data de Nascimento</label>
+            <input
+                type="date"
+                id="birth_date"
+                name="birth_date"
+                class="form-control"
+                value="{{$student -> birth_date}}"
+                required>
         </div>
+
     </div>
 
         <div class="row">
@@ -57,22 +58,6 @@
             </span>
                 @enderror
             </div>
-
-            <div class="form-group col">
-                <label for="birth_date">Data de Nascimento</label>
-                <input
-                    type="date"
-                    id="birth_date"
-                    name="birth_date"
-                    class="form-control"
-                    value="{{$student -> birth_date}}"
-                    required
-
-                >
-            </div>
-        </div>
-
-        <div class="row">
             <div class="form-group col">
                 <label for="email">Email</label>
                 <input
@@ -93,6 +78,9 @@
                 @enderror
             </div>
 
+        </div>
+
+        <div class="row">
             <div class="form-group col">
                 <label for="phone_number">Telefone</label>
                 <input
@@ -112,12 +100,25 @@
             </span>
                 @enderror
             </div>
+
+            <div class="form-group col">
+                <label for="group_id">Escolha a turma:</label> <br>
+                <select name="group_id" id="group_id">
+                    @foreach($groups as $group)
+                        <option value="{{ $group->id}}" @if($student->group_id == $group->id) selected
+                            @endif>{{ $group->edition}} </option>
+                    @endforeach
+                </select>
+            </div>
+
         </div>
+
+        <div class="row">
 
         <div class="form-group col">
             <label for="isActive">Estado:</label>
             <div class="row">
-                <div class="form-group col-4 mr-0">
+                <div class="form-group col-2 mr-0">
                     <label for="admin">Ativo</label>
                     <input
                         type="radio"
@@ -133,7 +134,7 @@
                         >
 
                 </div>
-                <div class="form-group col-3 ml-0">
+                <div class="form-group col-2 ml-0">
                     <label for="tecnico">Inativo</label>
                     <input
                         type="radio"
@@ -148,17 +149,11 @@
                 </div>
         <br>
 
-        <div class="container text-right">
+        <div class="container text-right col">
             <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
             <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
         </div>
-
-
-
-
-
-
-
+            </div>
 
 
 

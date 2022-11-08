@@ -14,15 +14,17 @@
                 readonly>
         </div>
         <div class="form-group col">
-            <label for="group_id">Turma:</label> <br>
-            <select name="group_id" id="group_id">
-                <option value="" disabled selected hidden>Turma</option>
-                @foreach($groups as $group)
-                    <option value="{{ $group->id}}" @if($student->group_id == $group->id) selected
-                            @endif disabled>{{ $group->edition}} </option>
-                @endforeach
-            </select>
+            <label for="birth_date">Data de Nascimento</label>
+            <input
+                type="date"
+                id="birth_date"
+                name="birth_date"
+                class="form-control"
+                value="{{$student -> birth_date}}"
+                required
+                readonly>
         </div>
+
 
     </div>
     <div class="row">
@@ -38,21 +40,6 @@
 
         </div>
         <div class="form-group col">
-            <label for="birth_date">Data de Nascimento</label>
-            <input
-                type="date"
-                id="birth_date"
-                name="birth_date"
-                class="form-control"
-                value="{{$student -> birth_date}}"
-                required
-                readonly
-            >
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col">
             <label for="email">Email</label>
             <input
                 type="email"
@@ -65,6 +52,11 @@
 
 
         </div>
+
+    </div>
+
+    <div class="row">
+
         <div class="form-group col">
             <label for="phone_number">Telefone</label>
             <input
@@ -76,6 +68,16 @@
                 required
                 readonly>
 
+        </div>
+        <div class="form-group col">
+            <label for="group_id">Turma:</label> <br>
+            <select name="group_id" id="group_id">
+                <option value="" disabled selected hidden>Turma</option>
+                @foreach($groups as $group)
+                    <option value="{{ $group->id}}" @if($student->group_id == $group->id) selected
+                            @endif disabled>{{ $group->edition}} </option>
+                @endforeach
+            </select>
         </div>
     </div>
     <br>

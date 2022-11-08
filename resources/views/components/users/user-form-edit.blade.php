@@ -1,7 +1,7 @@
 <h4>Editar utilizador</h4>
 <br>
 <div class="container">
-    <form method="POST" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/users/' . $user->id) }}" enctype="multipart/form-data">
         @csrf   <!--Metodo de segurança para envio de forms-->
         @method('PUT')
 
@@ -13,8 +13,8 @@
                     <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
                          width="30%" alt="">
                 @endif
-                    <br>
-
+                <br>
+                @if(Auth::user()->id==$user->id)
                     <div class="form-group">
                         <label for="photo">Imagem</label>
                         <input type="file"
@@ -31,6 +31,7 @@
             </span>
                         @enderror
                     </div>
+                @endif
             </div>
 
             <div class="col align-items-center mr-3">
@@ -121,11 +122,9 @@
                             id="password"
                             name="password"
                             autocomplete="password"
-                            value="{{$user->password}}"
+                            value=""
                             class="form-control
-            @error('password') is-invalid @enderror"
-
-                            required>
+            @error('password') is-invalid @enderror">
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">
