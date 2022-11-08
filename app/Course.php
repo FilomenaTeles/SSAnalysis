@@ -18,5 +18,6 @@ class Course extends Model
       'acronym',
     ];
 
+
 }
 

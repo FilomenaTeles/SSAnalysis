@@ -5,38 +5,38 @@
         @csrf   <!--Metodo de segurança para envio de forms-->
         @method('PUT')
 
-    <div class="row">
-        <div class="form-group col">
-            <label for="name">Nome</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                autocomplete="name"
-                placeholder="Insira o nome do aluno"
-                class="form-control
-            @error('name') is-invalid @enderror"
-                value="{{$student -> name}}"
-                required>
+        <div class="row">
+            <div class="form-group col">
+                <label for="name">Nome</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Insira o nome do aluno"
+                    class="form-control
+                @error('name') is-invalid @enderror"
+                    value="{{$student -> name}}"
+                    required>
 
-            @error('name')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-        <div class="form-group col">
-            <label for="birth_date">Data de Nascimento</label>
-            <input
-                type="date"
-                id="birth_date"
-                name="birth_date"
-                class="form-control"
-                value="{{$student -> birth_date}}"
-                required>
-        </div>
+                @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group col">
+                <label for="birth_date">Data de Nascimento</label>
+                <input
+                    type="date"
+                    id="birth_date"
+                    name="birth_date"
+                    class="form-control"
+                    value="{{$student -> birth_date}}"
+                    required>
+            </div>
 
-    </div>
+        </div>
 
         <div class="row">
             <div class="form-group col">
@@ -48,14 +48,14 @@
                     autocomplete="city"
                     placeholder="Insira a localidade"
                     class="form-control
-            @error('city') is-invalid @enderror"
+                @error('city') is-invalid @enderror"
                     value="{{$student -> city}}"
                     required>
 
                 @error('city')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col">
@@ -67,14 +67,14 @@
                     autocomplete="email"
                     placeholder="Insira o email"
                     class="form-control
-            @error('email') is-invalid @enderror"
+                @error('email') is-invalid @enderror"
                     value="{{$student -> email}}"
                     required>
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
@@ -90,14 +90,14 @@
                     autocomplete="phone_number"
                     placeholder="Insira o telefone"
                     class="form-control
-            @error('phone_number') is-invalid @enderror"
+                @error('phone_number') is-invalid @enderror"
                     value="{{$student -> phone_number}}"
                     required>
 
                 @error('phone_number')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
@@ -115,47 +115,46 @@
 
         <div class="row">
 
-        <div class="form-group col">
-            <label for="isActive">Estado:</label>
-            <div class="row">
-                <div class="form-group col-2 mr-0">
-                    <label for="admin">Ativo</label>
-                    <input
-                        type="radio"
-                        id="active"
-                        name="isActive"
-                        autocomplete="userType"
-                        class="@error('userType') is-invalid @enderror"
-                        value="1"
-                        @if($student -> isActive)
-                            checked
-                        @endif
-                        required
+            <div class="form-group col">
+                <label for="isActive">Estado:</label>
+                <div class="row">
+                    <div class="form-group col-2 mr-0">
+                        <label for="admin">Ativo</label>
+                        <input
+                            type="radio"
+                            id="active"
+                            name="isActive"
+                            autocomplete="userType"
+                            class="@error('userType') is-invalid @enderror"
+                            value="1"
+                            @if($student -> isActive)
+                                checked
+                            @endif
+                            required
                         >
 
-                </div>
-                <div class="form-group col-2 ml-0">
-                    <label for="tecnico">Inativo</label>
-                    <input
-                        type="radio"
-                        id="inactive"
-                        name="isActive"
-                        value="0"
-                        required
-                        @if(!$student -> isActive)
-                            checked
-                        @endif>
+                    </div>
+                    <div class="form-group col-2 ml-0">
+                        <label for="tecnico">Inativo</label>
+                        <input
+                            type="radio"
+                            id="inactive"
+                            name="isActive"
+                            value="0"
+                            required
+                            @if(!$student -> isActive)
+                                checked
+                            @endif>
 
-                </div>
-        <br>
+                    </div>
+                    <br>
 
-        <div class="container text-right col">
-            <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
-            <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
-        </div>
+                    <div class="container text-right col">
+                        <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
+                        <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
+                    </div>
+                </div>
             </div>
-
-
-
+        </div>
     </form>
 </div>

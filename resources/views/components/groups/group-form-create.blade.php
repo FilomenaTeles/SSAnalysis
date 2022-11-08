@@ -3,34 +3,32 @@
     <form method="POST" action="{{ url('groups') }}">
         @csrf
         <div class="form-group">
-            <label for="designacao">Designação</label>
+            <label for="edition">Designação</label>
             <input
                 type="text"
-                id="designacao"
-                name="designacao"
+                id="edition"
+                name="edition"
                 class="form-control"
                 placeholder="Informe a designação da turma"
-                value="{{old('designacao')}}"
+                value="{{old('edition')}}"
                 required
             >
 
         </div>
         <br>
         <div class="form-group">
-            <label for="course_id">Escolha o curso</label>
-            <select name="course_id[]" id="course_id" class="custom-select" multiple>
-                <option selected>Curso007</option>
-                <option value="1">Curso008</option>
-                <option value="2">Curso009</option>
-                <option value="3">Curso0010</option>
-                <option value="4">Curso0011</option>
-                <option value="5">Curso0012</option>
+            <label for="course_id">Escolha o curso:</label>
+            <select name="course_id" id="course_id">
+                <option value="" disabled selected hidden>Curso</option>
+                @foreach($courses as $course)
+                    <option value="{{ $course->id}}">{{ $course->name}} </option>
+                @endforeach
             </select>
         </div>
 
 
-        <button type="submit" class="mt-2 mb-5 btn btn-primary">Criar turma</button>
-        <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
+        <button type="submit" class="btn btn-primary mb-2">Criar turma</button>
+        <a type="button"  href="{{ URL::previous() }}" class="btn btn-primary mb-2 ">Cancelar</a>
     </form>
 </div>
 

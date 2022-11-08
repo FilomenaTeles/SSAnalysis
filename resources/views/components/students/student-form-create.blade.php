@@ -111,7 +111,6 @@
 
         <button type="submit" class="btn btn-primary mb-2 ">Criar</button>
         <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
-
     </form>
 </div>
 
