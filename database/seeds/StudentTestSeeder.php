@@ -44,7 +44,7 @@ class StudentTestSeeder extends Seeder
             'grade'      => 18
         ]);
 
-        //ALUNO 2
+        /*//ALUNO 2
         \DB::table('student_test')->insert([
             'student_id'   => 2,
             'test_id'      => 1,
@@ -75,6 +75,6 @@ class StudentTestSeeder extends Seeder
             'student_id'   => 2,
             'test_id'      => 6,
             'grade'      => 15
-        ]);
+        ]); */
     }
 }

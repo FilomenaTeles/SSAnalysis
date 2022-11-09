@@ -68,16 +68,16 @@ class TestController extends Controller
 
         $turma_id = $request->group_id;
 
-        $students=Student::with('group');
+       $students=Student::all()->where('group_id','=',$turma_id);
+       // dd($students);
 
         foreach ($students as $student){
-            dd($student);
-            if ($student->group_id==$turma_id){
 
-                $test->students()->sync($student->id);
-                $test->load('students');
-            }
+                $test->students()->attach($student->id);
+
+
         }
+        //$test->load('students');
 //
 //        $test->students()->sync($turma_id);
 //        $test->load('students');

@@ -129,6 +129,10 @@ h1, h4{
     font-variant: small-caps;
 }
 
+#group-student{
+    width: 90%;
+}
+
 footer{
     /*position:fixed;*/
     position: relative;

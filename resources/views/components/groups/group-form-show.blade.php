@@ -50,14 +50,14 @@
 
         </div>
         <div class="col text-right">
-            <a href="{{url('/students/importForm')}}"type="button" class="btn btn-primary mb-2">Importar lista de alunos <i class="bi bi-box-arrow-in-down"></i></a>
+            <a href="{{url('import')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i class="bi bi-box-arrow-in-down"></i></a>
         </div>
     </div>
 
 </div>
 <br>
 
-<table class="table table-striped  text-center" style="margin: auto">
+<table class="table table-striped  text-center" id="group-student" style="margin: auto">
     <thead>
     <tr>
         <th scope="col"></th>

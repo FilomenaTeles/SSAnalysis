@@ -27,14 +27,14 @@
                         @endif
                     @endforeach
                     <td>
-                        <a href=
-                            @if($test->test_type_id == 1)
-                               "{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
-                           @else
-                            "{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
-                        @endif
-                           type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
-                        </a>
+                        @if($test->test_type_id == 1)
+                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
+                        @else
+                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
+                               @endif
+                               type="button" class="btn btn-primary">
+                                <i class="bi bi-journal-plus"></i>
+                            </a>
 
                     </td>
                 </tr>

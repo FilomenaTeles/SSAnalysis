@@ -54,10 +54,11 @@ Route::prefix('students')->group(function(){
     Route::get('{student}/edit', 'StudentController@edit');
     Route::put('{student}', 'StudentController@update');
     Route::delete('{student}', 'StudentController@destroy');
-    Route::get('export','StudentController@export');
-    Route::get('importForm','StudentController@importForm');
-    Route::post('import', 'StudentController@import');
+
 });
+Route::get('export','StudentController@export');
+Route::get('import','StudentController@importForm');
+Route::post('import', 'StudentController@import');
 
 Route::prefix('studentTests')->group(function(){
     Route::get('', 'TestController@stIndex');
