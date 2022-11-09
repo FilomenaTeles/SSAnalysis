@@ -3,7 +3,8 @@
             class="bi bi-plus-circle-fill"></i></a>
 </div>
 <br>
-<table class="table table-striped">
+<?php $contador=0 ?>
+<table class="table table-striped text-center">
     <thead>
     <tr>
         <th scope="col">Data do Teste</th>
@@ -17,11 +18,15 @@
     @foreach($tests as $test)
         <tr>
             <td>{{$test->test_date}}</td>
-            <td>
+
                 @foreach($test-> students as $student)
-                    <li>{{$student->group->edition}}</li>
+                    @if($contador == 0)
+                    <td>{{$student->group->edition}}</td>
+                            <?php $contador++ ?>
+                    @endif
                 @endforeach
-            </td>
+                        <?php $contador=0 ?>
+
             @foreach($testTypes as $testType)
                 @if(($testType->id) == ($test-> test_type_id))
                     <td>{{$testType->description}}</td>

@@ -15,14 +15,14 @@
                     autocomplete="name"
                     placeholder="Insira o nome do aluno"
                     class="form-control
-                @error('name') is-invalid @enderror"
+            @error('name') is-invalid @enderror"
                     value="{{$student -> name}}"
                     required>
 
                 @error('name')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <strong>{{ $message }}</strong>
+            </span>
                 @enderror
             </div>
             <div class="form-group col">
@@ -48,14 +48,14 @@
                     autocomplete="city"
                     placeholder="Insira a localidade"
                     class="form-control
-                @error('city') is-invalid @enderror"
+            @error('city') is-invalid @enderror"
                     value="{{$student -> city}}"
                     required>
 
                 @error('city')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <strong>{{ $message }}</strong>
+            </span>
                 @enderror
             </div>
             <div class="form-group col">
@@ -67,14 +67,14 @@
                     autocomplete="email"
                     placeholder="Insira o email"
                     class="form-control
-                @error('email') is-invalid @enderror"
+            @error('email') is-invalid @enderror"
                     value="{{$student -> email}}"
                     required>
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <strong>{{ $message }}</strong>
+            </span>
                 @enderror
             </div>
 
@@ -90,14 +90,14 @@
                     autocomplete="phone_number"
                     placeholder="Insira o telefone"
                     class="form-control
-                @error('phone_number') is-invalid @enderror"
+            @error('phone_number') is-invalid @enderror"
                     value="{{$student -> phone_number}}"
                     required>
 
                 @error('phone_number')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <strong>{{ $message }}</strong>
+            </span>
                 @enderror
             </div>
 
@@ -154,7 +154,10 @@
                         <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
                     </div>
                 </div>
+
+
             </div>
+
         </div>
     </form>
 </div>

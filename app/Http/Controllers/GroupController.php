@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Group;
+use App\Student;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -57,7 +58,8 @@ class GroupController extends Controller
         //
         return view('pages.groups.show',[
             'group'=>$group,
-            'courses' =>Course::with('groups')->get()
+            'courses' =>Course::with('groups')->get(),
+            'students' => Student::with('group')->get()
         ]);
     }
 
