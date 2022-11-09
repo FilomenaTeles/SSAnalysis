@@ -35,18 +35,11 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="group_id">Escolha a(s) turma(s)</label>
-<<<<<<< HEAD
-            <select name="group_id[]" id="group_id" class="custom-select" multiple required>
-                    @foreach($groups as $group)
-                        <option value="{{ $group->id }}">{{ $group->edition }} </option>
-                    @endforeach
-=======
+            <label for="group_id">Escolha a turma</label>
             <select name="group_id" id="group_id" class="custom-select" required>
                 @foreach($groups as $group)
                     <option value="{{ $group->id }}">{{ $group->edition }} </option>
                 @endforeach
->>>>>>> 0bfb67ca8febaee2e2a2b31a1a507e3ebe1a460c
             </select>
         </div>
 

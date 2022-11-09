@@ -68,24 +68,14 @@ class TestController extends Controller
 
         $turma_id = $request->group_id;
 
-<<<<<<< HEAD
-        $test->students()->sync($turma_id);
-        $test->load('students');
-=======
+
        $students=Student::all()->where('group_id','=',$turma_id);
-       // dd($students);
 
         foreach ($students as $student){
 
                 $test->students()->attach($student->id);
 
-
         }
-        //$test->load('students');
-//
-//        $test->students()->sync($turma_id);
-//        $test->load('students');
->>>>>>> 0bfb67ca8febaee2e2a2b31a1a507e3ebe1a460c
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
