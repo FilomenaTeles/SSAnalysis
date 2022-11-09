@@ -22,7 +22,8 @@
                             <td>{{$testPhase->description}}</td>
                         @endif
                     @endforeach
-                    <td>                        @if($test->test_type_id == 1)
+                    <td>
+                        @if($test->test_type_id == 1)
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
                         @else
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
