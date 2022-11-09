@@ -119,8 +119,8 @@
             </div>
         </div>
         <div class="col text-right">
-            <a href="{{url('/students/'.$student->id.'/edit')}}" type="button" class="btn btn-primary">
-                <i class="bi bi-pencil-square"></i>
+            <a href="{{URL::previous()}}" type="button" class="btn btn-primary">
+                <i class="bi bi-arrow-left-square"></i>
             </a>
         </div>
 

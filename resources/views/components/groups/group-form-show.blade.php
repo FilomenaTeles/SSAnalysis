@@ -93,9 +93,13 @@
                     @endif
                 </td>
                 <td>
+                    <a href="{{url('/students/'.$student->id)}}" type="button" class="btn btn-primary">
+                        <i class="bi bi-eye"></i>
+                    </a>
                     <a href="{{url('/students/'.$student->id.'/edit')}}" type="button" class="btn btn-primary">
                         <i class="bi bi-pencil-square"></i>
                     </a>
+
                 </td>
 
 

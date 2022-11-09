@@ -121,7 +121,7 @@
         <div class="container text-right col">
 
             <button type="submit" class="btn btn-primary mb-2 ">Criar</button>
-            <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
+            <a type="button" href="{{ URL::previous() }}" class="btn btn-primary mb-2 ">Cancelar</a>
         </div>
 
     </form>
