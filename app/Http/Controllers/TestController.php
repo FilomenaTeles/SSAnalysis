@@ -70,10 +70,7 @@ class TestController extends Controller
 
 
        $students=Student::all()->where('group_id','=',$turma_id);
-<<<<<<< HEAD
 
-=======
->>>>>>> 960b105bed41f7f88bd0042792c48f82acbaf7f3
         foreach ($students as $student){
 
                 $test->students()->attach($student->id);

@@ -1,5 +1,4 @@
-<h1>Registar notas dos testes - <small> {{$groupTest->edition}} </small></h1>
-<br>
+<h1>Registar notas dos testes - <small> {{$groupTest->edition}} </small></h1><br>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -7,16 +6,13 @@
         <th scope="col">Tipo</th>
         <th scope="col">Fase</th>
         <th scope="col">Registar</th>
-
     </tr>
     </thead>
-    <tbody>
-    @foreach($tests as $test)
+    <tbody>    @foreach($tests as $test)
         @foreach($test-> students as $student)
             @if ($student->group->id == $groupTest->id)
                 <tr>
-                    <td>{{$test->test_date}} </td>
-                    @foreach($testTypes as $testType)
+                    <td>{{$test->test_date}} </td> @foreach($testTypes as $testType)
                         @if(($testType->id) == ($test-> test_type_id))
                             <td>{{$testType->description}}</td>
                         @endif
@@ -26,28 +22,12 @@
                             <td>{{$testPhase->description}}</td>
                         @endif
                     @endforeach
-                    <td>
-<<<<<<< HEAD
-                            @if($test->test_type_id == 1)
-                           <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
-                           </a>
-                           @else
-                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}" type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
-                            </a>
-                        @endif
-
-=======
-                        @if($test->test_type_id == 1)
+                    <td>                        @if($test->test_type_id == 1)
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
                         @else
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
                                @endif
-                               type="button" class="btn btn-primary">
-                                <i class="bi bi-journal-plus"></i>
-                            </a>
->>>>>>> 0bfb67ca8febaee2e2a2b31a1a507e3ebe1a460c
-
-                    </td>
+                               type="button" class="btn btn-primary"> <i class="bi bi-journal-plus"></i> </a></td>
                 </tr>
             @endif
         @endforeach
@@ -55,6 +35,4 @@
     </tbody>
 </table>
 <br>
-<div class="container text-right">
-<a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
-</div>
+
