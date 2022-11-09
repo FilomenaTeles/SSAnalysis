@@ -7,11 +7,11 @@
         <title>Soft Skills Analysis</title>
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <!-- Styles -->
+
         <style>
             html, body {
                 background-color: #fff;
@@ -50,10 +50,14 @@
                 font-size: 84px;
             }
 
+            #title{
+                color: #00adef;
+            }
+
             .links > a {
-                color: #636b6f;
+                color: #00adef;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 14px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -65,27 +69,32 @@
             }
         </style>
     </head>
+
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
+        <header>
+            <nav>
+                @if (Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ url('/home') }}">Home</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+                        @endauth
+                    </div>
+                @endif
+            </nav>
 
-                    @endauth
-                </div>
-            @endif
+            <div class="wave" style="height: 450px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #36236a;"></path></svg></div>
+        </header>
 
+        <main>
             <div class="content">
-                <div class="title m-b-md">
-                   Soft Skills Analysis
+                <div class="title m-b-md" id="title">
+                    Soft Skills Analysis
                 </div>
-
-
             </div>
-        </div>
+        </main>
+
     </body>
 </html>

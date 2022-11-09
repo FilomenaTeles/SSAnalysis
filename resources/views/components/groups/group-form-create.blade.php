@@ -3,7 +3,7 @@
     <form method="POST" action="{{ url('groups') }}">
         @csrf
         <div class="form-group">
-            <label for="edition">Designação</label>
+            <label for="edition">Nome designação</label>
             <input
                 type="text"
                 id="edition"
