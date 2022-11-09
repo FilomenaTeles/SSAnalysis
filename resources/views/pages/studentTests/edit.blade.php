@@ -15,7 +15,7 @@
             'testID'    => $testID,
             'students'  => $students,
             'tests'     => $tests,
-            'groups'    => $groups,
+
             ])
         @endcomponent
     </div>

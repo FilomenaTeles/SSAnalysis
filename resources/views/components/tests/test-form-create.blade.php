@@ -11,6 +11,7 @@
                 id="test_date"
                 name="test_date"
                 class="form-control"
+                value="{{old('test_date')}}"
                 required
             >
         </div>
