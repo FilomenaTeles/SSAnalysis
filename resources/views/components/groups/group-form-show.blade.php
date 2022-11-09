@@ -34,7 +34,7 @@
     </div>
     <br>
     <div class="col text-right">
-        <a href="{{url('$/groups/'.$group->id.'/edit')}}" type="button" class="btn btn-primary mb-2">
+        <a href="{{url('/groups/' . $group->id . '/edit')}}" type="button" class="btn btn-primary mb-2">
             <i class="bi bi-pencil-square"></i>
         </a>
     </div>
@@ -46,11 +46,13 @@
     <div class="row">
         <div class="col-6"><h5>Alunos:</h5></div>
         <div class="col text-right">
-            <a href="{{url('/students/create/'.$group->id)}}"type="button" class="btn btn-primary mb-2">Adicionar aluno <i class="bi bi-person-plus-fill"></i></a>
+            <a href="{{url('/students/create/'.$group->id)}}" type="button" class="btn btn-primary mb-2">Adicionar aluno
+                <i class="bi bi-person-plus-fill"></i></a>
 
         </div>
         <div class="col text-right">
-            <a href="{{url('import')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i class="bi bi-box-arrow-in-down"></i></a>
+            <a href="{{url('import')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i
+                    class="bi bi-box-arrow-in-down"></i></a>
         </div>
     </div>
 
@@ -64,6 +66,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Localidade</th>
         <th scope="col">Estado</th>
+        <th></th>
 
     </tr>
     </thead>
@@ -74,19 +77,28 @@
                 <td>index</td>
                 <td>{{$student -> name}}</td>
                 <td>{{$student -> city}}</td>
-                @if(($student -> isActive))
-                    <td>
+                <td>
+                    @if(($student -> isActive))
+
                         <a href="">
                             <i class="bi bi-emoji-laughing "></i>
                         </a>
-                    </td>
-                @else
-                    <td>
+
+                    @else
+
                         <a href="">
                             <i class="bi bi-emoji-frown"></i>
                         </a>
-                    </td>
-                @endif
+
+                    @endif
+                </td>
+                <td>
+                    <a href="{{url('/students/'.$student->id.'/edit')}}" type="button" class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </td>
+
+
             </tr>
         @endif
     @endforeach

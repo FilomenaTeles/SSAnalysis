@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-        <label for="group_id">Escolha a(s) turma(s)</label>
+        <label for="group_id">Escolha a turma</label>
         <select name="group_id" id="group_id" class="custom-select" >
             @foreach($test->students as $student)
                 @if($student->id === $student-> group_id)
