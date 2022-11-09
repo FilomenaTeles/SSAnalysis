@@ -48,11 +48,15 @@ Route::prefix('groups')->group(function(){
 Route::prefix('students')->group(function(){
     Route::get('', 'StudentController@index');
     Route::get('create', 'StudentController@create');
+    Route::get('create/{groupId}', 'StudentController@createWGroup');
     Route::post('', 'StudentController@store');
     Route::get('{student}', 'StudentController@show');
     Route::get('{student}/edit', 'StudentController@edit');
     Route::put('{student}', 'StudentController@update');
     Route::delete('{student}', 'StudentController@destroy');
+    Route::get('export','StudentController@export');
+    Route::get('importForm','StudentController@importForm');
+    Route::post('import', 'StudentController@import');
 });
 
 Route::prefix('studentTests')->group(function(){

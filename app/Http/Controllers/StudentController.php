@@ -33,6 +33,13 @@ class StudentController extends Controller
             'groups' =>Group::with('students')->get(),
         ]);
     }
+    public function createWGroup(Group $groupId)
+    {
+        return view('pages.students.create',[
+            'groupId' =>$groupId,
+
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,6 +57,7 @@ class StudentController extends Controller
             'group_id'      =>'required',
 
         ]);
+       // dd($request);
 
         $student                    = new Student();
         $student -> name            = $request -> name;
@@ -123,6 +131,12 @@ class StudentController extends Controller
     public function export()
     {
         return Excel::download(new StudentsExport, 'students.xlsx');
+    }
+
+    public function importForm()
+    {
+
+        return view('pages.students.import');
     }
 
     public function import()

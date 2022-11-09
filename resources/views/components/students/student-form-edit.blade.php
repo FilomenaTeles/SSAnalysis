@@ -5,38 +5,38 @@
         @csrf   <!--Metodo de segurança para envio de forms-->
         @method('PUT')
 
-    <div class="row">
-        <div class="form-group col">
-            <label for="name">Nome</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                autocomplete="name"
-                placeholder="Insira o nome do aluno"
-                class="form-control
+        <div class="row">
+            <div class="form-group col">
+                <label for="name">Nome</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Insira o nome do aluno"
+                    class="form-control
             @error('name') is-invalid @enderror"
-                value="{{$student -> name}}"
-                required>
+                    value="{{$student -> name}}"
+                    required>
 
-            @error('name')
-            <span class="invalid-feedback" role="alert">
+                @error('name')
+                <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-            @enderror
-        </div>
-        <div class="form-group col">
-            <label for="birth_date">Data de Nascimento</label>
-            <input
-                type="date"
-                id="birth_date"
-                name="birth_date"
-                class="form-control"
-                value="{{$student -> birth_date}}"
-                required>
-        </div>
+                @enderror
+            </div>
+            <div class="form-group col">
+                <label for="birth_date">Data de Nascimento</label>
+                <input
+                    type="date"
+                    id="birth_date"
+                    name="birth_date"
+                    class="form-control"
+                    value="{{$student -> birth_date}}"
+                    required>
+            </div>
 
-    </div>
+        </div>
 
         <div class="row">
             <div class="form-group col">
@@ -115,47 +115,49 @@
 
         <div class="row">
 
-        <div class="form-group col">
-            <label for="isActive">Estado:</label>
-            <div class="row">
-                <div class="form-group col-2 mr-0">
-                    <label for="admin">Ativo</label>
-                    <input
-                        type="radio"
-                        id="active"
-                        name="isActive"
-                        autocomplete="userType"
-                        class="@error('userType') is-invalid @enderror"
-                        value="1"
-                        @if($student -> isActive)
-                            checked
-                        @endif
-                        required
+            <div class="form-group col">
+                <label for="isActive">Estado:</label>
+                <div class="row">
+                    <div class="form-group col-2 mr-0">
+                        <label for="admin">Ativo</label>
+                        <input
+                            type="radio"
+                            id="active"
+                            name="isActive"
+                            autocomplete="userType"
+                            class="@error('userType') is-invalid @enderror"
+                            value="1"
+                            @if($student -> isActive)
+                                checked
+                            @endif
+                            required
                         >
 
-                </div>
-                <div class="form-group col-2 ml-0">
-                    <label for="tecnico">Inativo</label>
-                    <input
-                        type="radio"
-                        id="inactive"
-                        name="isActive"
-                        value="0"
-                        required
-                        @if(!$student -> isActive)
-                            checked
-                        @endif>
+                    </div>
+                    <div class="form-group col-2 ml-0">
+                        <label for="tecnico">Inativo</label>
+                        <input
+                            type="radio"
+                            id="inactive"
+                            name="isActive"
+                            value="0"
+                            required
+                            @if(!$student -> isActive)
+                                checked
+                            @endif>
 
-                </div>
-        <br>
+                    </div>
+                    <br>
 
-        <<div class="container text-right col">>
-            <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
-            <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
-        </div>
+                    <div class="container text-right col">
+                        <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
+                        <a type="button" href="{{ url('/students') }}" class="btn btn-primary mb-2 ">Cancelar</a>
+                    </div>
+                </div>
+
+
             </div>
 
-
-
+        </div>
     </form>
 </div>

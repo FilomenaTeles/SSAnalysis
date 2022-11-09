@@ -24,10 +24,6 @@
                 </span>
                 @enderror
             </div>
-
-        </div>
-
-        <div class="row">
             <div class="form-group col">
                 <label for=course_id">Curso</label> <br>
                 <select name="course_id" id="course_id">
@@ -37,8 +33,8 @@
                     @endforeach
                 </select>
             </div>
-
         </div>
+
 
         <div class="row">
 

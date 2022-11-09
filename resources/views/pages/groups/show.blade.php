@@ -13,7 +13,8 @@
         @component('components.groups.group-form-show',
            [
             'group' => $group,
-            'courses' => $courses
+            'courses' => $courses,
+            'students' =>$students
         ])
         @endcomponent
     </div>

@@ -104,10 +104,15 @@
             <div class="form-group col">
                 <label for="group_id">Escolha a turma:</label>
                 <select name="group_id" id="group_id">
-                    <option value="" disabled selected hidden>Turma</option>
+
+                    @if(isset($groupId))
+                        <option value="{{$groupId->id}}" selected>{{$groupId->edition}}</option>
+                    @else
                     @foreach($groups as $group)
+                            <option value="" disabled selected hidden>Turma</option>
                         <option value="{{ $group->id}}">{{ $group->edition}} </option>
                     @endforeach
+                    @endif
                 </select>
             </div>
         </div>
