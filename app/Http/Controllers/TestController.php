@@ -68,7 +68,6 @@ class TestController extends Controller
 
         $turma_id = $request->group_id;
 
-
         $test->students()->sync($turma_id);
         $test->load('students');
 
@@ -193,8 +192,8 @@ class TestController extends Controller
             'testID' => $testID,
             'students'    => Student::with('group')->get(),
             'tests'   => Test::with('students')->get(),
-            'groups' => Group::with('students')->get()
         ]);
+
     }
 
     /**

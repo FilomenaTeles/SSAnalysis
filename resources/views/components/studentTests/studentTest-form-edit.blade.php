@@ -18,19 +18,19 @@
                 @foreach($test->students as $student)
                     @if($student->group_id == $groupTest->id)
                         <tr>
-                        <td>
-                            <div class="form-group">
+                            <td>
+                                <div class="form-group">
 
-                            {{$student->name}}
-                            </div>
-                        </td>
+                                    {{$student->name}}
+                                </div>
+                            </td>
 
-                        <td>
-                            <div class="form-group">
-                                <input type="number" name="grade" value="{{$student->pivot->grade}}" max="20" min="0">
+                            <td>
+                                <div class="form-group">
+                                    <input type="number" name="grade" value="{{$student->pivot->grade}}" max="20" min="0">
 
-                            </div>
-                        </td>
+                                </div>
+                            </td>
                             <td>{{$student->pivot->id}}</td>
                         </tr>
                     @endif

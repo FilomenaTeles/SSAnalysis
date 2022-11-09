@@ -27,14 +27,14 @@
                         @endif
                     @endforeach
                     <td>
-                        <a href=
                             @if($test->test_type_id == 1)
-                               "{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
+                           <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
+                           </a>
                            @else
-                            "{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
+                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}" type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
+                            </a>
                         @endif
-                           type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
-                        </a>
+
 
                     </td>
                 </tr>
@@ -43,3 +43,7 @@
     @endforeach
     </tbody>
 </table>
+<br>
+<div class="container text-right">
+<a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
+</div>
