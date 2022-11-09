@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="container box">
+        <h1>Técnicos</h1>
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('status') }}
