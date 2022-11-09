@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Group;
 use App\Student;
+use App\StudentTest;
 use App\Test;
 use App\TestPhase;
 use App\TestType;
@@ -68,10 +69,10 @@ class TestController extends Controller
 
         $turma_id = $request->group_id;
 
-       $students=Student::all()->where('group_id','=',$turma_id);
-        foreach ($students as $student){
+        $students = Student::all()->where('group_id', '=', $turma_id);
+        foreach ($students as $student) {
 
-                $test->students()->attach($student->id);
+            $test->students()->attach($student->id);
 
 
         }
@@ -181,12 +182,17 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\StudentTest $studentTest
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function stShow(Test $studentTest)
+    public function stShow(Group $groupTest, Test $testID)
     {
-        //
+        return view('pages.studentTests.show',[
+            'groupTest' => $groupTest,
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
+        ]);
     }
 
 
@@ -195,8 +201,19 @@ class TestController extends Controller
         return view('pages.studentTests.edit', [
             'groupTest' => $groupTest,
             'testID' => $testID,
-            'students'    => Student::with('group')->get(),
-            'tests'   => Test::with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
+        ]);
+    }
+
+    public function stEditSS(Group $groupTest, Test $testID)
+    {
+        return view('pages.studentTests.editSS', [
+            'groupTest' => $groupTest,
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
             'groups' => Group::with('students')->get()
         ]);
     }
@@ -204,13 +221,48 @@ class TestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\StudentTest $studentTest
-     * @return \Illuminate\Http\Response
+     *
      */
     public function stUpdate(Request $request, Test $studentTest)
     {
-        //
+        foreach ($request->pivot_id as $key => $pivotId) {
+            //vai buscar o elemento da tabela pivot a editar
+            $pivot_table = StudentTest::find($pivotId);
+            //vai buscar a nota no array grade na posição do array pivot_id
+            $grade = $request->grade[$key];
+            //associa nota ao aluno
+            $pivot_table->grade = $grade;
+            $pivot_table->save();
+        }
+
+        return redirect('studentTests')->with('status', 'Notas associadas com sucesso!');
+
+    }
+
+    public function stUpdateSS(Request $request, Test $studentTest)
+    {
+        foreach ($request->pivot_id as $key => $pivotId) {
+            //vai buscar o elemento da tabela pivot a editar
+            $pivot_table = StudentTest::find($pivotId);
+            //vai buscar a nota no array grade na posição do array pivot_id
+            $ss1 = $request->ss1[$key];
+            $ss2 = $request->ss2[$key];
+            $ss3 = $request->ss3[$key];
+            $ss4 = $request->ss4[$key];
+            $ss5 = $request->ss5[$key];
+            $ss6 = $request->ss6[$key];
+            $ss7 = $request->ss7[$key];
+            $ss8 = $request->ss8[$key];
+            $ss9 = $request->ss9[$key];
+            $grade=collect([$ss1,$ss2,$ss3,$ss4,$ss5,$ss6,$ss7,$ss8,$ss9])->avg();
+            $gradef=number_format($grade,2,'.','');
+            //associa nota ao aluno
+            $pivot_table->grade = $gradef;
+            $pivot_table->save();
+        }
+
+        return redirect('studentTests')->with('status', 'Notas associadas com sucesso!');
+
     }
 
     /**
