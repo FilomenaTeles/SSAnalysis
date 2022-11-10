@@ -132,3 +132,13 @@ Route::prefix('userTypes')->group(function(){
     Route::delete('{userType}', 'UserTypeController@destroy');
 });
 
+  Route::prefix('charts')->group(function() {
+      Route::get('', 'TestController@chartIndex');
+      Route::get('{groupId}/phases', 'TestController@chartPhasesIndex');
+      Route::get('{groupId}/{phaseId}', 'TestController@chartPhase');
+
+
+  });
+
+  Route::get('charts/{groupId}/compare/{comp}', 'TestController@chartPhaseCompare');
+

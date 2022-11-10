@@ -16,7 +16,7 @@
             <ul id="softskills">
                 <a class="nav-link" href="{{url('/tests')}}">Testes</a>
                 <a class="nav-link" href="{{url('/studentTests')}}">Registar notas</a>
-                <a class="nav-link" href="">Análise Comparativa</a>
+                <a class="nav-link" href="{{url('/charts')}}">Análise Comparativa</a>
             </ul>
             <li  data-target="#managment" >
                 <a class="nav-link" href="#">Gestão</a>

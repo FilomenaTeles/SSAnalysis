@@ -52,10 +52,7 @@
                 <i class="bi bi-person-plus-fill"></i></a>
 
         </div>
-        <div class="col text-right">
-            <a href="{{url('import')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i
-                    class="bi bi-box-arrow-in-down"></i></a>
-        </div>
+
     </div>
 
 </div>

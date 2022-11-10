@@ -1,6 +1,13 @@
 
-<div class="container text-right">
+<div class="container row text-right">
+    <div class="col-6"></div>
+    <div class="col text-right">
     <a href="{{url('/groups/create')}}" type="button" class="btn btn-primary mb-2">Adicionar turma <i class="bi bi-plus-circle-fill"></i></a>
+    </div>
+        <div class="col text-right">
+        <a href="{{url('import/')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i
+                class="bi bi-box-arrow-in-down"></i></a>
+    </div>
 </div>
 <br>
 <table class="table table-striped">
