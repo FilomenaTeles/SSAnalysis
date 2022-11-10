@@ -1948,7 +1948,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2052,7 +2052,7 @@ a {
 }
 
 a:hover {
-  color: #1d68a7;
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -6917,6 +6917,7 @@ input[type=button].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+    /*background-color: whitesmoke;*/
 }
 
 .card-title {
@@ -6943,8 +6944,10 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  /*background-color: rgba(0, 0, 0, 0.03);*/
+    background: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: white;
 }
 
 .card-header:first-child {

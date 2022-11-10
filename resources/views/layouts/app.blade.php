@@ -23,19 +23,58 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+
+        header{
+            width: 100%;
+            height: 400px;
+
+            background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b);
+
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .wave{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .navbar-brand{
+            position: absolute;
+            right: 0px;
+            top: 18px;
+
+            color: #ffffff;
+            padding: 0 25px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+    </style>
+
 </head>
 <body>
 
+    <header>
+        <div class="wave" style="height: 250px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-1.97,5.44 C124.43,245.23 349.20,-49.99 501.13,23.20 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
+        <a class="navbar-brand" href="{{ url('/') }}">
+            Soft Skills Analysis
+        </a>
+    </header>
 
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+{{--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">--}}
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Soft Skills Analysis
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+{{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+{{--                    <span class="navbar-toggler-icon"></span>--}}
+{{--                </button>--}}
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -78,9 +117,8 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+{{--        </nav>--}}
 
-        <main class="py-4">
             @yield('content')
         </main>
     </div>

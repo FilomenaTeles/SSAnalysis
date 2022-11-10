@@ -49,14 +49,14 @@
 
             .title {
                 font-size: 90px;
-                margin-bottom: 60px;
-                color: #00adef;
+                margin-bottom: 0px;
+                color: #36236A;
+                font-weight: bold;
+
             }
 
-
-
             .links > a {
-                color: #00adef;
+                color: #ffffff;
                 padding: 0 25px;
                 font-size: 14px;
                 font-weight: 600;
@@ -66,18 +66,22 @@
             }
 
             .m-b-md {
-                margin-bottom: 100px;
+                margin-bottom: 10px;
             }
 
             header{
                 width: 100%;
-                height: 650px;
-                background: #03001e;  /* fallback for old browsers */
-                background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e), url(../public/images/img-analytics.jpg);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e), url(../public/images/img-analytics.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                height: 400px;
+
                 background-size: cover;
                 background-attachment: fixed;
                 position: relative;
+
+                background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b), url(../public/images/img-analytics.jpg);
+
+                /*background-image: linear-gradient(to right, rgba(32, 21, 68, 0.82), rgba(36, 23, 75, 0.82), rgba(40, 26, 82, 0.82), rgba(44, 28, 89, 0.83), rgba(48, 31, 96, 0.81), rgba(64, 34, 106, 0.85), rgba(81, 36, 116, 0.87), rgba(98, 38, 125, 0.85), rgba(132, 36, 135, 0.82), rgba(167, 30, 140, 0.85), rgba(202, 19, 142, 0.85), rgba(236, 0, 139, 0.85)), url(../public/images/img-analytics.jpg);*/
+
+
             }
 
             .wave{
@@ -88,6 +92,7 @@
 
             footer{
                 text-align: center;
+                margin-top: 150px;
 
             }
 
@@ -109,12 +114,13 @@
                 @endif
             </nav>
 
-            <div class="wave" style="height: 250px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
+            <div class="wave" style="height: 250px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-1.97,5.44 C124.43,245.23 349.20,-49.99 501.13,23.20 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
+
         </header>
 
         <main>
             <div class="content">
-                <div class="title m-b-md" id="title">
+                <div class="title m-b-md">
                     Soft Skills Analysis
                 </div>
             </div>
