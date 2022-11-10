@@ -44,15 +44,16 @@
 
             .content {
                 text-align: center;
+                padding: 10px 0;
             }
 
             .title {
-                font-size: 84px;
-            }
-
-            #title{
+                font-size: 100px;
+                margin-bottom: 60px;
                 color: #00adef;
             }
+
+
 
             .links > a {
                 color: #00adef;
@@ -65,8 +66,31 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 100px;
             }
+
+            header{
+                width: 100%;
+                height: 650px;
+                background: #03001e;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e), url(../public/images/img-analytics.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e), url(../public/images/img-analytics.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background-size: cover;
+                background-attachment: fixed;
+                position: relative;
+            }
+
+            .wave{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+            footer{
+                text-align: center;
+
+            }
+
         </style>
     </head>
 
@@ -85,7 +109,7 @@
                 @endif
             </nav>
 
-            <div class="wave" style="height: 450px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #36236a;"></path></svg></div>
+            <div class="wave" style="height: 250px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
         </header>
 
         <main>
@@ -95,6 +119,10 @@
                 </div>
             </div>
         </main>
-
+        <footer>
+            @component('master.footer')
+            @endcomponent
+        </footer>
     </body>
+
 </html>
