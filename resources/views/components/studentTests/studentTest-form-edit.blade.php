@@ -22,16 +22,16 @@
                             <div class="form-group">
 
                             {{$student->name}}
+                                <input name="pivot_id[]" type="number" value="{{$student->pivot->id}}" hidden>
                             </div>
                         </td>
 
                         <td>
                             <div class="form-group">
-                                <input type="number" name="grade" value="{{$student->pivot->grade}}" max="20" min="0">
+                                <input type="number" name="grade[]" value="{{$student->pivot->grade}}" max="20" min="0">
 
                             </div>
                         </td>
-                            <td>{{$student->pivot->id}}</td>
                         </tr>
                     @endif
                 @endforeach

@@ -54,19 +54,23 @@ Route::prefix('students')->group(function(){
     Route::get('{student}/edit', 'StudentController@edit');
     Route::put('{student}', 'StudentController@update');
     Route::delete('{student}', 'StudentController@destroy');
-    Route::get('export','StudentController@export');
-    Route::get('importForm','StudentController@importForm');
-    Route::post('import', 'StudentController@import');
+
 });
+Route::get('export','StudentController@export');
+Route::get('import','StudentController@importForm');
+Route::post('import', 'StudentController@import');
 
 Route::prefix('studentTests')->group(function(){
     Route::get('', 'TestController@stIndex');
     Route::get('{groupTest}/option', 'TestController@stOptionIndex');
     //Route::get('create', 'TestController@stCreate');
     //Route::post('', 'TestController@stStore');
-    Route::get('{studentTest}', 'TestController@stShow');
+    Route::get('{groupTest}/{testID}', 'TestController@stShow');
     Route::get('{groupTest}/{testID}/edit', 'TestController@stEdit');
+    Route::get('{groupTest}/{testID}/editss', 'TestController@stEditSS');
+    Route::put('{studentTest}ss', 'TestController@stUpdateSS');
     Route::put('{studentTest}', 'TestController@stUpdate');
+
     Route::delete('{studentTest}', 'TestController@stDestroy');
 });
 

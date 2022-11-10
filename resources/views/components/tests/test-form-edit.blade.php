@@ -44,13 +44,11 @@
     </div>
 
     <div class="form-group">
-        <label for="group_id">Escolha a(s) turma(s)</label>
-        <select name="group_id[]" id="group_id" class="custom-select" multiple>
+        <label for="group_id">Escolha a turma</label>
+        <select name="group_id" id="group_id" class="custom-select" >
             @foreach($test->students as $student)
                 @if($student->id === $student-> group_id)
                 <option selected value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
-                @else
-                <option value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
                 @endif
             @endforeach
         </select>

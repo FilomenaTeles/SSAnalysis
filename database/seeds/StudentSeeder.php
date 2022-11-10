@@ -55,5 +55,31 @@ class StudentSeeder extends Seeder
             'email'      => 'antoniotavares@mail.com',
             'phone_number'      => '920987112',
         ]);
+
+        \DB::table('students')->insert([
+            'group_id'   => 1,
+            'name'      => 'José',
+            'city'      => 'Matosinhos',
+            'birth_date'      => '1994-09-17',
+            'email'      => 'jose@mail.com',
+            'phone_number'      => '912399087',
+        ]);
+        \DB::table('students')->insert([
+            'group_id'   => 1,
+            'name'      => 'Marta',
+            'city'      => 'Matosinhos',
+            'birth_date'      => '1994-09-17',
+            'email'      => 'marta@mail.com',
+            'phone_number'      => '912399087',
+        ]);
+
+        \DB::table('students')->insert([
+            'group_id'   => 1,
+            'name'      => 'Raquel',
+            'city'      => 'Porto',
+            'birth_date'      => '1994-09-17',
+            'email'      => 'raquel@mail.com',
+            'phone_number'      => '912399087',
+        ]);
     }
 }

@@ -11,6 +11,7 @@
                 id="test_date"
                 name="test_date"
                 class="form-control"
+                value="{{old('test_date')}}"
                 required
             >
         </div>
@@ -34,10 +35,10 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="group_id">Escolha a(s) turma(s)</label>
-            <select name="group_id[]" id="group_id" class="custom-select" multiple required>
-                @foreach($students as $student)
-                    <option value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
+            <label for="group_id">Escolha a turma</label>
+            <select name="group_id" id="group_id" class="custom-select" required>
+                @foreach($groups as $group)
+                    <option value="{{ $group->id }}">{{ $group->edition }} </option>
                 @endforeach
             </select>
         </div>
