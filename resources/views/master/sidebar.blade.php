@@ -4,7 +4,7 @@
         <header>
 
             <a class="nav-link" href="{{ url('/home') }}">
-                <img id="logo" src="../images/cesae.png" alt="">
+                <img id="logo" src="../../../images/cesae.png" alt="">
             </a>
 
         </header>

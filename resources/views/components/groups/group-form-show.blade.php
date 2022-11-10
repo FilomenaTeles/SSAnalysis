@@ -34,15 +34,9 @@
     </div>
     <br>
     <div class="col text-right">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <a href="{{url('/groups/'.$group->id.'/edit')}}" type="button" class="btn btn-primary mb-2">
-=======
+
         <a href="{{url('/groups/' . $group->id . '/edit')}}" type="button" class="btn btn-primary mb-2">
->>>>>>> refs/remotes/origin/main
-=======
-        <a href="{{url('/groups/' . $group->id . '/edit')}}" type="button" class="btn btn-primary mb-2">
->>>>>>> origin
+
             <i class="bi bi-pencil-square"></i>
         </a>
     </div>

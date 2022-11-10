@@ -144,6 +144,6 @@ class StudentController extends Controller
     {
         Excel::import(new StudentsImport, request()->file('import-form'));
 
-        return redirect('students')->with('success', 'Alunos importados com sucesso!');
+        return redirect('groups')->with('success', 'Alunos importados com sucesso!');
     }
 }
