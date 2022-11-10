@@ -48,7 +48,7 @@
             }
 
             .title {
-                font-size: 100px;
+                font-size: 90px;
                 margin-bottom: 60px;
                 color: #00adef;
             }
