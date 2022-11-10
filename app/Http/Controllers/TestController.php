@@ -140,10 +140,10 @@ class TestController extends Controller
     public function stIndex()
     {
         return view('pages.studentTests.index', [
-            'tests' => Test::paginate(5), Test::with('students'),
-            'groups' => Group:: with('students')->get(),
-            'students' => Student::with('group')->get(),
-            'courses' => Course::with('groups')->get()
+            'tests'     => Test::with('students'),
+            'groups'    => Group:: with('students')->get(),
+            'students'  => Student::with('group')->get(),
+            'courses'   => Course::with('groups')->get()
         ]);
 
     }
@@ -274,6 +274,55 @@ class TestController extends Controller
     public function stDestroy(Test $studentTest)
     {
         //
+    }
+
+    //############ ANALISE COMPARATIVA ############
+
+    public function chartIndex(){
+
+        return view('pages.charts.index',[
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
+            'courses' => Course::with('groups')->get()
+        ]);
+    }
+    public function chartPhasesIndex(Group $groupId){
+
+        return view('pages.charts.phases',[
+            'groupId' => $groupId,
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
+            'testPhases' =>TestPhase::all(),
+
+        ]);
+    }
+
+    public function chartPhase(Group $groupId,TestPhase $phaseId){
+
+        return view('pages.charts.phases',[
+            'phaseId' => $phaseId,
+            'groupId' => $groupId,
+            'tests' => Test::with('students'),
+            'students' => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
+            'testPhases' =>TestPhase::all(),
+
+
+        ]);
+    }
+
+
+    public function chartPhaseCompare(Group $groupId,int $comp){
+
+        return view('pages.charts.phases',[
+            'comp' => $comp,
+            'groupId' => $groupId,
+            'tests' => Test::with('students'),
+            'students' => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
+            'testPhases' =>TestPhase::all(),
+
+        ]);
     }
 }
 

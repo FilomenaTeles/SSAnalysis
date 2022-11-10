@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->foreignId('group_id')->constrained();
             $table->string('name');
             $table->string('city');
-            $table->date('birth_date');
+            $table->datetime('birth_date');
             $table->string('email');
             $table->string('phone_number');
             $table->boolean('isActive')->default(1);

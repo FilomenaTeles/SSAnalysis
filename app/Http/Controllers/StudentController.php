@@ -136,7 +136,6 @@ class StudentController extends Controller
     public function importForm()
     {
 
-
         return view('pages.students.import');
     }
 
@@ -144,6 +143,6 @@ class StudentController extends Controller
     {
         Excel::import(new StudentsImport, request()->file('import-form'));
 
-        return redirect('students')->with('success', 'Alunos importados com sucesso!');
+        return redirect('groups')->with('success', 'Alunos importados com sucesso!');
     }
 }

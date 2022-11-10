@@ -49715,8 +49715,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\HP\Desktop\Web-Mobile-Development\Projeto\SSAnalysis\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\HP\Desktop\Web-Mobile-Development\Projeto\SSAnalysis\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Filomena/Desktop/SSAnalysis/ssanalysis/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Filomena/Desktop/SSAnalysis/ssanalysis/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

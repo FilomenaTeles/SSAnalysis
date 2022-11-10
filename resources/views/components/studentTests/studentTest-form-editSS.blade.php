@@ -80,5 +80,5 @@
 </table>
     <br>
     <button type="submit" class="mt-2 mb-5 btn btn-primary">Associar nota</button>
-    <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Cancelar</a>
+    <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
 </form>
