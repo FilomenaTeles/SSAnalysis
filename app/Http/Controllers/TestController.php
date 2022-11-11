@@ -140,10 +140,10 @@ class TestController extends Controller
     public function stIndex()
     {
         return view('pages.studentTests.index', [
-            'tests'     => Test::with('students'),
-            'groups'    => Group:: with('students')->get(),
-            'students'  => Student::with('group')->get(),
-            'courses'   => Course::with('groups')->get()
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'courses' => Course::with('groups')->get()
         ]);
 
     }
@@ -186,7 +186,7 @@ class TestController extends Controller
      */
     public function stShow(Group $groupTest, Test $testID)
     {
-        return view('pages.studentTests.show',[
+        return view('pages.studentTests.show', [
             'groupTest' => $groupTest,
             'testID' => $testID,
             'students' => Student::with('group')->get(),
@@ -254,8 +254,8 @@ class TestController extends Controller
             $ss7 = $request->ss7[$key];
             $ss8 = $request->ss8[$key];
             $ss9 = $request->ss9[$key];
-            $grade=collect([$ss1,$ss2,$ss3,$ss4,$ss5,$ss6,$ss7,$ss8,$ss9])->avg();
-            $gradef=number_format($grade,2,'.','');
+            $grade = collect([$ss1, $ss2, $ss3, $ss4, $ss5, $ss6, $ss7, $ss8, $ss9])->avg();
+            $gradef = number_format($grade, 2, '.', '');
             //associa nota ao aluno
             $pivot_table->grade = $gradef;
             $pivot_table->save();
@@ -278,49 +278,57 @@ class TestController extends Controller
 
     //############ ANALISE COMPARATIVA ############
 
-    public function chartIndex(){
+    public function chartIndex()
+    {
 
-        return view('pages.charts.index',[
+        return view('pages.charts.index', [
             'tests' => Test::with('students'),
             'groups' => Group:: with('students')->get(),
             'courses' => Course::with('groups')->get()
         ]);
     }
-    public function chartPhasesIndex(Group $groupId){
 
-        return view('pages.charts.phases',[
+    public function chartPhasesIndex(Group $groupId)
+    {
+
+        return view('pages.charts.phases', [
             'groupId' => $groupId,
             'tests' => Test::with('students'),
             'groups' => Group:: with('students')->get(),
-            'testPhases' =>TestPhase::all(),
+            'testPhases' => TestPhase::all(),
 
         ]);
     }
 
-    public function chartPhase(Group $groupId,TestPhase $phaseId){
+    public function chartPhase(Group $groupId, TestPhase $phaseId)
+    {
 
-        return view('pages.charts.phases',[
+
+
+        return view('pages.charts.phases', [
             'phaseId' => $phaseId,
             'groupId' => $groupId,
-            'tests' => Test::with('students'),
+            'tests' => Test::with('students')->get(),
             'students' => Student::with('group')->get(),
             'groups' => Group:: with('students')->get(),
-            'testPhases' =>TestPhase::all(),
+            'testPhases' => TestPhase::all(),
+
 
 
         ]);
     }
 
 
-    public function chartPhaseCompare(Group $groupId,int $comp){
+    public function chartPhaseCompare(Group $groupId, int $comp)
+    {
 
-        return view('pages.charts.phases',[
+        return view('pages.charts.phases', [
             'comp' => $comp,
             'groupId' => $groupId,
-            'tests' => Test::with('students'),
+            'tests' => Test::with('students')->get(),
             'students' => Student::with('group')->get(),
             'groups' => Group:: with('students')->get(),
-            'testPhases' =>TestPhase::all(),
+            'testPhases' => TestPhase::all(),
 
         ]);
     }
