@@ -17,7 +17,7 @@ class CreateStudentTestTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('test_id')->constrained()->onDelete('cascade');
-            $table->double('grade')->nullable();
+            $table->double('grade')->default(0);
             $table->timestamps();
         });
     }
