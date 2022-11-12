@@ -29,7 +29,7 @@ const dataTec=[];
         datasets: [
             @if(!empty($gradeTec))
             {
-            label: 'Testes Técnicos',
+            label: 'Teste Técnico',
             backgroundColor: '#00adef',
             borderColor: 'rgb(255, 99, 132)',
             data: dataTec,
@@ -38,7 +38,7 @@ const dataTec=[];
                 @endif
                 @if(!empty($gradeSS))
             {
-                label: 'Dinâmicas de Grupo',
+                label: 'Dinâmica de Grupo',
                 backgroundColor: '#ec008b',
                 borderColor: 'rgb(255, 99, 132)',
                 data: dataSS,
