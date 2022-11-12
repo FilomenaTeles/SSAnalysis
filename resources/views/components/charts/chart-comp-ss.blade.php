@@ -1,13 +1,10 @@
-<div class="container">
-    <p>Teste</p>
-    <canvas id="myChartSS" ></canvas>
-</div>
+
 
 <script>
 
 
-   const label_name =[];
-   const colors =[
+   const label_namess =[];
+   const colorsss =[
        '#00adef',
        '#ec008b',
        '#36236a'
@@ -15,11 +12,11 @@
 
     @foreach($labels_names as $key => $names )
 
-        label_name[{{$key}}]= '{{$names}}'
+        label_namess[{{$key}}]= '{{$names}}'
 
     @endforeach;
 
-    const labels =[
+    const labelsss =[
         'Fase 1',
         'Fase 2',
         'Fase 3'
@@ -45,16 +42,16 @@ const dataSSFase3=[];
 
 
 
-    const data = {
-        labels: labels,
+    const datass = {
+        labels: labelsss,
         datasets: [
 
             @for ($i = 0; $i < sizeof($labels_names); $i++)
 
             {
-                label: label_name[{{$i}}],
-                backgroundColor: colors[{{$i}}],
-                borderColor: colors[{{$i}}],
+                label: label_namess[{{$i}}],
+                backgroundColor: colorsss[{{$i}}],
+                borderColor: colorsss[{{$i}}],
                 data: [
                     dataSSFase1[{{$i}}],
                     dataSSFase2[{{$i}}],
@@ -69,12 +66,12 @@ const dataSSFase3=[];
 
     const config2 = {
         type: 'line',
-        data: data,
+        data: datass,
         options: {}
     };
 
-    const myChart = new Chart(
-        document.getElementById('myChartSS'),
+    const lineChartSS = new Chart(
+        document.getElementById('lineChartSS'),
         config2
     );
 </script>

@@ -30,11 +30,14 @@
         $data_gradeTec3[] = [];
         $data_gradeSS3[] = [];
 
+        $data_grade_avg_Tec[] = [];
+        $data_grade_avg_SS[] = [];
+
 
         ?>
 
         @foreach($tests as $test)
-
+            <!--FASE 1-->
             @if($test->test_phase_id ==1 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
@@ -57,7 +60,7 @@
                 @endforeach
 
             @endif
-
+            <!--FASE 2-->
             @if($test->test_phase_id ==2 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
@@ -80,7 +83,7 @@
                 @endforeach
 
             @endif
-
+            <!--FASE 3-->
             @if($test->test_phase_id ==3 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
@@ -105,20 +108,20 @@
             @endif
         @endforeach
 
-        <?php $teste[] = $data_gradeTec3 ?>
+        <!--CRIAÇÃO DOS GRÁFICOS-->
         @if(isset($phaseId))
             @if($phaseId->id==1)
                 <h4>Fase 1</h4>
 
 
-                    @component('components.charts.chart',[
-                    'phaseId'=>$phaseId,
-                     'labels_names'=>$labels_names,
-                     'gradeTec'=>$data_gradeTec1,
-                     'gradeSS'=>$data_gradeSS1,
+                @component('components.charts.chart',[
+                'phaseId'=>$phaseId,
+                 'labels_names'=>$labels_names,
+                 'gradeTec'=>$data_gradeTec1,
+                 'gradeSS'=>$data_gradeSS1,
 
-    ])
-                    @endcomponent
+])
+                @endcomponent
 
                 <br>
 
@@ -153,34 +156,68 @@
             <div class="container">
                 <h5>Testes Técnicos</h5>
             </div>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-                @component('components.charts.chart-comp',[
+            <div class="container p-5">
+                <canvas id="myChart"></canvas>
+                <p class="text-center"><small>Gráfico das 3 fases dos testes técnicos de cada aluno;</small></p>
+            </div>
+
+            @component('components.charts.chart-comp',[
+
+               'labels_names'=>$labels_names,
+               'gradesFase1' => $data_gradeTec1,
+               'gradesFase2' => $data_gradeTec2,
+               'gradesFase3' => $data_gradeTec3,
+  ])
+            @endcomponent
+            <br>
+
+            <div class="container">
+                <h5>Testes Dinâmica de Grupo</h5>
+            </div>
+            <div class="container p-5">
+                <canvas id="lineChartSS"></canvas>
+                <p class="text-center"><small>Gráfico das 3 fases das dinâmicas de grupo de cada aluno;</small></p>
+            </div>
+
+            @component('components.charts.chart-comp-ss',[
 
                    'labels_names'=>$labels_names,
-                   'gradesFase1' => $data_gradeTec1,
-                   'gradesFase2' => $data_gradeTec2,
-                   'gradesFase3' => $data_gradeTec3,
+                   'gradesFase1' => $data_gradeSS1,
+                   'gradesFase2' => $data_gradeSS2,
+                   'gradesFase3' => $data_gradeSS3,
       ])
-                @endcomponent
-                <br>
+            @endcomponent
 
-                <div class="container">
-                    <h5>Testes Dinâmica de Grupo</h5>
-                </div>
+            <br>
 
-                <br>
-                @component('components.charts.chart-comp-ss',[
+            <div class="container">
+                <h5>Testes Técnicos vs Dinâmica de Grupo</h5>
+            </div>
+                <!--FAZER MEDIA DE TODAS AS FASES PARA CADA TIPO DE TESTE-->
 
-                       'labels_names'=>$labels_names,
-                       'gradesFase1' => $data_gradeSS1,
-                       'gradesFase2' => $data_gradeSS2,
-                       'gradesFase3' => $data_gradeSS3,
-          ])
-                @endcomponent
-                <br>
 
+            @for ($i = 0; $i < sizeof($labels_names); $i++)
+                    <input type="text" value="  {{$data_grade_avg_Tec[$i]= (($data_gradeTec1[$i]+$data_gradeTec2[$i]+$data_gradeTec3[$i])/3)}}" hidden>
+                    <input type="text" value="  {{$data_grade_avg_SS[$i]= (($data_gradeSS1[$i]+$data_gradeSS2[$i]+$data_gradeSS3[$i])/3)}}" hidden>
+                    <input type="text" value="   {{$data_grade_avg_Tec[$i] = number_format($data_grade_avg_Tec[$i], 2, '.', '')}}" hidden>
+                    <input type="text" value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
+            @endfor
+
+            <div class="container p-5">
+                <canvas id="ChartComp"></canvas>
+                <p class="text-center"><small>Gráfico da média das 3 fases de cada tipo de teste;</small></p>
+            </div>
+
+            @component('components.charts.chart-comp-comp',[
+
+                      'labels_names'=>$labels_names,
+                      'data_grade_avg_Tec' =>$data_grade_avg_Tec,
+                      'data_grade_avg_SS' =>$data_grade_avg_SS
+         ])
+            @endcomponent
 
         @endif
     </div>
