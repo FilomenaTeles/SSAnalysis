@@ -44,7 +44,7 @@
                     <br>
                     <div class="container text-right col">
                         <button type="submit" class="btn btn-primary mb-2">Editar</button>
-                        <a type="button" href="{{ url('/groups') }}" class="btn btn-primary mb-2">Cancelar</a>
+                        <a type="button" href="{{ url('/groups') }}" id="back-btn" class="btn mb-2">Cancelar</a>
                     </div>
                 </div>
 

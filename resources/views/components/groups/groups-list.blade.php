@@ -1,11 +1,11 @@
-
 <div class="container row text-right">
     <div class="col-6"></div>
     <div class="col text-right">
-    <a href="{{url('/groups/create')}}" type="button" class="btn btn-primary mb-2">Adicionar turma <i class="bi bi-plus-circle-fill"></i></a>
+        <a href="{{url('/groups/create')}}" type="button" id="add-btn" class="btn mb-2">Adicionar turma <i
+                class="bi bi-plus-circle-fill"></i></a>
     </div>
-        <div class="col text-right">
-        <a href="{{url('import/')}}" type="button" class="btn btn-primary mb-2">Importar lista de alunos <i
+    <div class="col text-right">
+        <a href="{{url('import/')}}" type="button" id="add-btn" class="btn mb-2">Importar lista de alunos <i
                 class="bi bi-box-arrow-in-down"></i></a>
     </div>
 </div>
@@ -29,7 +29,7 @@
             @endforeach
 
             <td>
-                <a href="{{url('/groups/'.$group->id)}}" type="button" class="btn btn-primary">
+                <a href="{{url('/groups/'.$group->id)}}" type="button" id="eye-btn" class="btn">
                     <i class="bi bi-eye"></i>
                 </a>
                 <a href="{{url('/groups/'.$group->id.'/edit')}}" type="button" class="btn btn-primary">

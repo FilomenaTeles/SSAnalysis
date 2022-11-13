@@ -25,7 +25,7 @@ body{
     opacity: 0.8;
 }
 
-#back-btn{
+#back-btn, #eye-btn{
     background-color: #36236a;
     color: white;
 }
@@ -148,7 +148,6 @@ footer{
 footer h5{
     font-size: small;
 }
-
 
 /*
 @media screen and (max-width: 800px){

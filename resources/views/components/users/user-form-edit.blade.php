@@ -140,9 +140,9 @@
 
         <button type="submit" class="btn btn-primary mb-2 ">Editar</button>
         @if( Auth::user()->user_type_id ==1)
-            <a type="button" href="{{ url('/users') }}" class="btn btn-primary mb-2 ">Cancelar</a>
+            <a type="button" href="{{ url('/users') }}" id="back-btn" class="btn mb-2 ">Cancelar</a>
         @else
-            <a type="button" href="{{url('/users/' . Auth::user()->id)}}" class="btn btn-primary mb-2 ">Cancelar</a>
+            <a type="button" href="{{url('/users/' . Auth::user()->id)}}" id="back-btn" class="btn mb-2 ">Cancelar</a>
         @endif
 
 

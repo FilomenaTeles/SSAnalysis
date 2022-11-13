@@ -36,15 +36,12 @@
                                 @else
                                     <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
                                        @endif
-                                       type="button" class="btn btn-primary">
-                                        <i class="bi bi-journal-plus"></i>
+                                       type="button" id="add-btn" class="btn"><i class="bi bi-journal-plus"></i>
                                     </a>
                                 @endif
-                        </td>
-                        <td>
+
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id)}}" type="button"
-                               class="btn btn-primary">
-                                <i class="bi bi-eye"></i>
+                               class="btn btn-primary"><i class="bi bi-eye"></i>
                             </a>
                         </td>
                     </tr>

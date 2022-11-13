@@ -1,6 +1,6 @@
 <h4>{{$user->name}}</h4>
 <div class="container col-1">
-    <a href="{{url('/users/'.$user->id.'/edit')}}" type="button" >Editar</a>
+    <a href="{{url('/users/'.$user->id.'/edit')}}" type="button" class="btn btn-primary mb-2">Editar</a>
 </div>
 
 <br>
