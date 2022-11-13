@@ -141,4 +141,5 @@ Route::prefix('userTypes')->group(function(){
   });
 
   Route::get('charts/{groupId}/compare/{comp}', 'TestController@chartPhaseCompare');
+  Route::get('charts/{groupId}/students/{student}', 'TestController@chartPhaseStudents');
 

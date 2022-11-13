@@ -220,6 +220,12 @@
             @endcomponent
 
         @endif
+            @if(isset($student))
+                @component('components.charts.chart-students',[
+             'students' =>$students
+])
+                @endcomponent
+            @endif
     </div>
 
 @endsection

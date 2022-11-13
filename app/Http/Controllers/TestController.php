@@ -332,5 +332,19 @@ class TestController extends Controller
 
         ]);
     }
+
+    public function chartPhaseStudents(Group $groupId, int $student)
+    {
+
+        return view('pages.charts.phases', [
+            'student' => $student,
+            'groupId' => $groupId,
+            'tests' => Test::with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
+            'testPhases' => TestPhase::all(),
+
+        ]);
+    }
 }
 
