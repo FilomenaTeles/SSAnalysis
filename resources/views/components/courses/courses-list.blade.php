@@ -1,6 +1,6 @@
 
 <div class="container text-right">
-    <a href="{{url('/courses/create')}}" type="button" class="btn btn-primary mb-2">Adicionar Curso <i class="bi bi-plus-circle-fill"></i></a>
+    <a href="{{url('/courses/create')}}" type="button" id="add-btn" class="btn mb-2">Adicionar Curso <i class="bi bi-plus-circle-fill"></i></a>
 </div>
 <br>
 <table class="table table-striped">

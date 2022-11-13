@@ -53,8 +53,8 @@ class StudentController extends Controller
             'city'          => 'required',
             'birth_date'    => 'required',
             'email'         => 'required',
-            'phone_number'  =>'required',
-            'group_id'      =>'required',
+            'phone_number'  => 'required|digits:9',
+            'group_id'      => 'required',
 
         ]);
        // dd($request);

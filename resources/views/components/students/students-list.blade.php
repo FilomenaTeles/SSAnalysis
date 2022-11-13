@@ -1,5 +1,5 @@
 <div class="container text-right">
-    <a href="{{url('/students/create')}}" type="button"  class="btn btn-primary mb-2">Adicionar aluno <i class="bi bi-person-plus-fill"></i></a>
+    <a href="{{url('/students/create')}}" type="button" id="add-btn" class="btn mb-2">Adicionar aluno <i class="bi bi-person-plus-fill"></i></a>
 </div>
 <br>
 
@@ -40,7 +40,7 @@
                 </td>
             @endif
             <td>
-                <a href="{{url('/students/'.$student->id)}}" type="button" class="btn btn-primary">
+                <a href="{{url('/students/'.$student->id)}}" type="button" id="eye-btn" class="btn">
                     <i class="bi bi-eye"></i>
                 </a>
                 <a href="{{url('/students/'.$student->id.'/edit')}}" type="button" class="btn btn-primary">
