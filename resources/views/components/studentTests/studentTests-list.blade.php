@@ -32,18 +32,18 @@
                         <td>
                             @if($test->test_date < date('Y-M-d'))
                                 @if($test->test_type_id == 1)
-                                    <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
+                                    <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
                                        type="button" id="add-btn" class="btn"><i class="bi bi-journal-plus"></i>
                                     </a>
                                 @else
 
                                     @if($student->pivot->grade == 0)
-                                        <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
+                                        <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
                                            type="button" id="add-btn" class="btn"><i class="bi bi-journal-plus"></i>
                                         </a>
                                     @else
                                         <a href="{{url('studentTests/'.$groupTest->id .'/'.$test->id.'/editss2')}}"
-                                           type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                           type="button" id="btn-ss2" class="btn"><i class="bi bi-pencil-square"></i></a>
                                     @endif
                                 @endif
                             @endif
@@ -63,5 +63,5 @@
     </tbody>
 </table>
 <div class="container text-right">
-    <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
+    <a href="{{url('studentTests')}}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
 </div>

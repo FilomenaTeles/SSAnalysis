@@ -36,7 +36,6 @@ foreach ($tests as $test) {
 
 }
 $testsType = array_unique($testsType);
-dd($testsType)
 ?>
     <!--
 style="pointer-events: none"
