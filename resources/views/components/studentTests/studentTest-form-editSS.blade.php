@@ -28,6 +28,10 @@
                         @if($student->group_id == $groupTest->id)
                             <tr>
                                 <td>
+
+                                    <input name="group_id" type="number" value="{{$student->group_id}}" hidden>
+                                    <input name="test_id" type="number" value="{{$testID->id}}" hidden>
+
                                     <div class="form-group">
 
                                         {{$student->name}}

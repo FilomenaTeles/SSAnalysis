@@ -246,8 +246,9 @@ class TestController extends Controller
             $pivot_table->save();
         }
 
-        return redirect('studentTests')->with('status', 'Notas associadas com sucesso!');
+        $group_id = $request->group_id;
 
+        return redirect('studentTests/'.$group_id.'/option')->with('status', 'Notas associadas com sucesso!');
     }
 
     public function stUpdateSS(Request $request, Test $studentTest)
@@ -271,8 +272,9 @@ class TestController extends Controller
             $pivot_table->grade = $gradef;
             $pivot_table->save();
         }
+        $group_id = $request->group_id;
 
-        return redirect('studentTests')->with('status', 'Notas associadas com sucesso!');
+        return redirect('studentTests/'.$group_id.'/option')->with('status', 'Notas associadas com sucesso!');
     }
 
     public function stUpdateSS2(Request $request, Test $studentTest)
@@ -298,9 +300,7 @@ class TestController extends Controller
         $pivot_table->save();
         $group_id = $request->group_id;
 
-
-//        return redirect('studentTests/'.$group_id.'/' .$request->test_id)->with('status', 'Notas editadas com sucesso!');
-        return redirect('studentTests')->with('status', 'Notas editadas com sucesso!');
+            return redirect('studentTests/'.$group_id.'/option')->with('status', 'Notas editadas com sucesso!');
     }
 
     /**

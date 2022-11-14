@@ -16,7 +16,7 @@ body{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;*/
 }
-#add-btn{
+#add-btn, #btn-ss2{
     background-color: #201544;
     color: white;
 }
