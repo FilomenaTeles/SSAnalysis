@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container box">
-        <h1>Home</h1>
+        <h1>Social Skills Analysis</h1>
     </div>
 
 @endsection

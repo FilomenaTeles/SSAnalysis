@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container box">
-        <h1>Notas</h1>
+        <h1>Notas - teste Técnico</h1>
 
         @component('components.studentTests.studentTest-form-edit',[
             'groupTest' => $groupTest,
