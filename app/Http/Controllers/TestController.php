@@ -217,7 +217,16 @@ class TestController extends Controller
             'groups'    => Group::with('students')->get()
         ]);
     }
-
+    public function stEditSS2(Group $groupTest, Test $testID)
+    {
+        return view('pages.studentTests.editSS2', [
+            'groupTest' => $groupTest,
+            'testID'    => $testID,
+            'students'  => Student::with('group')->get(),
+            'tests'     => Test::with('students')->get(),
+            'groups'    => Group::with('students')->get()
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -262,9 +271,35 @@ class TestController extends Controller
         }
 
         return redirect('studentTests')->with('status', 'Notas associadas com sucesso!');
-
     }
 
+    public function stUpdateSS2(Request $request, Test $studentTest)
+    {
+
+            //vai buscar o elemento da tabela pivot a editar
+            $pivot_table = StudentTest::find($request->pivot_id);
+            //vai buscar a nota no array grade na posição do array pivot_id
+            $ss1 = $request->ss1;
+            $ss2 = $request->ss2;
+            $ss3 = $request->ss3;
+            $ss4 = $request->ss4;
+            $ss5 = $request->ss5;
+            $ss6 = $request->ss6;
+            $ss7 = $request->ss7;
+            $ss8 = $request->ss8;
+            $ss9 = $request->ss9;
+            $grade = collect([$ss1, $ss2, $ss3, $ss4, $ss5, $ss6, $ss7, $ss8, $ss9])->avg();
+            $gradef = number_format($grade, 2, '.', '');
+            //associa nota ao aluno
+
+            $pivot_table->grade = $gradef;
+            $pivot_table->save();
+            $group_id = $request->group_id;
+
+
+//        return redirect('studentTests/'.$group_id.'/' .$request->test_id)->with('status', 'Notas editadas com sucesso!');
+        return redirect('studentTests')->with('status', 'Notas editadas com sucesso!');
+    }
     /**
      * Remove the specified resource from storage.
      *

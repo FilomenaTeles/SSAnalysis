@@ -33,17 +33,26 @@
                             @if($test->test_date < date('Y-M-d'))
                                 @if($test->test_type_id == 1)
                                     <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
-                                @else
-                                    <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
-                                       @endif
                                        type="button" id="add-btn" class="btn"><i class="bi bi-journal-plus"></i>
                                     </a>
+                                @else
+
+                                    @if($student->pivot->grade == 0)
+                                        <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
+                                           type="button" id="add-btn" class="btn"><i class="bi bi-journal-plus"></i>
+                                        </a>
+                                    @else
+                                        <a href="{{url('studentTests/'.$groupTest->id .'/'.$test->id.'/editss2')}}"
+                                           type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                    @endif
                                 @endif
+                            @endif
 
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id)}}" type="button"
                                class="btn btn-primary"><i class="bi bi-eye"></i>
                             </a>
                         </td>
+
                     </tr>
                         <?php $contador++ ?>
                 @endif
