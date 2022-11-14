@@ -60,6 +60,7 @@
                 @endforeach
 
             @endif
+
             <!--FASE 2-->
             @if($test->test_phase_id ==2 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
@@ -106,6 +107,10 @@
                 @endforeach
 
             @endif
+                <!--Sem Teste Tecnico-->
+                @if($test->test_phase_id ==1 && $test -> test_type_id ==1)
+                @endif
+                <!--Sem Teste SS-->
         @endforeach
 
         <!--CRIAÇÃO DOS GRÁFICOS-->

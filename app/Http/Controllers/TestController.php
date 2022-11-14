@@ -23,11 +23,11 @@ class TestController extends Controller
         return view('pages.tests.index', [
 
 
-            'tests'      => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->get(),
-            'testTypes'  => TestType::with('tests')->get(),
+            'tests' => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->get(),
+            'testTypes' => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
-            'groups'     => Group:: with('students')->get(),
-            'students'   => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
+            'students' => Student::with('group')->get(),
         ]);
     }
 
@@ -39,11 +39,11 @@ class TestController extends Controller
     {
 
         return view('pages.tests.create', [
-            'tests'      => Test::with('testType', 'testPhase', 'students')->get(),
-            'testTypes'  => TestType::with('tests')->get(),
+            'tests' => Test::with('testType', 'testPhase', 'students')->get(),
+            'testTypes' => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
-            'groups'     => Group:: with('students')->get(),
-            'students'   => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
+            'students' => Student::with('group')->get(),
         ]);
     }
 
@@ -54,16 +54,16 @@ class TestController extends Controller
     {
 
         $this->validate($request, [
-            'test_type_id'  => 'required',
+            'test_type_id' => 'required',
             'test_phase_id' => 'required',
-            'test_date'     => 'required',
+            'test_date' => 'required',
         ]);
 
 
-        $test                = new Test();
-        $test->test_type_id  = $request->test_type_id;
+        $test = new Test();
+        $test->test_type_id = $request->test_type_id;
         $test->test_phase_id = $request->test_phase_id;
-        $test->test_date     = $request->test_date;
+        $test->test_date = $request->test_date;
 
         $test->save();
 
@@ -95,11 +95,11 @@ class TestController extends Controller
     public function edit(Test $test)
     {
         return view('pages.tests.edit', [
-            'test'       => $test,
-            'testTypes'  => TestType::all(),
+            'test' => $test,
+            'testTypes' => TestType::all(),
             'testPhases' => TestPhase::all(),
-            'students'   => Student::all(),
-            'groups'     => Group::all()
+            'students' => Student::all(),
+            'groups' => Group::all()
         ]);
     }
 
@@ -113,9 +113,9 @@ class TestController extends Controller
     public function update(Request $request, Test $test)
     {
         $test = Test::find($test->id);
-        $test->test_type_id  = $request->test_type_id;
+        $test->test_type_id = $request->test_type_id;
         $test->test_phase_id = $request->test_phase_id;
-        $test->test_date     = $request->test_date;
+        $test->test_date = $request->test_date;
         $test->save();
 
         return redirect('tests')->with('status', 'Teste editado com sucesso!');
@@ -140,10 +140,10 @@ class TestController extends Controller
     public function stIndex()
     {
         return view('pages.studentTests.index', [
-            'tests'    => Test::with('students'),
-            'groups'   => Group:: with('students')->get(),
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
             'students' => Student::with('group')->get(),
-            'courses'  => Course::with('groups')->get()
+            'courses' => Course::with('groups')->get()
         ]);
 
     }
@@ -152,12 +152,12 @@ class TestController extends Controller
     {
         return view('pages.studentTests.option', [
 
-            'groupTest'  => $groupTest,
-            'tests'      => Test::with('students')->get(),
-            'groups'     => Group:: with('students')->get(),
-            'students'   => Student::with('group')->get(),
-            'courses'    => Course::with('groups')->get(),
-            'testTypes'  => TestType::with('tests')->get(),
+            'groupTest' => $groupTest,
+            'tests' => Test::with('students')->get(),
+            'groups' => Group:: with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'courses' => Course::with('groups')->get(),
+            'testTypes' => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
 
         ]);
@@ -188,10 +188,10 @@ class TestController extends Controller
     {
         return view('pages.studentTests.show', [
             'groupTest' => $groupTest,
-            'testID'    => $testID,
-            'students'  => Student::with('group')->get(),
-            'tests'     => Test::with('students')->get(),
-            'groups'    => Group::with('students')->get()
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
         ]);
     }
 
@@ -200,10 +200,10 @@ class TestController extends Controller
     {
         return view('pages.studentTests.edit', [
             'groupTest' => $groupTest,
-            'testID'    => $testID,
-            'students'  => Student::with('group')->get(),
-            'tests'     => Test::with('students')->get(),
-            'groups'    => Group::with('students')->get()
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
         ]);
     }
 
@@ -211,10 +211,10 @@ class TestController extends Controller
     {
         return view('pages.studentTests.editSS', [
             'groupTest' => $groupTest,
-            'testID'    => $testID,
-            'students'  => Student::with('group')->get(),
-            'tests'     => Test::with('students')->get(),
-            'groups'    => Group::with('students')->get()
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
         ]);
     }
 
@@ -280,11 +280,29 @@ class TestController extends Controller
 
     public function chartIndex()
     {
+        $groupTests = [];
+
+
+        $tests = StudentTest::all();
+        $students = Student::with('group')->get();
+        foreach ($tests as $test) {
+            foreach ($students as $student) {
+                if ($test->student_id == $student->id) {
+                    array_push($groupTests, $student->group_id);
+
+                }
+            }
+        }
+        $groupTests = array_unique($groupTests);
+
 
         return view('pages.charts.index', [
-            'tests'   => Test::with('students'),
-            'groups'  => Group:: with('students')->get(),
-            'courses' => Course::with('groups')->get()
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
+            'courses' => Course::with('groups')->get(),
+            'groupTests' => $groupTests,
+            'studentTests' => $tests,
+
         ]);
     }
 
@@ -292,9 +310,9 @@ class TestController extends Controller
     {
 
         return view('pages.charts.phases', [
-            'groupId'    => $groupId,
-            'tests'      => Test::with('students'),
-            'groups'     => Group:: with('students')->get(),
+            'groupId' => $groupId,
+            'tests' => Test::with('students'),
+            'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
 
         ]);
@@ -304,15 +322,13 @@ class TestController extends Controller
     {
 
 
-
         return view('pages.charts.phases', [
-            'phaseId'    => $phaseId,
-            'groupId'    => $groupId,
-            'tests'      => Test::with('students')->get(),
-            'students'   => Student::with('group')->get(),
-            'groups'     => Group:: with('students')->get(),
+            'phaseId' => $phaseId,
+            'groupId' => $groupId,
+            'tests' => Test::with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
-
 
 
         ]);
@@ -323,11 +339,11 @@ class TestController extends Controller
     {
 
         return view('pages.charts.phases', [
-            'comp'       => $comp,
-            'groupId'    => $groupId,
-            'tests'      => Test::with('students')->get(),
-            'students'   => Student::with('group')->get(),
-            'groups'     => Group:: with('students')->get(),
+            'comp' => $comp,
+            'groupId' => $groupId,
+            'tests' => Test::with('students')->get(),
+            'students' => Student::with('group')->get(),
+            'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
 
         ]);
