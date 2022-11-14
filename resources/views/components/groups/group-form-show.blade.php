@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col-6"><h5>Alunos:</h5></div>
         <div class="col text-right">
-            <a href="{{url('/students/create/'.$group->id)}}" type="button" class="btn btn-primary mb-2">Adicionar aluno
+            <a href="{{url('/students/create/'.$group->id)}}" id="add-btn" type="button" class="btn btn-primary mb-2">Adicionar aluno
                 <i class="bi bi-person-plus-fill"></i></a>
 
         </div>
@@ -57,7 +57,7 @@
 
 </div>
 <br>
-
+    <?php $cont=1 ?>
 <table class="table table-striped  text-center" id="group-student" style="margin: auto">
     <thead>
     <tr>
@@ -73,7 +73,7 @@
     @foreach($students as $student)
         @if($student -> group_id == $group->id)
             <tr>
-                <td>index</td>
+                <td>{{$cont}}</td>
                 <td>{{$student -> name}}</td>
                 <td>{{$student -> city}}</td>
                 <td>
@@ -103,6 +103,7 @@
 
 
             </tr>
+            <input type="text" value="{{$cont++}}" hidden>
         @endif
     @endforeach
 

@@ -2,7 +2,7 @@
 <br>
 <?php
     $comp=4;
-    $student=1
+    $student=10;
 ?>
 <div class="container">
     <div class="d-grid gap-2 col-8 mx-auto row ">

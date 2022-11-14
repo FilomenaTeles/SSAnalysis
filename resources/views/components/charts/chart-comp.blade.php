@@ -61,10 +61,19 @@ const dataTecFase3=[];
         ]
     };
 
+
+
     const config = {
         type: 'line',
         data: data,
-        options: {}
+        options: {
+            scales:{
+                y:{
+                    max:20
+                }
+            }
+        },
+
     };
 
     const myChart = new Chart(

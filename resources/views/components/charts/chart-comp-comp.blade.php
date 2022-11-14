@@ -54,7 +54,14 @@
     const config3 = {
         type: 'bar',
         data: datacomp,
-        options: {}
+        options: {
+            scales:{
+                y:{
+                    beginAtZero:true,
+                    max:20
+                }
+            }
+        }
 
     };
 

@@ -59,7 +59,7 @@ class GroupController extends Controller
         return view('pages.groups.show',[
             'group'=>$group,
             'courses' =>Course::with('groups')->get(),
-            'students' => Student::with('group')->get()
+            'students' => Student::with('group')->orderBy('name')->get()
         ]);
     }
 

@@ -154,7 +154,7 @@
         @if(isset($comp))
             <h4>Comparação</h4>
             <div class="container">
-                <h5>Testes Técnicos</h5>
+                <h5>Teste Técnico</h5>
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -175,7 +175,7 @@
             <br>
 
             <div class="container">
-                <h5>Testes Dinâmica de Grupo</h5>
+                <h5>Teste Dinâmica de Grupo</h5>
             </div>
             <div class="container p-5">
                 <canvas id="lineChartSS"></canvas>
@@ -196,14 +196,21 @@
             <div class="container">
                 <h5>Testes Técnicos vs Dinâmica de Grupo</h5>
             </div>
-                <!--FAZER MEDIA DE TODAS AS FASES PARA CADA TIPO DE TESTE-->
+            <!--FAZER MEDIA DE TODAS AS FASES PARA CADA TIPO DE TESTE-->
 
 
             @for ($i = 0; $i < sizeof($labels_names); $i++)
-                    <input type="text" value="  {{$data_grade_avg_Tec[$i]= (($data_gradeTec1[$i]+$data_gradeTec2[$i]+$data_gradeTec3[$i])/3)}}" hidden>
-                    <input type="text" value="  {{$data_grade_avg_SS[$i]= (($data_gradeSS1[$i]+$data_gradeSS2[$i]+$data_gradeSS3[$i])/3)}}" hidden>
-                    <input type="text" value="   {{$data_grade_avg_Tec[$i] = number_format($data_grade_avg_Tec[$i], 2, '.', '')}}" hidden>
-                    <input type="text" value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
+                <input type="text"
+                       value="  {{$data_grade_avg_Tec[$i]= (($data_gradeTec1[$i]+$data_gradeTec2[$i]+$data_gradeTec3[$i])/3)}}"
+                       hidden>
+                <input type="text"
+                       value="  {{$data_grade_avg_SS[$i]= (($data_gradeSS1[$i]+$data_gradeSS2[$i]+$data_gradeSS3[$i])/3)}}"
+                       hidden>
+                <input type="text"
+                       value="   {{$data_grade_avg_Tec[$i] = number_format($data_grade_avg_Tec[$i], 2, '.', '')}}"
+                       hidden>
+                <input type="text"
+                       value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
             @endfor
 
             <div class="container p-5">
@@ -220,12 +227,19 @@
             @endcomponent
 
         @endif
-            @if(isset($student))
-                @component('components.charts.chart-students',[
-             'students' =>$students
+        @if(isset($st))
+                <br>
+            @component('components.charts.chart-students-list',[
+         'students' =>$students,
+         'groupId' => $groupId,
+         'tests'      => $tests,
+         'groups'    => $groups,
+         'testPhases' =>$testPhases,
+
 ])
-                @endcomponent
-            @endif
+            @endcomponent
+                <br>
+        @endif
     </div>
 
 @endsection

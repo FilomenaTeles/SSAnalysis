@@ -23,7 +23,7 @@ class TestController extends Controller
         return view('pages.tests.index', [
 
 
-            'tests'      => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->where('test_date')->get(),
+            'tests'      => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->get(),
             'testTypes'  => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
             'groups'     => Group:: with('students')->get(),
@@ -333,14 +333,14 @@ class TestController extends Controller
         ]);
     }
 
-    public function chartPhaseStudents(Group $groupId, int $student)
+    public function chartPhaseStudents(Group $groupId, int $st)
     {
 
         return view('pages.charts.phases', [
-            'student' => $student,
+            'st' => $st,
             'groupId' => $groupId,
             'tests' => Test::with('students')->get(),
-            'students' => Student::with('group')->get(),
+            'students' => Student::with('group')->orderBy('name')->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
 

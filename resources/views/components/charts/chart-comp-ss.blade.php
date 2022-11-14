@@ -67,7 +67,14 @@ const dataSSFase3=[];
     const config2 = {
         type: 'line',
         data: datass,
-        options: {}
+        options: {
+            scales:{
+                y:{
+
+                    max:20
+                }
+            }
+        }
     };
 
     const lineChartSS = new Chart(
