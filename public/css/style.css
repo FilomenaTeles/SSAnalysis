@@ -45,13 +45,32 @@ body{
 
 #content {
     margin-left: 240px;
+    padding: 40px;
     /*BG original */
     /*background-color: #00adef; */
     /*BG 2*/
+    /*
     background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);
     /*BG 3 */
     /*background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b)*/
-    padding: 40px;
+
+    /*BG 4*/
+    background: rgb(32,21,68);
+    background: linear-gradient(90deg, rgba(32,21,68,1) 0%, rgba(54,35,106,1) 0%, rgba(0,173,239,1) 67%);
+
+
+    /*BG 5 */
+    /*background: rgb(32,21,68);
+    background: linear-gradient(90deg, rgba(32,21,68,1) 0%, rgba(54,35,106,1) 0%, rgba(0,173,239,1) 23%);
+     */
+
+    /*BG 6 */
+    /*
+    background: rgb(54,35,106);
+    background: linear-gradient(90deg, rgba(54,35,106,1) 5%, rgba(200,24,130,1) 27%, rgba(0,173,239,1) 73%);
+    */
+
+
 }
 
 #title{
