@@ -67,10 +67,11 @@ Route::prefix('studentTests')->group(function(){
     //Route::post('', 'TestController@stStore');
     Route::get('{groupTest}/{testID}', 'TestController@stShow');
     Route::get('{groupTest}/{testID}/edit', 'TestController@stEdit');
+    Route::get('{groupTest}/{testID}/editss2', 'TestController@stEditSS2');
     Route::get('{groupTest}/{testID}/editss', 'TestController@stEditSS');
+    Route::put('{studentTest}ss2', 'TestController@stUpdateSS2');
     Route::put('{studentTest}ss', 'TestController@stUpdateSS');
     Route::put('{studentTest}', 'TestController@stUpdate');
-
     Route::delete('{studentTest}', 'TestController@stDestroy');
 });
 

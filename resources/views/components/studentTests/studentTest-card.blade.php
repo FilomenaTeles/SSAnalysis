@@ -5,7 +5,7 @@
             @foreach($groups as $group)
                 @if($course->id === $group->course_id)
                     <div class="col-12 col-md-6 col-lg-3 mb-2">
-                        <div class="card text-center" style="...">
+                        <div class="card text-center" id="card-tests" style="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{$group->edition}}</h5>
                                 <p class="card-text">{{$course->name}}</p>
