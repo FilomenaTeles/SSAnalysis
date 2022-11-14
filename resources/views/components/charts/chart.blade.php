@@ -25,6 +25,8 @@
         dataSS[{{$key}}] = {{$grade}}
         @endforeach;
 
+
+
     const data = {
         labels: labels,
         datasets: [
