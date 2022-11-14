@@ -47,16 +47,10 @@ body{
     margin-left: 240px;
     /*BG original */
     /*background-color: #00adef; */
-    /*BG 2 */
-    /*background: rgb(32,21,68);
-    background: linear-gradient(90deg, rgba(32,21,68,1) 11%, rgba(54,35,106,1) 47%, rgba(0,212,255,1) 100%);*/
-    /*BG 3 */
-    /*background: rgb(2,1,84);
-    background: linear-gradient(90deg, rgba(2,1,84,1) 22%, rgba(54,35,106,1) 70%, rgba(236,0,139,1) 86%, rgba(0,212,255,1) 100%);*/
-    /*BG 4*/
+    /*BG 2*/
     background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);
-    /*BG 5 */
-    /*background-image: linear-gradient(to right top, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);*/
+    /*BG 3 */
+    /*background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b)*/
     padding: 40px;
 }
 
@@ -91,6 +85,15 @@ body{
     width: 90%;
     margin-top: 45px;
     margin-left: 15px;
+}
+
+#profile-pic {
+    border-radius: 50%;
+    width: 25%;
+}
+#profile-pic2 {
+    border-radius: 50%;
+    width: 30%;
 }
 
 #sidebar .nav a{
@@ -133,8 +136,66 @@ h1, h4{
     width: 90%;
 }
 
+.card{
+    width: 15rem;
+    height:11rem;
+}
+
+.card-text{
+    font-size: small;
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+#input, #input5 {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #201544;
+}
+#input2, #input6 {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #2c1c59;
+}
+#input3, #input7 {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #ec008b;
+}
+#input4, #input8 {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #00adef;
+}
+#input9 {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #201544;
+}
+.table-ss{
+    font-size: small;
+    text-align: start;
+}
+
+#input-tec {
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #2c1c59;
+}
+
+.bi-emoji-laughing{
+    color: #1f6fb2;
+}
+
+.bi-emoji-frown{
+    color: red;
+}
+
 footer{
     /*position:fixed;*/
+    padding-top: 15px;
     position: relative;
     bottom:0;
     text-align: center;
@@ -142,21 +203,21 @@ footer{
 
 }
 #col1footer{
-    width: 240px;
+ width: 240px;
 }
 
 footer h5{
-    font-size: small;
+ font-size: small;
 }
 
 /*
 @media screen and (max-width: 800px){
-    #sidebar{
-        width: 200px;
-    }
-    #content, main{
-        margin-left: 200px;
-    }
+ #sidebar{
+     width: 200px;
+ }
+ #content, main{
+     margin-left: 200px;
+ }
 }*/
 
 

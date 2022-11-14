@@ -29,7 +29,7 @@
             @if(($student -> isActive))
                 <td>
                     <a href="">
-                        <i class="bi bi-emoji-laughing "></i>
+                        <i class="bi bi-emoji-laughing"></i>
                     </a>
                 </td>
             @else

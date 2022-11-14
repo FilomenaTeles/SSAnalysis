@@ -28,7 +28,7 @@
 
                         <td>
                             <div class="form-group">
-                                <input type="number" name="grade[]" value="{{$student->pivot->grade}}" max="20" min="0">
+                                <input type="number" id="input-tec" name="grade[]" value="{{$student->pivot->grade}}" max="20" min="0">
 
                             </div>
                         </td>

@@ -10,10 +10,9 @@
             <div class="container text-right col-sm-3 col-12">
                 <div class="dropdown">
                     @if(Auth::user()->photo)
-                        <img src="{{asset('storage/' . Auth::user()->photo)}}" alt="">
+                        <img id="profile-pic2" src="{{asset('storage/' . Auth::user()->photo)}}" alt="">
                     @else
-                        <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
-                             width="30%" alt="">
+                        <img id="profile-pic" src="images/user-default-image2.png" alt="">
                     @endif
 
 {{--                    <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"--}}
