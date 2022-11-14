@@ -52,12 +52,7 @@
     };
 
 //avgTec plugin block
-    const avgTec={
-        id: 'avgTec',
-        beforeDatasetsDraw(chart, args, pluginoptions) {
-            const {ctx,}
-        }
-    }
+
 
 
     const config = {
@@ -71,7 +66,7 @@
                 }
             }
         },
-        plugins: [avgTec]
+
     };
 
     const myChart = new Chart(

@@ -41,11 +41,7 @@ foreach ($testsPhasesList as $testPhase){
     }
     return false;
 }
-<<<<<<< HEAD
-$testsType = array_unique($testsType);
-=======
->>>>>>> 62e7864f3569576489d4938993ed0e1b25ada714
-?>
+
 
 
 
