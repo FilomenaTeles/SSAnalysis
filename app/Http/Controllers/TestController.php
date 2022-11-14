@@ -217,16 +217,18 @@ class TestController extends Controller
             'groups' => Group::with('students')->get()
         ]);
     }
+
     public function stEditSS2(Group $groupTest, Test $testID)
     {
         return view('pages.studentTests.editSS2', [
             'groupTest' => $groupTest,
-            'testID'    => $testID,
-            'students'  => Student::with('group')->get(),
-            'tests'     => Test::with('students')->get(),
-            'groups'    => Group::with('students')->get()
+            'testID' => $testID,
+            'students' => Student::with('group')->get(),
+            'tests' => Test::with('students')->get(),
+            'groups' => Group::with('students')->get()
         ]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -278,28 +280,29 @@ class TestController extends Controller
     public function stUpdateSS2(Request $request, Test $studentTest)
     {
 
-            //vai buscar o elemento da tabela pivot a editar
-            $pivot_table = StudentTest::find($request->pivot_id);
-            //vai buscar a nota no array grade na posição do array pivot_id
-            $ss1 = $request->ss1;
-            $ss2 = $request->ss2;
-            $ss3 = $request->ss3;
-            $ss4 = $request->ss4;
-            $ss5 = $request->ss5;
-            $ss6 = $request->ss6;
-            $ss7 = $request->ss7;
-            $ss8 = $request->ss8;
-            $ss9 = $request->ss9;
-            $grade = collect([$ss1, $ss2, $ss3, $ss4, $ss5, $ss6, $ss7, $ss8, $ss9])->avg();
-            $gradef = number_format($grade, 2, '.', '');
-            //associa nota ao aluno
+        //vai buscar o elemento da tabela pivot a editar
+        $pivot_table = StudentTest::find($request->pivot_id);
+        //vai buscar a nota no array grade na posição do array pivot_id
+        $ss1 = $request->ss1;
+        $ss2 = $request->ss2;
+        $ss3 = $request->ss3;
+        $ss4 = $request->ss4;
+        $ss5 = $request->ss5;
+        $ss6 = $request->ss6;
+        $ss7 = $request->ss7;
+        $ss8 = $request->ss8;
+        $ss9 = $request->ss9;
+        $grade = collect([$ss1, $ss2, $ss3, $ss4, $ss5, $ss6, $ss7, $ss8, $ss9])->avg();
+        $gradef = number_format($grade, 2, '.', '');
+        //associa nota ao aluno
 
-            $pivot_table->grade = $gradef;
-            $pivot_table->save();
-            $group_id = $request->group_id;
+        $pivot_table->grade = $gradef;
+        $pivot_table->save();
+        $group_id = $request->group_id;
 
             return redirect('studentTests/'.$group_id.'/option')->with('status', 'Notas editadas com sucesso!');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -318,15 +321,16 @@ class TestController extends Controller
         $groupTests = [];
 
 
-        $tests = StudentTest::all();
+        $studentTests = StudentTest::all();
         $students = Student::with('group')->get();
-        foreach ($tests as $test) {
+        foreach ($studentTests as $test) {
             foreach ($students as $student) {
                 if ($test->student_id == $student->id) {
                     array_push($groupTests, $student->group_id);
 
                 }
             }
+
         }
         $groupTests = array_unique($groupTests);
 
@@ -336,26 +340,86 @@ class TestController extends Controller
             'groups' => Group:: with('students')->get(),
             'courses' => Course::with('groups')->get(),
             'groupTests' => $groupTests,
-            'studentTests' => $tests,
+            'studentTests' => $studentTests,
 
         ]);
     }
 
     public function chartPhasesIndex(Group $groupId)
     {
+        $tests = Test::all();
+        $studentTests = StudentTest::all();
+        $testsPhasesList = [];
+
+
+        foreach ($tests as $test) {
+            foreach ($test->students as $student) {
+                if ($student->group_id == $groupId->id) {
+                    $flag=true;
+                    for ($j = 0; $j < sizeof($testsPhasesList); $j++) {
+                        if ($testsPhasesList[$j]["id"] == $test->test_phase_id) {
+                            array_push($testsPhasesList[$j]["test"], $test->test_type_id);
+                            $flag=false;
+                            break;
+                        }
+                    }
+                    if($flag)
+                        array_push($testsPhasesList, array("id" => $test->test_phase_id, "test" => [$test->test_type_id]));
+                }
+
+                //$testsPhasesLis[0]["test"][0]
+                //$testsPhasesLis[0]["id"]
+
+
+
+
+            }
+
+        }
 
         return view('pages.charts.phases', [
             'groupId' => $groupId,
-            'tests' => Test::with('students'),
+            'tests' => $tests,
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
+            'studentTests' => $studentTests,
+            'students' => Student::with('group')->get(),
+            'testsPhasesList' => $testsPhasesList,
 
         ]);
     }
 
     public function chartPhase(Group $groupId, TestPhase $phaseId)
     {
+        $tests = Test::all();
+        $studentTests = StudentTest::all();
+        $testsPhasesList = [];
 
+
+        foreach ($tests as $test) {
+            foreach ($test->students as $student) {
+                if ($student->group_id == $groupId->id) {
+                    $flag=true;
+                    for ($j = 0; $j < sizeof($testsPhasesList); $j++) {
+                        if ($testsPhasesList[$j]["id"] == $test->test_phase_id) {
+                            array_push($testsPhasesList[$j]["test"], $test->test_type_id);
+                            $flag=false;
+                            break;
+                        }
+                    }
+                    if($flag)
+                        array_push($testsPhasesList, array("id" => $test->test_phase_id, "test" => [$test->test_type_id]));
+                }
+
+                //$testsPhasesLis[0]["test"][0]
+                //$testsPhasesLis[0]["id"]
+
+
+
+
+            }
+
+        }
 
         return view('pages.charts.phases', [
             'phaseId' => $phaseId,
@@ -364,6 +428,8 @@ class TestController extends Controller
             'students' => Student::with('group')->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
+            'studentTests' => $studentTests,
+            'testsPhasesList' => $testsPhasesList,
 
 
         ]);
@@ -372,6 +438,35 @@ class TestController extends Controller
 
     public function chartPhaseCompare(Group $groupId, int $comp)
     {
+        $studentTests = StudentTest::all();
+        $testsPhasesList = [];
+        $tests = Test::all();
+
+
+        foreach ($tests as $test) {
+            foreach ($test->students as $student) {
+                if ($student->group_id == $groupId->id) {
+                    $flag=true;
+                    for ($j = 0; $j < sizeof($testsPhasesList); $j++) {
+                        if ($testsPhasesList[$j]["id"] == $test->test_phase_id) {
+                            array_push($testsPhasesList[$j]["test"], $test->test_type_id);
+                            $flag=false;
+                            break;
+                        }
+                    }
+                    if($flag)
+                        array_push($testsPhasesList, array("id" => $test->test_phase_id, "test" => [$test->test_type_id]));
+                }
+
+                //$testsPhasesLis[0]["test"][0]
+                //$testsPhasesLis[0]["id"]
+
+
+
+
+            }
+
+        }
 
         return view('pages.charts.phases', [
             'comp' => $comp,
@@ -380,12 +475,44 @@ class TestController extends Controller
             'students' => Student::with('group')->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
+            'studentTests' => $studentTests,
+            'testsPhasesList' => $testsPhasesList,
 
         ]);
     }
 
     public function chartPhaseStudents(Group $groupId, int $st)
     {
+        $studentTests = StudentTest::all();
+        $testsPhasesList = [];
+        $tests = Test::all();
+
+
+        foreach ($tests as $test) {
+            foreach ($test->students as $student) {
+                if ($student->group_id == $groupId->id) {
+                    $flag=true;
+                    for ($j = 0; $j < sizeof($testsPhasesList); $j++) {
+                        if ($testsPhasesList[$j]["id"] == $test->test_phase_id) {
+                            array_push($testsPhasesList[$j]["test"], $test->test_type_id);
+                            $flag=false;
+                            break;
+                        }
+                    }
+                    if($flag)
+                    array_push($testsPhasesList, array("id" => $test->test_phase_id, "test" => [$test->test_type_id]));
+                }
+
+                //$testsPhasesLis[0]["test"][0]
+                //$testsPhasesLis[0]["id"]
+
+
+
+
+            }
+
+        }
+
 
         return view('pages.charts.phases', [
             'st' => $st,
@@ -394,6 +521,8 @@ class TestController extends Controller
             'students' => Student::with('group')->orderBy('name')->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
+            'studentTests' => $studentTests,
+            'testsPhasesList' => $testsPhasesList,
 
         ]);
     }

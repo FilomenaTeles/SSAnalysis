@@ -16,7 +16,7 @@
     'groups'    => $groups,
     'courses'   => $courses,
     'groupTests' =>$groupTests,
-    'studentTests' => $tests
+    'studentTests' => $studentTests
     ])
         @endcomponent
 

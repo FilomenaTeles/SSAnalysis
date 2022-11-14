@@ -3,16 +3,26 @@
 <?php
 $comp = 4;
 $student = 10;
-$tests =$tests;
+
+
 ?>
 <div class="container">
     <div class="d-grid gap-2 col-8 mx-auto row ">
         @foreach($testPhases as $testPhase)
             <div class="col"><a class="btn btn-primary" type="button"
-                                href="{{'/charts/'.$groupId->id.'/'.$testPhase->id}}">{{$testPhase->description}}</a>
+                                href="{{'/charts/'.$groupId->id.'/'.$testPhase->id}}"
+                                @if(!hasPhase($testPhase->id,$testsPhasesList))
+                                    style="pointer-events: none; background-color: white; border-color: #36236a; color: black"
+                    @endif
+                >{{$testPhase->description}}</a>
             </div>
         @endforeach
-        <div class="col"><a class="btn btn-primary" type="button" href="{{'/charts/'.$groupId->id.'/compare/'.$comp}}">Comparação</a>
+        <div class="col"><a class="btn btn-primary" type="button" href="{{'/charts/'.$groupId->id.'/compare/'.$comp}}"
+                            @if(count($testsPhasesList)<2 )
+                                style="pointer-events: none; background-color: white; border-color: #36236a; color: black"
+                                @endif
+            >Comparação</a>
+
         </div>
         <div class="col ml-4"><a class="btn btn-primary" type="button"
                                  href="{{'/charts/'.$groupId->id.'/students/'.$student}}">Alunos</a></div>
@@ -20,23 +30,22 @@ $tests =$tests;
     <br>
 
 </div>
+
 <?php
-
-$testsType = [];
-
-
-
-
-foreach ($tests as $test) {
-    foreach($test-> students as $student){
-        if($student->group->id ==$groupId->id){
-            array_push($testsType , $test->testType_id);
-        }
+function hasPhase($phaseId, $testsPhasesList)
+{
+foreach ($testsPhasesList as $testPhase){
+    if ( $testPhase["id"] ==$phaseId) {
+        return true;
     }
-
+    }
+    return false;
 }
+<<<<<<< HEAD
 $testsType = array_unique($testsType);
+=======
+>>>>>>> 62e7864f3569576489d4938993ed0e1b25ada714
 ?>
-    <!--
-style="pointer-events: none"
-<span class="badge badge-secondary">Sem testes</span>-->
+
+
+
