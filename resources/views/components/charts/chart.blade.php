@@ -51,25 +51,14 @@
         ]
     };
 
-    function average(ctx) {
-        const values = ctx.chart.data.datasets[0].data;
-        return values.reduce((a, b) => a + b, 0) / values.length;
+//avgTec plugin block
+    const avgTec={
+        id: 'avgTec',
+        beforeDatasetsDraw(chart, args, pluginoptions) {
+            const {ctx,}
+        }
     }
 
-    const annotation ={
-        type: 'line',
-        borderColor: 'black',
-        borderDash: [6, 6],
-        borderDashOffset: 0,
-        borderWidth: 3,
-        label: {
-            enabled: true,
-            content: (ctx) => 'Average: ' + average(ctx).toFixed(2),
-            position: 'end'
-        },
-        scaleID: 'y',
-        value: (ctx) => average(ctx)
-    }
 
     const config = {
         type: 'bar',
@@ -82,13 +71,7 @@
                 }
             }
         },
-        plugins:{
-            annotation:{
-                annotations:{
-                    annotation
-                }
-            }
-        }
+        plugins: [avgTec]
     };
 
     const myChart = new Chart(
