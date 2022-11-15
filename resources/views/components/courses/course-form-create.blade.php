@@ -31,7 +31,7 @@
 
 
         <button type="submit" class="btn btn-primary mb-2">Criar curso</button>
-        <a href="{{ URL::previous() }}" type="button" class="btn btn-primary mb-2">Cancelar</a>
+        <a href="{{ URL::previous() }}" type="button" id="back-btn" class="btn mb-2">Cancelar</a>
     </form>
 </div>
 

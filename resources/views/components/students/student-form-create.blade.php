@@ -107,6 +107,7 @@
 
                     @if(isset($groupId))
                         <option value="{{$groupId->id}}" selected>{{$groupId->edition}}</option>
+                        <input name="groupRedirect" type="number" value="{{$groupId->id}}" hidden>
                     @else
                     @foreach($groups as $group)
                             <option value="" disabled selected hidden>Turma</option>
@@ -121,7 +122,7 @@
         <div class="container text-right col">
 
             <button type="submit" class="btn btn-primary mb-2 ">Criar</button>
-            <a type="button" href="{{ URL::previous() }}" class="btn btn-primary mb-2 ">Cancelar</a>
+            <a type="button" href="{{ URL::previous() }}" id="back-btn" class="btn mb-2 ">Cancelar</a>
         </div>
 
     </form>
