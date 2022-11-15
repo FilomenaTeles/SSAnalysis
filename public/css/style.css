@@ -171,6 +171,11 @@ h1, h4{
     height:11rem;
 }
 
+.active{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .card-text{
     font-size: small;
 }
