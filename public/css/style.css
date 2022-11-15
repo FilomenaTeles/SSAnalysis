@@ -231,7 +231,6 @@ h1, h4{
 
 }
 
-
 footer{
     /*position:sticky;*/
     padding-top: 10px;
@@ -264,5 +263,17 @@ footer h5{
  }
 }*/
 
+.d-grid{
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 
+.col{
 
+    padding: 5px;
+    margin: 5px;
+    padding: 5px;
+
+}

@@ -8,14 +8,14 @@
         <th scope="col"></th>
         <th scope="col">Nome</th>
         <th scope="col">Gráfico</th>
-
-
     </tr>
+
     </thead>
     <tbody>
     @foreach($students as $key => $student)
         @if($student -> group_id == $groupId->id)
             <tr>
+
                 <td>{{$cont}}</td>
                 <td>{{$student -> name}}</td>
 
