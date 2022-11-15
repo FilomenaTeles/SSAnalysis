@@ -16,7 +16,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('pages.groups.index', ['groups' => Group::all(), 'courses' => Course::all()]);
+        return view('pages.groups.index', ['groups' => Group::all()->sortBy('edition'), 'courses' => Course::all()]);
     }
 
     /**

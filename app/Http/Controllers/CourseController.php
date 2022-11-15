@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('pages.courses.index', ['courses' => Course::all()]);
+        return view('pages.courses.index', ['courses' => Course::all()->sortBy('name')]);
 //        return view('pages.courses.index');
     }
 

@@ -213,6 +213,16 @@ h1, h4{
     color: red;
 }
 
+#lineTec{
+    color: #ec008b;
+
+}
+#lineSS{
+    color:#00adef;
+
+}
+
+
 footer{
     /*position:fixed;*/
     padding-top: 15px;

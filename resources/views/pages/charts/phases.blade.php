@@ -20,6 +20,7 @@
          'testsPhasesList'=> $testsPhasesList,
     ])
         @endcomponent
+            <br>
         <?php
 
         $labels_names[] = [];
@@ -185,6 +186,10 @@
         @if(isset($phaseId))
             @if($phaseId->id==1)
                 <h4>Fase 1</h4>
+                <div class="container">
+                    <h5>Resultados dos Testes Técnicos e Dinâmicas de Grupo</h5>
+                </div>
+                    <br>
 
 
                 @component('components.charts.chart',[
@@ -200,6 +205,10 @@
 
             @elseif($phaseId->id==2)
                 <h4>Fase 2</h4>
+                    <div class="container">
+                        <h5>Resultados dos Testes Técnicos e Dinâmicas de Grupo</h5>
+                    </div>
+                    <br>
                 @component('components.charts.chart',[
                 'phaseId'=>$phaseId,
                 'labels_names'=>$labels_names,
@@ -210,6 +219,10 @@
                 <br>
             @else()
                 <h4>Fase 3</h4>
+                    <div class="container">
+                        <h5>Resultados dos Testes Técnicos e Dinâmicas de Grupo</h5>
+                    </div>
+                    <br>
 
                 @component('components.charts.chart',[
                           'phaseId'=>$phaseId,
@@ -225,16 +238,15 @@
         @endif
 
         @if(isset($comp))
-            <h4>Comparação</h4>
-            <div class="container">
-                <h5>Teste Técnico</h5>
-            </div>
+            <h4>Análise Comparativa das 3 Fases</h4>
+
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-            <div class="container p-5">
+            <div class="container p-4">
+                <h5>Teste Técnico</h5>
                 <canvas id="myChart"></canvas>
-                <p class="text-center"><small>Gráfico das 3 fases dos testes técnicos de cada aluno;</small></p>
+                <p class="text-center"><small>Gráfico das 3 fases dos testes técnicos de cada aluno</small></p>
             </div>
 
 
@@ -247,14 +259,11 @@
                'gradesFase3' => $data_gradeTec3,
   ])
             @endcomponent
-            <br>
 
-            <div class="container">
+            <div class="container p-4">
                 <h5>Teste Dinâmica de Grupo</h5>
-            </div>
-            <div class="container p-5">
                 <canvas id="lineChartSS"></canvas>
-                <p class="text-center"><small>Gráfico das 3 fases das dinâmicas de grupo de cada aluno;</small></p>
+                <p class="text-center"><small>Gráfico das 3 fases das dinâmicas de grupo de cada aluno</small></p>
             </div>
 
             @component('components.charts.chart-comp-ss',[
@@ -266,11 +275,6 @@
       ])
             @endcomponent
 
-            <br>
-
-            <div class="container">
-                <h5>Testes Técnicos vs Dinâmica de Grupo</h5>
-            </div>
             <!--FAZER MEDIA DE TODAS AS FASES PARA CADA TIPO DE TESTE-->
 
 
@@ -288,9 +292,10 @@
                        value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
             @endfor
 
-            <div class="container p-5">
+            <div class="container p-4">
+                <h5>Testes Técnicos vs Dinâmica de Grupo</h5>
                 <canvas id="ChartComp"></canvas>
-                <p class="text-center"><small>Gráfico da média das 3 fases de cada tipo de teste;</small></p>
+                <p class="text-center"><small>Gráfico da média das 3 fases de cada tipo de teste</small></p>
             </div>
 
             @component('components.charts.chart-comp-comp',[
