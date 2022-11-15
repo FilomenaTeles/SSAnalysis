@@ -10,7 +10,7 @@
                 @if($user->photo)
                     <img id="profile-pic2" src="{{asset('storage/' . $user->photo)}}" alt="">
                 @else
-                    <img id="profile-pic" src="images/user-default-image2.png" alt="">
+                    <img id="profile-pic" src="../../images/user-default-image2.png" alt="">
                 @endif
                 <br>
                 @if(Auth::user()->id==$user->id)
@@ -81,7 +81,7 @@
                                     autocomplete="isActive"
                                     class="@error('isActive') is-invalid @enderror"
                                     value="1"
-                                    @if($user->user_type_id==1)
+                                    @if($user->isActive==1)
                                         checked
                                     @endif
                                     required>
@@ -96,7 +96,7 @@
                                     autocomplete="isActive"
                                     class="@error('isActive') is-invalid @enderror"
                                     value="0"
-                                    @if($user->user_type_id==2)
+                                    @if($user->isActive==0)
                                         checked
                                     @endif
                                     required>
@@ -110,7 +110,8 @@
             </span>
                         @enderror
                     </div>
-
+                @else
+                    <input type="number" name="isActive" value="1" hidden>
                 @endif
 
                 @if(Auth::user()->id==$user->id)

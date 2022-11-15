@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('pages.courses.index', ['courses' => Course::all()->sortBy('name')]);
+        return view('pages.courses.index', [
+            'courses' => Course::with('groups')->orderBy('name')->paginate(10)
+        ]);
 //        return view('pages.courses.index');
     }
 

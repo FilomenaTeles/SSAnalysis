@@ -64,66 +64,68 @@
             </span>
             @enderror
         </div>
+        <br>
+        <div class="row">
+            <div class="form-group col">
+                <label for="userType">Tipo de Utilizador</label>
+                <div class="row">
+                    <div class="form-group col-4 ml-0" >
+                        <label for="tecnico">Técnico</label>
+                        <input
+                            type="radio"
+                            id="tecnico"
+                            name="user_type_id"
+                            autocomplete="userType"
+                            class="@error('userType') is-invalid @enderror"
+                            value="2"
+                            required>
 
-        <div class="form-group">
-            <label for="userType">Tipo de Utilizador</label>
-            <div class="row">
-                <div class="form-group col-2 mr-0">
-                    <label for="admin">Administrador</label>
-                    <input
-                        type="radio"
-                        id="admin"
-                        name="user_type_id"
-                        autocomplete="userType"
-                        class="@error('userType') is-invalid @enderror"
-                        value="1"
-                        required>
+                    </div>
+                    <div class="form-group col-4 mr-0">
+                        <label for="admin">Administrador</label>
+                        <input
+                            type="radio"
+                            id="admin"
+                            name="user_type_id"
+                            autocomplete="userType"
+                            class="@error('userType') is-invalid @enderror"
+                            value="1"
+                            required>
+
+                    </div>
 
                 </div>
-                <div class="form-group col-2 ml-0" >
-                    <label for="tecnico">Técnico</label>
-                    <input
-                        type="radio"
-                        id="tecnico"
-                        name="user_type_id"
-                        autocomplete="userType"
-                        class="@error('userType') is-invalid @enderror"
-                        value="2"
-                        required>
 
-                </div>
+                @error('userType')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+                @enderror
             </div>
-
-            @error('userType')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="photo">Imagem</label>
-            <input type="file"
-                   id="photo"
-                   name="photo"
-                   autocomplete="photo"
-                   class="form-control
+            <div class="form-group col">
+                <label for="photo">Imagem</label>
+                <input type="file"
+                       id="photo"
+                       name="photo"
+                       autocomplete="photo"
+                       class="form-control
                    @error('photo') is-invalid @enderror"
-                   value="{{old('photo')}}"
-            >
-            @error('photo')
-            <span class="invalid-feedback" role="alert">
+                       value="{{old('photo')}}"
+                >
+                @error('photo')
+                <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-            @enderror
+                @enderror
+            </div>
         </div>
-
 
 
         <button type="submit" class="btn btn-primary mb-2 ">Criar</button>
-        <a type="button" href="{{ url('/users') }}" class="btn btn-primary mb-2 ">Cancelar</a>
+        <a type="button" href="{{ url('/users') }}" class="btn mb-2 " id="back-btn">Cancelar</a>
 
     </form>
 </div>
+<br>
 
 

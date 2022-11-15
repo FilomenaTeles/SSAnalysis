@@ -10,6 +10,8 @@ use App\Test;
 use App\TestPhase;
 use App\TestType;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class TestController extends Controller
 {
@@ -54,15 +56,21 @@ class TestController extends Controller
     {
         $turma_id = $request->group_id;
 
+
         $students = Student::all()->where('group_id', '=', $turma_id);
+
         $student = Student::all()->where('group_id', '=', $turma_id)->first();
+
+        if (count( $students)==0){
+        return redirect('tests')->with('erro', 'Não é possivel criar teste para turma sem alunos');
+    }
         $tests = Test::all()->where('test_phase_id', $request->test_phase_id);
         $studentTests2 = StudentTest::all()->where('student_id', '=', $student->id);
 
         foreach ($tests as $test){
             foreach ($studentTests2 as $studentTest2){
             if (($test->id == $studentTest2->test_id) && ($test->test_type_id == $request->test_type_id)){
-                return redirect('tests')->with('status', 'Teste já existe!');
+                return redirect('tests')->with('erro', 'Teste já existe!');
             }
             }
         }

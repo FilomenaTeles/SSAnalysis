@@ -11,7 +11,7 @@
             @if($user->photo)
                 <img id="profile-pic2" src="{{asset('storage/' . $user->photo)}}" alt="">
             @else
-                <img id="profile-pic" src="images/user-default-image2.png" alt="">
+                <img id="profile-pic" src="../../images/user-default-image2.png" alt="">
             @endif
         </div>
         <div class="col align-items-center mr-3">
