@@ -10,7 +10,6 @@
     <title>Soft Skills Analysis</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -19,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -66,18 +65,17 @@
             text-transform: uppercase;
         }
 
-
-
         footer{
             /*position:sticky;*/
-            /* padding-top: 5px;*/
+            padding: 8px;
             position: fixed;
             bottom:0;
             text-align: center;
             width: 100%;
-            /* margin: auto;*/
-            height: 55px;
+            margin: auto;
+            height: 29px;
             background-color: white;
+            font-size: small;
         }
 
     </style>
@@ -144,6 +142,18 @@
 
             @yield('content')
         </main>
+        <footer>
+            <!--    <div class="content">-->
+            <!--            <div class="row">-->
+            <!--                <div id="col1footer"></div>-->
+            <div class="">
+                <!--                    <h5 class="text-center">-->
+                &copy Soft Skills Analysis | Cesae Digital - Centro para o desenvolvimento de Competências Digitais | <?php echo date ('Y-M-d'); ?>
+                    <!--                    </h5>-->
+            </div>
+            <!--            </div>-->
+            <!--    </div>-->
+        </footer>
     </div>
 
 </body>

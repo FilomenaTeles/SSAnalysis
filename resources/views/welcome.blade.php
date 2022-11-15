@@ -8,7 +8,10 @@
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <!-- Styles -->
 
@@ -80,8 +83,6 @@
                 background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b), url(../public/images/img-analytics.jpg);
 
                 /*background-image: linear-gradient(to right, rgba(32, 21, 68, 0.82), rgba(36, 23, 75, 0.82), rgba(40, 26, 82, 0.82), rgba(44, 28, 89, 0.83), rgba(48, 31, 96, 0.81), rgba(64, 34, 106, 0.85), rgba(81, 36, 116, 0.87), rgba(98, 38, 125, 0.85), rgba(132, 36, 135, 0.82), rgba(167, 30, 140, 0.85), rgba(202, 19, 142, 0.85), rgba(236, 0, 139, 0.85)), url(../public/images/img-analytics.jpg);*/
-
-
             }
 
             .wave{
@@ -98,14 +99,15 @@
 
             footer{
                 /*position:sticky;*/
-               /* padding-top: 5px;*/
+                padding: 8px;
                 position: fixed;
                 bottom:0;
                 text-align: center;
                 width: 100%;
-                /* margin: auto;*/
-                height: 55px;
+                margin: auto;
+                height: 12px;
                 background-color: white;
+                font-size: small;
             }
 
 
@@ -137,8 +139,16 @@
             </div>
         </main>
         <footer>
-            @component('master.footer')
-            @endcomponent
+            <!--    <div class="content">-->
+<!--            <div class="row">-->
+<!--                <div id="col1footer"></div>-->
+                <div class="">
+<!--                    <h5 class="text-center">-->
+                        &copy Soft Skills Analysis | Cesae Digital - Centro para o desenvolvimento de Competências Digitais | <?php echo date ('Y-M-d'); ?>
+<!--                    </h5>-->
+                </div>
+<!--            </div>-->
+            <!--    </div>-->
         </footer>
 
     </body>

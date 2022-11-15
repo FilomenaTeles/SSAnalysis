@@ -224,17 +224,16 @@ h1, h4{
 
 footer{
     /*position:sticky;*/
-    padding-top: 8px;
+    padding-top: 10px;
     position: fixed;
     bottom:0;
     text-align: center;
     width: 100%;
-   /* margin: auto;*/
-    height: 30px;
+    margin: auto;
+    height: 28px;
     background-color: white;
 
 }
-
 
 #col1footer{
  width: 240px;
