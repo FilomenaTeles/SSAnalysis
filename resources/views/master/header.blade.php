@@ -12,7 +12,7 @@
                     @if(Auth::user()->photo)
                         <img id="profile-pic2" src="{{asset('storage/' . Auth::user()->photo)}}" alt="">
                     @else
-                        <img id="profile-pic" src="images/user-default-image2.png" alt="">
+                        <img id="profile-pic" src="../../../images/user-default-image2.png" alt="">
                     @endif
 
                     {{--                    <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"--}}
@@ -35,12 +35,14 @@
         <div class="row ">
             <div class="container-fluid col-sm-9 col-12">
 
-               <?php echo $_SERVER['PHP_SELF'] ?>
+               <?php $_SERVER['REQUEST_URI'] ?>
+
+                $uri = $request->path();
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{url('/tests')}}">Testes</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+
+                        <li class="breadcrumb-item"><?php echo $_SERVER['PATH_INFO'] ?></li>
+
                     </ol>
                 </nav>
 

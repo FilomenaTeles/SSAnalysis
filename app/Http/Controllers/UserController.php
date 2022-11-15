@@ -97,9 +97,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user              = User::find($id);
-        if (!isEmpty($request->password)){
+        if (isset($request->password)){
+
             $user->password     = bcrypt($request->password);
         }
+
 
         $user->name         = $request->name;
         $user->email        = $request->email;

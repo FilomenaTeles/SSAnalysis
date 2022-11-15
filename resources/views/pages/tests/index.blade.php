@@ -20,6 +20,15 @@
         </div>
     @endif
 
+        @if (session('erro'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('erro') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
     @component('components.tests.tests-list', [
    'tests' => $tests,
    'testTypes' => $testTypes,

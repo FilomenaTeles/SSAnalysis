@@ -42,7 +42,7 @@
     </tbody>
 </table>
 
-{{--{{$groups -> links()}}--}}
+{{$groups -> links()}}
 
 <br>
 

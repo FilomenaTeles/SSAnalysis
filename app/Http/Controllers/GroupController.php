@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 class GroupController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('pages.groups.index', ['groups' => Group::all()->sortBy('edition'), 'courses' => Course::all()]);
+        return view('pages.groups.index', [
+            'groups' => Group::with('course')->orderBy('edition')->paginate(10),
+            'courses' => Course::all()]);
     }
 
     /**

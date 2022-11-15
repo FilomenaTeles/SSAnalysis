@@ -58,6 +58,7 @@
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
                     @if($student->group_id == $groupId ->id)
+                            <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS1[$key]=$student->pivot -> grade}}" hidden>
 
                     @endif
@@ -82,6 +83,7 @@
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
                     @if($student->group_id == $groupId ->id)
+                            <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS2[$key]=$student->pivot -> grade}}" hidden>
 
                     @endif
@@ -105,6 +107,7 @@
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
                     @if($student->group_id == $groupId ->id)
+                            <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS3[$key]=$student->pivot -> grade}}" hidden>
 
                     @endif
@@ -120,6 +123,7 @@
 
                     @if($testsPhasesList[$i]["id"]==1 && !in_array(1,$testsPhasesList[$i]["test"]))
                         <input type="text" value="{{$data_gradeTec1[0] = 0}}" hidden>
+
 
                     @endif
                         @if($testsPhasesList[$i]["id"]==1 && !in_array(2,$testsPhasesList[$i]["test"]))
