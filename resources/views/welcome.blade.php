@@ -90,11 +90,24 @@
                 width: 100%;
             }
 
-            footer{
+            /*footer{
                 text-align: center;
                 margin-top: 150px;
 
+            }*/
+
+            footer{
+                /*position:sticky;*/
+               /* padding-top: 5px;*/
+                position: fixed;
+                bottom:0;
+                text-align: center;
+                width: 100%;
+                /* margin: auto;*/
+                height: 55px;
+                background-color: white;
             }
+
 
         </style>
     </head>
@@ -113,9 +126,7 @@
                     </div>
                 @endif
             </nav>
-
             <div class="wave" style="height: 250px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-1.97,5.44 C124.43,245.23 349.20,-49.99 501.13,23.20 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
-
         </header>
 
         <main>
@@ -129,6 +140,7 @@
             @component('master.footer')
             @endcomponent
         </footer>
+
     </body>
 
 </html>

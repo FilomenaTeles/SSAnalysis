@@ -26,6 +26,15 @@
 
     <style>
 
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
+
         header{
             width: 100%;
             height: 400px;
@@ -55,6 +64,20 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+
+
+
+        footer{
+            /*position:sticky;*/
+            /* padding-top: 5px;*/
+            position: fixed;
+            bottom:0;
+            text-align: center;
+            width: 100%;
+            /* margin: auto;*/
+            height: 55px;
+            background-color: white;
         }
 
     </style>
@@ -122,5 +145,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>
