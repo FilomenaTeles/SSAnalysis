@@ -29,4 +29,5 @@
 </table>
 
 {{--{{$courses -> links()}}--}}
+<br>
 

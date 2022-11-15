@@ -42,6 +42,8 @@
     </tbody>
 </table>
 
-{{--{{$courses -> links()}}--}}
+{{--{{$groups -> links()}}--}}
+
+<br>
 
 

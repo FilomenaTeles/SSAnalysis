@@ -55,3 +55,4 @@
 </table>
 
 {{ $students->links() }}
+<br>
