@@ -319,6 +319,7 @@
          'tests'      => $tests,
          'groups'    => $groups,
          'testPhases' =>$testPhases,
+         'studentTests' => $studentTests,
 
 ])
             @endcomponent
