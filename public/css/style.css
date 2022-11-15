@@ -151,7 +151,7 @@ body{
 main{
     margin-left: 240px;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 h1, h4{
@@ -238,13 +238,13 @@ h1, h4{
 
 footer{
     /*position:sticky;*/
-    padding-top: 10px;
+    padding-top: 6px;
     position: fixed;
     bottom:0;
     text-align: center;
     width: 100%;
     margin: auto;
-    height: 28px;
+    height: 35px;
     background-color: white;
 
 }

@@ -92,7 +92,7 @@
                     @endif
                 </td>
                 <td>
-                    <a href="{{url('/students/'.$student->id)}}" type="button" class="btn btn-primary">
+                    <a href="{{url('/students/'.$student->id)}}" type="button" id="eye-btn" class="btn">
                         <i class="bi bi-eye"></i>
                     </a>
                     <a href="{{url('/students/'.$student->id.'/edit')}}" type="button" class="btn btn-primary">
@@ -109,4 +109,8 @@
 
     </tbody>
 </table>
-
+<br>
+<div class="container text-right">
+    <a href="{{ URL::previous() }}" type="button" id="back-btn" class="mt-2 mb-5 btn">Voltar</a>
+</div>
+<br>

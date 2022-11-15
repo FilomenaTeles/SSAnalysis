@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         return view('pages.students.index',[
-            'students' => Student::with('group')->paginate(10),
+            'students' => Student::with('group')->orderBy('name')->paginate(10),
             'groups'   => Group:: with('students')->get(),
         ]);
     }
