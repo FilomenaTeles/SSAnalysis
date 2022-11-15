@@ -103,6 +103,7 @@ class UserController extends Controller
 
         $user->name         = $request->name;
         $user->email        = $request->email;
+        $user->isActive     = $request->isActive;
         $user->save();
 
         if ($request->file('photo')) {

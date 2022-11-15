@@ -67,19 +67,19 @@
                         readonly>
 
                 </div>
-                @if( Auth::user()->user_type_id ==1)
+                @if( Auth::user()->user_type_id ==1 && $user->id !=1)
 
                     <div class="form-group">
-                        <label for="userType">Estado:</label>
+                        <label for="isActive">Estado:</label>
                         <div class="row">
                             <div class="form-group col-4 mr-0">
-                                <label for="admin">Ativo</label>
+                                <label for="active">Ativo</label>
                                 <input
                                     type="radio"
-                                    id="admin"
-                                    name="userType"
-                                    autocomplete="userType"
-                                    class="@error('userType') is-invalid @enderror"
+                                    id="active"
+                                    name="isActive"
+                                    autocomplete="isActive"
+                                    class="@error('isActive') is-invalid @enderror"
                                     value="1"
                                     @if($user->user_type_id==1)
                                         checked
@@ -91,11 +91,11 @@
                                 <label for="tecnico">Inativo</label>
                                 <input
                                     type="radio"
-                                    id="tecnico"
-                                    name="userType"
-                                    autocomplete="userType"
-                                    class="@error('userType') is-invalid @enderror"
-                                    value="2"
+                                    id="noActive"
+                                    name="isActive"
+                                    autocomplete="isActive"
+                                    class="@error('isActive') is-invalid @enderror"
+                                    value="0"
                                     @if($user->user_type_id==2)
                                         checked
                                     @endif
@@ -104,7 +104,7 @@
                             </div>
                         </div>
 
-                        @error('userType')
+                        @error('isActive')
                         <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

@@ -14,7 +14,10 @@
         'groupId' => $groupId,
         'tests'      => $tests,
         'groups'    => $groups,
-        'testPhases' =>$testPhases
+        'testPhases' =>$testPhases,
+        'studentTests' => $studentTests,
+        'studentsList' => $students,
+         'testsPhasesList'=> $testsPhasesList,
     ])
         @endcomponent
         <?php
@@ -60,6 +63,7 @@
                 @endforeach
 
             @endif
+
             <!--FASE 2-->
             @if($test->test_phase_id ==2 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
@@ -106,7 +110,76 @@
                 @endforeach
 
             @endif
+
+            <!--
+            //$testsPhasesList[0]["test"][0]
+                //$testsPhasesList[0]["id"]
+             -->
+            @for($i=0; $i<sizeof($testsPhasesList); $i++)
+
+                    @if($testsPhasesList[$i]["id"]==1 && !in_array(1,$testsPhasesList[$i]["test"]))
+                        <input type="text" value="{{$data_gradeTec1[0] = 0}}" hidden>
+
+                    @endif
+                        @if($testsPhasesList[$i]["id"]==1 && !in_array(2,$testsPhasesList[$i]["test"]))
+                            <input type="text" value="{{$data_gradeSS1[0] = 0}}" hidden>
+
+                        @endif
+
+                        @if($testsPhasesList[$i]["id"]==2 && !in_array(1,$testsPhasesList[$i]["test"]))
+                            <input type="text" value="{{$data_gradeTec2[0] = 0}}" hidden>
+
+                        @endif
+                        @if($testsPhasesList[$i]["id"]==2 && !in_array(2,$testsPhasesList[$i]["test"]))
+                            <input type="text" value="{{$data_gradeSS2[0] = 0}}" hidden>
+
+                        @endif
+
+                        @if($testsPhasesList[$i]["id"]==3 && !in_array(1,$testsPhasesList[$i]["test"]))
+                            <input type="text" value="{{$data_gradeTec3[0] = 0}}" hidden>
+
+
+                        @endif
+                        @if($testsPhasesList[$i]["id"]==3 && !in_array(2,$testsPhasesList[$i]["test"]))
+                            <input type="text" value="{{$data_gradeSS3[0] = 0}}" hidden>
+
+                        @endif
+
+
+
+                @endfor
+                <!-- VER QUAL FASE QUE FALTA -->
+                @if(!hasPhase(1,$testsPhasesList))
+                    <input type="text" value="{{$data_gradeTec1[0] = 0}}" hidden>
+                    <input type="text" value="{{$data_gradeSS1[0] = 0}}" hidden>
+
+                @endif
+
+                @if(!hasPhase(2,$testsPhasesList))
+                    <input type="text" value="{{$data_gradeTec2[0] = 0}}" hidden>
+                    <input type="text" value="{{$data_gradeSS2[0] = 0}}" hidden>
+
+                @endif
+
+                @if(!hasPhases(3,$testsPhasesList))
+                    <input type="text" value="{{$data_gradeTec3[0] = 0}}" hidden>
+                    <input type="text" value="{{$data_gradeSS3[0] = 0}}" hidden>
+
+                @endif
+
+
         @endforeach
+            <?php
+            function hasPhases($phaseId, $testsPhasesList)
+            {
+                foreach ($testsPhasesList as $testPhase){
+                    if ( $testPhase["id"] ==$phaseId) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            ?>
 
         <!--CRIAÇÃO DOS GRÁFICOS-->
         @if(isset($phaseId))
@@ -138,7 +211,6 @@
             @else()
                 <h4>Fase 3</h4>
 
-
                 @component('components.charts.chart',[
                           'phaseId'=>$phaseId,
                           'labels_names'=>$labels_names,
@@ -146,6 +218,7 @@
                           'gradeSS'=>$data_gradeSS3,
 
             ])
+
                 @endcomponent
                 <br>
             @endif
@@ -163,6 +236,8 @@
                 <canvas id="myChart"></canvas>
                 <p class="text-center"><small>Gráfico das 3 fases dos testes técnicos de cada aluno;</small></p>
             </div>
+
+
 
             @component('components.charts.chart-comp',[
 
@@ -228,7 +303,7 @@
 
         @endif
         @if(isset($st))
-                <br>
+            <br>
             @component('components.charts.chart-students-list',[
          'students' =>$students,
          'groupId' => $groupId,
@@ -238,7 +313,7 @@
 
 ])
             @endcomponent
-                <br>
+            <br>
         @endif
     </div>
 

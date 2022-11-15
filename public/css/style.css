@@ -24,7 +24,7 @@ body{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;*/
 }
-#add-btn{
+#add-btn, #btn-ss2{
     background-color: #201544;
     color: white;
 }
@@ -45,6 +45,7 @@ body{
 #btn-card-grades{
     background-color: #ec008b;
     font-weight: bold;
+
 }
 
 #btn-card-grades:hover{
@@ -59,6 +60,8 @@ body{
     /*BG 2*/
     /*
     background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #332c70, #343880, #344590, #2d5eab, #2178c3, #0f92da, #00adef);
+    padding: 40px;
+
     /*BG 3 */
     /*background-image: linear-gradient(to right, #201544, #24174b, #281a52, #2c1c59, #301f60, #40226a, #512474, #62267d, #842487, #a71e8c, #ca138e, #ec008b)*/
 
@@ -77,7 +80,6 @@ body{
     background: rgb(54,35,106);
     background: linear-gradient(90deg, rgba(54,35,106,1) 5%, rgba(200,24,130,1) 27%, rgba(0,173,239,1) 73%);
     */
-
 
 }
 
@@ -164,7 +166,7 @@ h1, h4{
     width: 90%;
 }
 
-.card{
+#card-tests{
     width: 15rem;
     height:11rem;
 }
@@ -172,7 +174,6 @@ h1, h4{
 .card-text{
     font-size: small;
 }
-
 .card-title{
     font-weight: bold;
 }

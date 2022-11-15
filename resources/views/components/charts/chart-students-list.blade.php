@@ -27,7 +27,7 @@
                     </button>
 
                     <div class="collapse" id="collapse{{$student->id}}">
-                        <div class="card card-body">
+                        <div class="cards card-body">
                             @component('components.charts.chart-student',[
                             'name' =>'chart'.$student->id,
                             'label' => 'label'.$student->id,
