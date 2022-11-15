@@ -23,7 +23,7 @@ class TestController extends Controller
         return view('pages.tests.index', [
 
 
-            'tests' => Test::paginate(5), Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->get(),
+            'tests' => Test::with('testType', 'testPhase', 'students')->orderBy('test_date')->paginate(10),
             'testTypes' => TestType::with('tests')->get(),
             'testPhases' => TestPhase::with('tests')->get(),
             'groups' => Group:: with('students')->get(),
@@ -52,33 +52,45 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'test_type_id' => 'required',
-            'test_phase_id' => 'required',
-            'test_date' => 'required',
-        ]);
-
-
-        $test = new Test();
-        $test->test_type_id = $request->test_type_id;
-        $test->test_phase_id = $request->test_phase_id;
-        $test->test_date = $request->test_date;
-
-        $test->save();
-
         $turma_id = $request->group_id;
 
         $students = Student::all()->where('group_id', '=', $turma_id);
-        foreach ($students as $student) {
+        $student = Student::all()->where('group_id', '=', $turma_id)->first();
+        $tests = Test::all()->where('test_phase_id', $request->test_phase_id);
+        $studentTests2 = StudentTest::all()->where('student_id', '=', $student->id);
 
-            $test->students()->attach($student->id);
-
-
+        foreach ($tests as $test){
+            foreach ($studentTests2 as $studentTest2){
+            if (($test->id == $studentTest2->test_id) && ($test->test_type_id == $request->test_type_id)){
+                return redirect('tests')->with('status', 'Teste já existe!');
+            }
+            }
         }
 
-        return redirect('tests')->with('status', 'Teste criado com sucesso!');
-    }
+            $this->validate($request, [
+                'test_type_id' => 'required',
+                'test_phase_id' => 'required',
+                'test_date' => 'required',
+            ]);
+
+
+            $test = new Test();
+            $test->test_type_id = $request->test_type_id;
+            $test->test_phase_id = $request->test_phase_id;
+            $test->test_date = $request->test_date;
+
+            $test->save();
+
+
+            foreach ($students as $student) {
+
+                $test->students()->attach($student->id);
+
+
+            }
+
+            return redirect('tests')->with('status', 'Teste criado com sucesso!');
+        }
 
     /**
      * Display the specified resource.
@@ -153,7 +165,7 @@ class TestController extends Controller
         return view('pages.studentTests.option', [
 
             'groupTest' => $groupTest,
-            'tests' => Test::with('students')->get(),
+            'tests' => Test::with('students')->orderBy('test_date')->get(),
             'groups' => Group:: with('students')->get(),
             'students' => Student::with('group')->get(),
             'courses' => Course::with('groups')->get(),

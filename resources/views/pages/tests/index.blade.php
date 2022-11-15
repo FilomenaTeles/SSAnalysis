@@ -26,6 +26,7 @@
    'testPhases' => $testPhases,
    'groups' => $groups,
    'students'     => $students,
+
    ])
     @endcomponent
     </div>

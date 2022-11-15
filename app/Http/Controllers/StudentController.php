@@ -52,12 +52,11 @@ class StudentController extends Controller
             'name'          => 'required',
             'city'          => 'required',
             'birth_date'    => 'required',
-            'email'         => 'required',
+            'email'         => 'required|unique:students',
             'phone_number'  => 'required|digits:9',
             'group_id'      => 'required',
 
         ]);
-       // dd($request);
 
         $student                    = new Student();
         $student -> name            = $request -> name;
@@ -69,7 +68,11 @@ class StudentController extends Controller
 
         $student->save();
 
+        if ($request->groupRedirect){
+        return redirect('groups/'.$request->group_id)->with('status','Aluno criado com sucesso!');
+    }else{
         return redirect('students')->with('status','Aluno criado com sucesso!');
+        }
     }
 
     /**
