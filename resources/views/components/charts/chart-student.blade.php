@@ -12,11 +12,21 @@
         'Fase 3',
     ];
 
+    const {{$dataTec}}=[0,0,0];
 
-const {{$dataTec}}=[19,18,17];
+    const {{$dataSS}}=[0,0,0];
 
 
-    const {{$dataSS}}=[18,17,19];
+    @foreach($gradesTec as $key => $grade)
+    {{$dataTec}}[{{$key}}] ={{$grade}}
+        @endforeach;
+
+
+    @foreach($gradesSS as $key => $grade)
+    {{$dataSS}}[{{$key}}] ={{$grade}}
+        @endforeach;
+
+
 
 
     const {{$data}} = {
@@ -43,7 +53,14 @@ const {{$dataTec}}=[19,18,17];
     const config{{$name}} = {
         type: 'bar',
         data: {{$data}},
-        options: {}
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 20
+                }
+            }
+        }
     };
 
     const {{$name}} = new Chart(
