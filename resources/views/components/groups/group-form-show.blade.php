@@ -50,7 +50,6 @@
         <div class="col text-right">
             <a href="{{url('/students/create/'.$group->id)}}" id="add-btn" type="button" class="btn btn-primary mb-2">Adicionar aluno
                 <i class="bi bi-person-plus-fill"></i></a>
-
         </div>
 
     </div>

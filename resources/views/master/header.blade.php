@@ -34,18 +34,33 @@
         </div>
         <div class="row ">
             <div class="container-fluid col-sm-9 col-12">
+{{--               <?php $_SERVER['REQUEST_URI'] ?>--}}
 
-               <?php $_SERVER['REQUEST_URI'] ?>
+{{--                $uri = $request->path();--}}
+{{--                <nav aria-label="breadcrumb">--}}
+{{--                    <ol class="breadcrumb">--}}
 
-                $uri = $request->path();
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
+{{--                        <li class="breadcrumb-item"><?php echo $_SERVER['PATH_INFO'] ?></li>--}}
 
-                        <li class="breadcrumb-item"><?php echo $_SERVER['PATH_INFO'] ?></li>
+{{--                    </ol>--}}
+                {{--              </nav>--}}
 
-                    </ol>
-                </nav>
+                {{--  ------ ROTAS -----------}}
+ {{--                <a class="{{Request::is('/') ? 'active' : ''}}" href="{{ url('/home') }}">Home</a> /--}}
+{{--                <a class="{{(Request::is('tests') || Request::is('tests/*')) ? 'active' : ''}}" href="{{ ('/tests') }}">Testes</a> /--}}
+{{--                <a class="{{(Request::is('studentTests') || Request::is('studentTests/*')) ? 'active' : ''}}" href="{{ ('/studentTests') }}">Registar Notas</a> /--}}
+{{--                <a class="{{(Request::is('charts') || Request::is('charts/*')) ? 'active' : ''}}" href="{{ ('/charts') }}">Análise Comparativa</a>--}}
+{{--            </div>--}}
+{{--            <div class="container-fluid col-sm-9 col-12">--}}
+{{--                @if (isset($courses))--}}
+{{--                <a class="{{(Request::is('courses') || Request::is('courses/*')) ? 'active' : ''}}" href="{{ ('/courses') }}">Cursos</a> /--}}
+{{--                @endif--}}
+{{--                <a class=" {{(Request::is('groups') || Request::is('groups/*')) ? 'active' : ''}}" href="{{ ('/groups') }}">Turmas</a> /--}}
+{{--                <a class="{{(Request::is('students') || Request::is('students/*')) ? 'active' : ''}}" href="{{ ('/students') }}">Alunos</a> /--}}
 
+{{--                @if (Auth::user() && Auth::user()-> user_type_id==1)--}}
+{{--                    <a class="{{(Request::is('users') || Request::is('users/*')) ? 'active' : ''}}" href="{{ ('/users') }}">Técnicos</a>--}}
+{{--                @endif--}}
             </div>
         </div>
     </div>

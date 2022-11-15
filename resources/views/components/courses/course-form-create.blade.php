@@ -1,4 +1,4 @@
-
+<br>
 <div class="container">
     <form method="POST" action="{{ url('courses') }}">
         @csrf
