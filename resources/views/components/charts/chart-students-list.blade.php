@@ -11,9 +11,8 @@ $grade_SS = [];
         <th scope="col"></th>
         <th scope="col">Nome</th>
         <th scope="col">Gráfico</th>
-
-
     </tr>
+
     </thead>
     <tbody>
     @foreach($students as $key => $student)
@@ -51,6 +50,7 @@ $grade_SS = [];
 
 
             <tr>
+
                 <td>{{$cont}}</td>
                 <td>{{$student -> name}}</td>
 

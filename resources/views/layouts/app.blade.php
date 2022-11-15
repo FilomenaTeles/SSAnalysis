@@ -67,13 +67,13 @@
 
         footer{
             /*position:sticky;*/
-            padding: 8px;
+            padding: 6px;
             position: fixed;
             bottom:0;
             text-align: center;
             width: 100%;
             margin: auto;
-            height: 29px;
+            height: 27px;
             background-color: white;
             font-size: small;
         }

@@ -56,3 +56,5 @@
 
 {{ $students->links() }}
 <br>
+<br>
+<br>

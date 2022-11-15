@@ -47,7 +47,7 @@
                     <form action="{{url('tests/' . $test->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                    <button type="submit" class="btn btn-outline-dark"><i class="bi bi-trash3-fill"></i></button>
                     </form>
                 </div>
             </td>
