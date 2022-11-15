@@ -1,5 +1,5 @@
 <footer>
-    <div class="container">
+<!--    <div class="content">-->
         <div class="row">
             <div id="col1footer"></div>
             <div class="col">
@@ -8,5 +8,5 @@
                 </h5>
             </div>
         </div>
-    </div>
+<!--    </div>-->
 </footer>

@@ -27,33 +27,32 @@
 
 </head>
 
-<body>
-<!-- SideBar -->
 
-@component('master.sidebar')
-@endcomponent
+    <body>
+    <!-- SideBar -->
+        @component('master.sidebar')
+        @endcomponent
 
-<!-- Header -->
-@component('master.header')
-@endcomponent
-<!-- .Header -->
+        <!-- Header -->
+        @component('master.header')
+        @endcomponent
+        <!-- .Header -->
+
+        <!-- .content -->
+        <main>
+            @yield('content')
+        </main>
+        <!-- .content -->
+        @component('master.footer')
+        @endcomponent
+
+        <!-- Scripts -->
+        <script src="{!! asset('js/app.js') !!}" type="text/javascript"></script>
+        @yield('scripts')
+    </body>
 
 
-<!-- .content -->
-<main>
-    @yield('content')
-</main>
-<!-- .content -->
 
 
-@component('master.footer')
-@endcomponent
-
-<!-- Scripts -->
-
-<script src="{!! asset('js/app.js') !!}" type="text/javascript"></script>
-@yield('scripts')
-
-</body>
 
 </html>
