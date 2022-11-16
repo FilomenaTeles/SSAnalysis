@@ -465,6 +465,7 @@ class TestController extends Controller
 
         foreach ($tests as $test) {
             foreach ($test->students as $student) {
+
                 if ($student->group_id == $groupId->id) {
                     $flag=true;
                     for ($j = 0; $j < sizeof($testsPhasesList); $j++) {
@@ -487,6 +488,8 @@ class TestController extends Controller
             }
 
         }
+
+
 
         return view('pages.charts.phases', [
             'comp' => $comp,

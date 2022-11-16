@@ -35,11 +35,11 @@ class HomeController extends Controller
 
         //return view('home');
         $tests = Test::all()->where('test_date','>',date('Y-m-d'))->sortBy('test_date')->take(5);
-       // $students = Student::all()->where('birth_date')->date_format('m-d') ->sortBy('birth_date');
+        $students = Student::all()->where('birth_date')->sortBy('birth_date');
 
-        $b_day = DB:: table('students') -> select('id','name','birth_date','email')->where(DB::raw(DATE_FORMAT($birth,'%m-%d'),$today)) ->get();
+     //   $b_day = DB:: table('students') -> select('id','name','birth_date','email')->where(DB::raw(DATE_FORMAT($birth,'%m-%d'),$today)) ->get();
 
-        dd($b_day);
+       // dd($b_day);
 
           return view('pages.index',[
               'tests'       => $tests,

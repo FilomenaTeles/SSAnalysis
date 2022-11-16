@@ -1,29 +1,49 @@
-
-
 <script>
 
 
-   const label_namecomp =[];
+    const label_namecomp = [];
 
     @foreach($labels_names as $key => $names )
+        @if(isset($labels_names[$key]) )
+        label_namecomp[{{$key}}] = '{{$names}}'
+    @else
 
-        label_namecomp[{{$key}}]= '{{$names}}'
+    if ({{$key == 0}}) {
+        label_namecomp.pop();
+    }
 
-    @endforeach;
+    @endif
 
-   const dataTecAvg=[];
-   @foreach($data_grade_avg_Tec as $key => $grade)
+    @endforeach
 
-       dataTecAvg[{{$key}}]={{$grade}}
-       @endforeach;
+    const dataTecAvg = [];
+    @foreach($data_grade_avg_Tec as $key => $grade)
+        @if(isset($data_grade_avg_Tec[$key]) )
+        dataTecAvg[{{$key}}] = {{$grade}};
+    @else
 
-   const dataSSAvg=[];
-   @foreach($data_grade_avg_SS as $key => $grade)
-       dataSSAvg[{{$key}}]={{$grade}}
-       @endforeach;
+    if ({{$key == 0}}) {
+        dataTecAvg.pop();
+    }
+
+    @endif
+        @endforeach;
 
 
+    const dataSSAvg = [];
+    @foreach($data_grade_avg_SS as $key => $grade)
+        @if(isset($data_grade_avg_SS[$key]) )
+        dataSSAvg[{{$key}}] = {{$grade}};
+    @else
 
+    if ({{$key == 0}}) {
+        dataSSAvg.pop();
+    }
+
+    @endif
+        @endforeach;
+
+console.log(dataSSAvg)
     const datacomp = {
         labels: label_namecomp,
         datasets: [
@@ -52,10 +72,10 @@
         type: 'bar',
         data: datacomp,
         options: {
-            scales:{
-                y:{
-                    beginAtZero:true,
-                    max:20
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 20
                 }
             }
         }

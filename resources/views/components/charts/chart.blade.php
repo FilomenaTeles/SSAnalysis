@@ -2,12 +2,12 @@
 
     <canvas id="myChart"></canvas>
     <br>
-        <div class="row ">
-            <p class="col-3"></p>
-            <p class="col-3 mr-0"><i class="bi bi-align-start" id="lineTec"></i><small>Média Técnicos</small> </p>
-            <p class="col-3 ml-0"><i class="bi bi-align-start" id="lineSS"></i><small>Média Dinâmicas de Grupo</small> </p>
-            <p class="col-3"></p>
-        </div>
+    <div class="row ">
+        <p class="col-3"></p>
+        <p class="col-3 mr-0"><i class="bi bi-align-start" id="lineTec"></i><small>Média Técnicos</small></p>
+        <p class="col-3 ml-0"><i class="bi bi-align-start" id="lineSS"></i><small>Média Dinâmicas de Grupo</small></p>
+        <p class="col-3"></p>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -16,11 +16,20 @@
 
     const labels = [];
 
+
     @foreach($labels_names as $key => $names )
-
+        @if(isset($labels_names[$key]) )
         labels[{{$key}}] = '{{$names}}'
+    @else
+        <?php
+        if ($key == 0) {
+            array_pop($labels_names);
 
-    @endforeach;
+        }
+        ?>
+    @endif
+
+    @endforeach
 
 
     const dataTec = [];
@@ -30,13 +39,13 @@
     @foreach($gradeTec as $key => $grade)
         dataTec[{{$key}}] = {{$grade}}
         avgTec = avgTec + {{$grade}};
-    @endforeach;
+    @endforeach
 
     const dataSS = [];
     @foreach($gradeSS as $key => $grade)
         dataSS[{{$key}}] = {{$grade}}
         avgSS = avgSS + {{$grade}};
-    @endforeach;
+    @endforeach
 
 
 
@@ -74,15 +83,15 @@
 
             ctx.save();
 
-            const avgt = avgTec / dataTec . length;
-            const avgs = avgSS / dataSS . length;
+            const avgt = avgTec / dataTec.length;
+            const avgs = avgSS / dataSS.length;
 
 
-            function hasAvg(value){
-               if (value!=0){
-                   return true
-               }
-               return false
+            function hasAvg(value) {
+                if (value != 0) {
+                    return true
+                }
+                return false
             }
 
             if (hasAvg(avgt)) {

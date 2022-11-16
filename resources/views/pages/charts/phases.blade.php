@@ -37,6 +37,7 @@
         $data_grade_avg_Tec[] = [];
         $data_grade_avg_SS[] = [];
 
+        $pos=0;
 
         ?>
 
@@ -45,9 +46,19 @@
             @if($test->test_phase_id ==1 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
+
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec1[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                        <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeTec1);
+                            }
+                            ?>
+
 
                     @endif
                 @endforeach
@@ -57,9 +68,16 @@
             @if($test->test_phase_id ==1 && $test -> test_type_id ==2)
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS1[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                            <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeSS1);
+                            }
+                            ?>
 
                     @endif
                 @endforeach
@@ -70,9 +88,16 @@
             @if($test->test_phase_id ==2 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec2[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                            <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeTec2);
+                            }
+                            ?>
 
                     @endif
                 @endforeach
@@ -82,9 +107,16 @@
             @if($test->test_phase_id ==2 && $test -> test_type_id ==2)
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS2[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                            <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeSS2);
+                            }
+                            ?>
 
                     @endif
                 @endforeach
@@ -94,9 +126,16 @@
             @if($test->test_phase_id ==3 && $test -> test_type_id ==1)
                 <!--Teste Tecnico-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec3[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                            <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeTec3);
+                            }
+                            ?>
 
                     @endif
                 @endforeach
@@ -106,19 +145,25 @@
             @if($test->test_phase_id ==3 && $test -> test_type_id ==2)
                 <!--Teste SS-->
                 @foreach($test->students as $key => $student)
-                    @if($student->group_id == $groupId ->id)
+                    @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS3[$key]=$student->pivot -> grade}}" hidden>
+                        @else
+                            <?php
+                            if ($key==0){
+                                array_pop( $labels_names);
+                                array_pop( $data_gradeSS3);
+                            }
+                            ?>
 
                     @endif
                 @endforeach
 
             @endif
 
-            <!--
-            //$testsPhasesList[0]["test"][0]
-                //$testsPhasesList[0]["id"]
-             -->
+
+
+
             @for($i=0; $i<sizeof($testsPhasesList); $i++)
 
                     @if($testsPhasesList[$i]["id"]==1 && !in_array(1,$testsPhasesList[$i]["test"]))
@@ -185,6 +230,48 @@
                 return false;
             }
             ?>
+
+            <?php $newlabels = array();
+            $newgradeTec1 = array();
+            $newgradeTec2 = array();
+            $newgradeTec3 = array();
+            $newgradeSS1 = array();
+            $newgradeSS2 = array();
+            $newgradeSS3 = array();?>
+
+            @foreach($labels_names as $label_name)
+                <?php array_push($newlabels,$label_name);?>
+            @endforeach
+            @foreach($data_gradeTec1 as $label_name)
+                <?php array_push($newgradeTec1,$label_name);?>
+            @endforeach
+            @foreach($data_gradeTec2 as $label_name)
+                <?php array_push($newgradeTec2,$label_name);?>
+            @endforeach
+            @foreach($data_gradeTec3 as $label_name)
+                <?php array_push($newgradeTec3,$label_name);?>
+            @endforeach
+
+            @foreach($data_gradeSS1 as $label_name)
+                <?php array_push($newgradeSS1,$label_name);?>
+            @endforeach
+            @foreach($data_gradeSS2 as $label_name)
+                <?php array_push($newgradeSS2,$label_name);?>
+            @endforeach
+            @foreach($data_gradeSS3 as $label_name)
+                <?php array_push($newgradeSS3,$label_name);?>
+            @endforeach
+
+        <?php
+        $labels_names = $newlabels;
+        $data_gradeTec1 = $newgradeTec1;
+        $data_gradeTec2 = $newgradeTec2;
+        $data_gradeTec3 = $newgradeTec3;
+        $data_gradeSS1 = $newgradeSS1;
+        $data_gradeSS2 = $newgradeSS2;
+        $data_gradeSS3 = $newgradeSS3;
+        ?>
+
 
         <!--CRIAÇÃO DOS GRÁFICOS-->
         @if(isset($phaseId))
@@ -270,6 +357,7 @@
                 <p class="text-center"><small>Gráfico das 3 fases das dinâmicas de grupo de cada aluno</small></p>
             </div>
 
+
             @component('components.charts.chart-comp-ss',[
 
                    'labels_names'=>$labels_names,
@@ -282,19 +370,36 @@
             <!--FAZER MEDIA DE TODAS AS FASES PARA CADA TIPO DE TESTE-->
 
 
+
+            <?php
+
+                    $data_grade_avg_Tec = array();
+                    $data_grade_avg_SS = array();
+
+
+                    ?>
+
             @for ($i = 0; $i < sizeof($labels_names); $i++)
-                <input type="text"
-                       value="  {{$data_grade_avg_Tec[$i]= (($data_gradeTec1[$i]+$data_gradeTec2[$i]+$data_gradeTec3[$i])/3)}}"
-                       hidden>
-                <input type="text"
-                       value="  {{$data_grade_avg_SS[$i]= (($data_gradeSS1[$i]+$data_gradeSS2[$i]+$data_gradeSS3[$i])/3)}}"
-                       hidden>
-                <input type="text"
-                       value="   {{$data_grade_avg_Tec[$i] = number_format($data_grade_avg_Tec[$i], 2, '.', '')}}"
-                       hidden>
-                <input type="text"
-                       value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
-            @endfor
+
+                    <input type="text"
+                               value="  {{array_push($data_grade_avg_Tec,($data_gradeTec1[$i]+$data_gradeTec2[$i]+$data_gradeTec3[$i])/3)}}"
+                               hidden>
+                        <input type="text"
+                               value="  {{array_push($data_grade_avg_SS, ($data_gradeSS1[$i]+$data_gradeSS2[$i]+$data_gradeSS3[$i])/3)}}"
+                               hidden>
+                    <input type="text"
+                           value="   {{$data_grade_avg_Tec[$i] = number_format($data_grade_avg_Tec[$i], 2, '.', '')}}"
+                           hidden>
+                    <input type="text"
+                           value="   {{$data_grade_avg_SS[$i] = number_format($data_grade_avg_SS[$i], 2, '.', '')}}" hidden>
+
+
+                @endfor
+
+
+
+
+
 
             <div class="container p-4">
                 <h5>Testes Técnicos vs Dinâmica de Grupo</h5>
