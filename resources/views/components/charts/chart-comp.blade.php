@@ -4,10 +4,47 @@
 
    const label_name =[];
    const colors =[
-       '#00adef',
-       '#ec008b',
-       '#36236a'
-   ];
+       // Blue:
+       '#007FFF',
+       '#002D62',
+       '#B2FFFF',
+       '#008E97',
+       '#1ca9c9',
+
+       // Red:
+       '#AA0000',
+       '#FBCEB1',
+       '#FF7F50',
+       '#FF004F',
+       '#C04000',
+
+       // Green:
+       '#8F9779',
+       '#32de84',
+       '#4FFFB0',
+       '#006400',
+       '#A9BA9D',
+
+       // Purple:
+       '#452c63',
+       '#800080',
+       '#ff99e6',
+       '#ff00bf',
+       '#cc0066',
+
+       // Yellow:
+       '#F0E68C',
+       '#FFFF00',
+       '#FFC72C',
+       '#bfff00',
+       '#d2b12d',
+
+       // Pink:
+       '#FF69B4',
+       '#FFC0CB',
+       '#660066',
+       '#cc99ff',
+       '#dbbddb',   ];
 
     @foreach($labels_names as $key => $names )
 
