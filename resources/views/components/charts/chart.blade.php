@@ -56,7 +56,7 @@
             {
                 type: 'bar',
                 label: 'Teste Técnico',
-                backgroundColor: '#00adef',
+                backgroundColor: '#0080ff',
                 data: dataTec,
 
             },
@@ -65,7 +65,7 @@
             {
                 type: 'bar',
                 label: 'Dinâmica de Grupo',
-                backgroundColor: '#ec008b',
+                backgroundColor: '#80bfff',
                 data: dataSS,
 
             },
@@ -78,7 +78,7 @@
     //avg plugin block
     const avg = {
         id: 'avg',
-        beforeDatasetsDraw(chart, args, pluginoptions) {
+        afterDatasetsDraw(chart, args, pluginoptions) {
             const {ctx, chartArea: {top, bottom, left, right, width, height}, scales: {x, y}} = chart;
 
             ctx.save();
@@ -95,7 +95,7 @@
             }
 
             if (hasAvg(avgt)) {
-                drawAvgLine(avgt, '#00adef');
+                drawAvgLine(avgt, '#008fc5');
             }
 
             if (hasAvg(avgs)) {
@@ -104,7 +104,7 @@
 
             function drawAvgLine(yValue, color) {
                 ctx.beginPath();
-                ctx.lineWidth = 2;
+                ctx.lineWidth = 3;
 
                 ctx.strokeStyle = color;
                 ctx.moveTo(left, y.getPixelForValue(yValue));

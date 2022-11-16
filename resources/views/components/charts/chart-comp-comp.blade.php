@@ -50,8 +50,7 @@ console.log(dataSSAvg)
                 @if(!empty($data_grade_avg_Tec))
             {
                 label: 'Teste Técnico',
-                backgroundColor: '#00adef',
-                borderColor: '#00adef',
+                backgroundColor: '#0080ff',
                 data: dataTecAvg,
 
             },
@@ -59,8 +58,7 @@ console.log(dataSSAvg)
                 @if(!empty($data_grade_avg_SS))
             {
                 label: 'Dinâmica de Grupo',
-                backgroundColor: '#ec008b',
-                borderColor: '#ec008b',
+                backgroundColor: '#80bfff',
                 data: dataSSAvg,
 
             },
