@@ -8,8 +8,6 @@
         <th scope="col">Tipo</th>
         <th scope="col">Fase</th>
         <th scope="col">Registar</th>
-        <th></th>
-
     </tr>
     </thead>
     <tbody>

@@ -292,3 +292,19 @@ footer h5{
 
 }
 
+.img-exemplo-csv {
+
+    /*position: fixed;
+    left: 800px;*/
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 100%;;
+
+    /*overflow-y: auto;*/
+
+    /* -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;*/
+}
