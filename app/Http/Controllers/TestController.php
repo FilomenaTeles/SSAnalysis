@@ -70,7 +70,7 @@ class TestController extends Controller
         foreach ($tests as $test){
             foreach ($studentTests2 as $studentTest2){
             if (($test->id == $studentTest2->test_id) && ($test->test_type_id == $request->test_type_id)){
-                return redirect('tests')->with('erro', 'Teste já existe!');
+                return redirect('tests')->with('erro', 'Já existe um teste com estes dados.');
             }
             }
         }
@@ -132,6 +132,15 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
+
+        $testsAll = Test::all()->where('test_phase_id', $request->test_phase_id);
+
+        foreach ($testsAll as $testAll){
+            if (($test->id != $testAll->id) && ($testAll->test_type_id == $request->test_type_id) && ($testAll->test_phase_id == $request->test_phase_id)){
+                return redirect('tests')->with('erro', 'Já existe um teste com estes dados.');
+            }
+
+        }
         $test = Test::find($test->id);
         $test->test_type_id = $request->test_type_id;
         $test->test_phase_id = $request->test_phase_id;
