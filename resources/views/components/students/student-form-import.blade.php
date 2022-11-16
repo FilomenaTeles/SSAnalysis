@@ -1,6 +1,6 @@
 <div class="container pt-3">
     <div class="container">
-        <p>Por favor certifique que o excel tem os dados na seguinte ordem:</p>
+        <p>Observação 01 - Não coloque cabeçalhos no excel. Certifique-se que o excel está convertido para CSV, e tem os dados na seguinte ordem:</p>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -13,8 +13,14 @@
             </tr>
             </thead>
         </table>
-        <p>Atenção: Não coloque cabeçalhos no excel</p>
-        <p>srceenshot de um exemplo de excel</p>
+        <br>
+
+        <div class="container">
+            <p >Obervação 02 - Exemplo de um arquivo excel:</p>
+            <img class="img-exemplo-csv"  src="../../../images/excel-example.png" alt="">
+        </div>
+
+        <br>
     </div>
 
     <form method="POST" action="{{ url('import') }}" enctype="multipart/form-data">
@@ -36,9 +42,9 @@
         </span>
             @enderror
         </div>
-
-
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
+        <button type="submit" class="btn btn-primary mb-2">Importar</button>
+        <a type="button"  href="{{ URL::previous() }}" id="back-btn" class="btn mb-2 ">Cancelar</a>
     </form>
+    <br>
 </div>
+<br>
