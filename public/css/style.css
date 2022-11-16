@@ -242,6 +242,10 @@ h1, h4{
 
 }
 
+#phase-btn{
+    background-color: #817C7C;
+    color: white;
+}
 footer{
     /*position:sticky;*/
     padding-top: 6px;

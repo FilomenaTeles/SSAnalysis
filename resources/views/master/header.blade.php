@@ -15,8 +15,7 @@
                         <img id="profile-pic" src="../../../images/user-default-image2.png" alt="">
                     @endif
 
-                    {{--                    <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"--}}
-                    {{--                         width="30%" alt="">--}}
+
                     <button id="btn-drop" class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
@@ -34,33 +33,7 @@
         </div>
         <div class="row ">
             <div class="container-fluid col-sm-9 col-12">
-{{--               <?php $_SERVER['REQUEST_URI'] ?>--}}
 
-{{--                $uri = $request->path();--}}
-{{--                <nav aria-label="breadcrumb">--}}
-{{--                    <ol class="breadcrumb">--}}
-
-{{--                        <li class="breadcrumb-item"><?php echo $_SERVER['PATH_INFO'] ?></li>--}}
-
-{{--                    </ol>--}}
-                {{--              </nav>--}}
-
-                {{--  ------ ROTAS -----------}}
- {{--                <a class="{{Request::is('/') ? 'active' : ''}}" href="{{ url('/home') }}">Home</a> /--}}
-{{--                <a class="{{(Request::is('tests') || Request::is('tests/*')) ? 'active' : ''}}" href="{{ ('/tests') }}">Testes</a> /--}}
-{{--                <a class="{{(Request::is('studentTests') || Request::is('studentTests/*')) ? 'active' : ''}}" href="{{ ('/studentTests') }}">Registar Notas</a> /--}}
-{{--                <a class="{{(Request::is('charts') || Request::is('charts/*')) ? 'active' : ''}}" href="{{ ('/charts') }}">Análise Comparativa</a>--}}
-{{--            </div>--}}
-{{--            <div class="container-fluid col-sm-9 col-12">--}}
-{{--                @if (isset($courses))--}}
-{{--                <a class="{{(Request::is('courses') || Request::is('courses/*')) ? 'active' : ''}}" href="{{ ('/courses') }}">Cursos</a> /--}}
-{{--                @endif--}}
-{{--                <a class=" {{(Request::is('groups') || Request::is('groups/*')) ? 'active' : ''}}" href="{{ ('/groups') }}">Turmas</a> /--}}
-{{--                <a class="{{(Request::is('students') || Request::is('students/*')) ? 'active' : ''}}" href="{{ ('/students') }}">Alunos</a> /--}}
-
-{{--                @if (Auth::user() && Auth::user()-> user_type_id==1)--}}
-{{--                    <a class="{{(Request::is('users') || Request::is('users/*')) ? 'active' : ''}}" href="{{ ('/users') }}">Técnicos</a>--}}
-{{--                @endif--}}
             </div>
         </div>
     </div>

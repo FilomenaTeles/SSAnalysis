@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
     <div class="container">
         <h1>Social Skills Analysis</h1>
     </div>
