@@ -11,7 +11,6 @@
 
     @endforeach;
 
-
    const dataTecAvg=[];
    @foreach($data_grade_avg_Tec as $key => $grade)
 

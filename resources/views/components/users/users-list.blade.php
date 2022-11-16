@@ -25,15 +25,15 @@
         @endforeach
         @if(($user -> isActive))
         <td>
-            <a href="">
+
             <i class="bi bi-emoji-laughing "></i>
-            </a>
+
         </td>
         @else
         <td>
-            <a href="">
+
             <i class="bi bi-emoji-frown"></i>
-            </a>
+
         </td>
         @endif
         <td>

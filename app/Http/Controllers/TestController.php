@@ -342,7 +342,7 @@ class TestController extends Controller
 
 
         $studentTests = StudentTest::all();
-        $students = Student::with('group')->get();
+        $students = Student::with('group')->where('isActive',1)->get();
         foreach ($studentTests as $test) {
             foreach ($students as $student) {
                 if ($test->student_id == $student->id) {
@@ -403,7 +403,7 @@ class TestController extends Controller
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
             'studentTests' => $studentTests,
-            'students' => Student::with('group')->get(),
+            'students' => Student::with('group')->where('isActive',1)->get(),
             'testsPhasesList' => $testsPhasesList,
 
         ]);
@@ -445,7 +445,7 @@ class TestController extends Controller
             'phaseId' => $phaseId,
             'groupId' => $groupId,
             'tests' => Test::with('students')->get(),
-            'students' => Student::with('group')->get(),
+            'students' => Student::with('group')->where('isActive',1)->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
             'studentTests' => $studentTests,
@@ -492,7 +492,7 @@ class TestController extends Controller
             'comp' => $comp,
             'groupId' => $groupId,
             'tests' => Test::with('students')->get(),
-            'students' => Student::with('group')->get(),
+            'students' => Student::with('group')->where('isActive',1)->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
             'studentTests' => $studentTests,
@@ -538,7 +538,7 @@ class TestController extends Controller
             'st' => $st,
             'groupId' => $groupId,
             'tests' => Test::with('students')->get(),
-            'students' => Student::with('group')->orderBy('name')->get(),
+            'students' => Student::with('group')->where('isActive',1)->orderBy('name')->get(),
             'groups' => Group:: with('students')->get(),
             'testPhases' => TestPhase::all(),
             'studentTests' => $studentTests,

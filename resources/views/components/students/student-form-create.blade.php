@@ -34,6 +34,7 @@
                     value="{{old('birth_date')}}"
                     required
 
+                    max="<?php echo date('Y-m-d')?>"
                 >
             </div>
 

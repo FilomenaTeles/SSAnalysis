@@ -8,14 +8,19 @@
                         <div class="card text-center" id="card-tests" style="width: 14rem;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$group->edition}}</h5>
-                                <p class="card-text">{{$course->name}}</p>
+                                <p class="card-text"  >
+                                    @if(strlen($course->name) > 50)
+                                       <?php echo substr($course->name,0,50)."..." ?>
+                                    @else
+                                    {{$course->name}}
+                                    @endif</p>
 
                                 <a href="{{url('/charts/'.$group->id.'/phases')}}" type="button" id="btn-card-grades" class="btn"
                                   @if(!hasTest($group->id,$groupTests))
                                    style="pointer-events: none; background-color: white; border-color: #36236a"
                                     @endif
                                 > @if(hasTest($group->id,$groupTests))
-                                    Ver Gráficos
+                                        <i class="bi bi-graph-up"></i>
                                     @else
                                 Sem Testes
                                     @endif</a>
