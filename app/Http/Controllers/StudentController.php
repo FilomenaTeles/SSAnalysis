@@ -68,6 +68,8 @@ class StudentController extends Controller
 
         $student->save();
 
+
+
         if ($request->groupRedirect){
         return redirect('groups/'.$request->group_id)->with('status','Aluno criado com sucesso!');
     }else{
@@ -143,7 +145,9 @@ class StudentController extends Controller
     }
 
     public function import()
+
     {
+
         Excel::import(new StudentsImport, request()->file('import-form'));
 
         return redirect('groups')->with('success', 'Alunos importados com sucesso!');

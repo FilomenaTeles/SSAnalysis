@@ -8,7 +8,7 @@
         <th scope="col">Tipo</th>
         <th scope="col">Fase</th>
         <th scope="col">Registar</th>
-        <th></th>
+
 
     </tr>
     </thead>
@@ -30,6 +30,9 @@
                             @endif
                         @endforeach
                         <td>
+                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id)}}" type="button"
+                               id="eye-btn" class="btn"><i class="bi bi-eye"></i>
+                            </a>
                             @if($test->test_type_id == 1)
                                 @if($student->pivot->grade == 0)
                                     <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
@@ -52,9 +55,7 @@
                                 @endif
                             @endif
 
-                            <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id)}}" type="button"
-                               id="eye-btn" class="btn"><i class="bi bi-eye"></i>
-                            </a>
+
                         </td>
 
                     </tr>
