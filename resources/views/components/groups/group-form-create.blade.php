@@ -1,15 +1,15 @@
-
+<br>
 <div class="container">
     <form method="POST" action="{{ url('groups') }}">
         @csrf
         <div class="form-group">
-            <label for="edition">Nome designação</label>
+            <label for="edition">Nome da turma</label>
             <input
                 type="text"
                 id="edition"
                 name="edition"
                 class="form-control"
-                placeholder="Informe a designação da turma"
+                placeholder="Ex: WMD0622"
                 value="{{old('edition')}}"
                 required
             >
