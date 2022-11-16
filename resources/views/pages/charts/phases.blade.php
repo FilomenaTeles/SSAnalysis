@@ -51,14 +51,6 @@
 
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec1[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                        <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeTec1);
-                            }
-                            ?>
-
 
                     @endif
                 @endforeach
@@ -71,13 +63,7 @@
                     @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS1[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                            <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeSS1);
-                            }
-                            ?>
+
 
                     @endif
                 @endforeach
@@ -91,13 +77,7 @@
                     @if($student->group_id == $groupId ->id && $student->isActive ==1)
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec2[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                            <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeTec2);
-                            }
-                            ?>
+
 
                     @endif
                 @endforeach
@@ -110,13 +90,7 @@
                     @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS2[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                            <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeSS2);
-                            }
-                            ?>
+
 
                     @endif
                 @endforeach
@@ -129,13 +103,7 @@
                     @if($student->group_id == $groupId ->id && $student->isActive ==1)
                         <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeTec3[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                            <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeTec3);
-                            }
-                            ?>
+
 
                     @endif
                 @endforeach
@@ -148,13 +116,6 @@
                     @if($student->group_id == $groupId ->id && $student->isActive ==1)
                             <input type="text" value=" {{$labels_names[$key]=$student->name}}" hidden>
                         <input type="text" value="  {{$data_gradeSS3[$key]=$student->pivot -> grade}}" hidden>
-                        @else
-                            <?php
-                            if ($key==0){
-                                array_pop( $labels_names);
-                                array_pop( $data_gradeSS3);
-                            }
-                            ?>
 
                     @endif
                 @endforeach
@@ -240,7 +201,9 @@
             $newgradeSS3 = array();?>
 
             @foreach($labels_names as $label_name)
-                <?php array_push($newlabels,$label_name);?>
+                <?php array_push($newlabels,$label_name);
+
+                ?>
             @endforeach
             @foreach($data_gradeTec1 as $label_name)
                 <?php array_push($newgradeTec1,$label_name);?>
@@ -263,6 +226,7 @@
             @endforeach
 
         <?php
+
         $labels_names = $newlabels;
         $data_gradeTec1 = $newgradeTec1;
         $data_gradeTec2 = $newgradeTec2;
@@ -340,6 +304,54 @@
                 <p class="text-center"><small>Gráfico das 3 fases dos testes técnicos de cada aluno</small></p>
             </div>
 
+                <!-- VALIDAÇÃO CASO NÃO EXISTA UM TIPO OU FASE DO TESTE  -->
+                <!-- SE OS TAMANHOS DOS ARRAYS FOREM DIFERENTES VAI AO ARRAY MAIS PEQUENO, O QUE NÃO TEM NOTAS POR NÃO EXISTIR  -->
+                <!-- E PARA CADA POSIÇÃO DO LABELS_NAMES VAI DAR NOTA 0, ASSIM OS ARRAS TEM SEMPRE O MESMO TAMANHO  -->
+
+                @if (sizeof($data_gradeTec1) != sizeof($data_gradeTec2) || sizeof($data_gradeTec1) != sizeof($data_gradeTec3) || sizeof($data_gradeTec2) != sizeof($data_gradeTec3))
+                    <!-- TESTE TEC FASE 1 NÃO EXISTE -->
+                    @if(sizeof($data_gradeTec1)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeTec1[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+                    <!-- TESTE TEC FASE 2 NÃO EXISTE -->
+                    @if(sizeof($data_gradeTec2)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeTec2[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+
+                    <!-- TESTE TEC FASE 3 NÃO EXISTE -->
+                    @if(sizeof($data_gradeTec3)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeTec3[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+                @endif
+
+
+                @if (sizeof($data_gradeSS1) != sizeof($data_gradeSS2) || sizeof($data_gradeSS1) != sizeof($data_gradeSS3) || sizeof($data_gradeSS2) != sizeof($data_gradeSS3))
+                    <!-- TESTE SS FASE 1 NÃO EXISTE -->
+                    @if(sizeof($data_gradeSS1)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeSS1[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+                    <!-- TESTE SS FASE 2 NÃO EXISTE -->
+                    @if(sizeof($data_gradeSS2)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeSS2[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+                    <!-- TESTE SS FASE 3 NÃO EXISTE -->
+                    @if(sizeof($data_gradeSS3)<=1)
+                        @for($i=0; $i<sizeof($labels_names); $i++)
+                            <input type="text" value="{{$data_gradeSS3[$i]= 0}}" hidden>
+                        @endfor
+                    @endif
+
+                @endif
 
 
             @component('components.charts.chart-comp',[
@@ -377,7 +389,10 @@
                     $data_grade_avg_SS = array();
 
 
+
+
                     ?>
+
 
             @for ($i = 0; $i < sizeof($labels_names); $i++)
 
