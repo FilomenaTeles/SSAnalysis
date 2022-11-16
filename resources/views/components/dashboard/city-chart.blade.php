@@ -14,7 +14,7 @@
             {
                 label: 'Alunos',
                 data:[10,12,18,32,15] ,
-                backgroundColor: '#00adef',
+                backgroundColor: '#ff3399',
             }
         ]
     };

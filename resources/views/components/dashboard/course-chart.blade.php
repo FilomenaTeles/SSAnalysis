@@ -7,17 +7,17 @@
 
 <script>
     const colors=[
-        '#007FFF',
-        '#AA0000',
-        '#32de84',
-        '#800080',
-        '#d2b12d',
-        '#cc99ff',
+        '#000080',
+        '#33ccff',
+        '#0080ff',
+        '#4d4dff',
+        '#4da6ff',
+        '#0c5b8d',
 
     ]
 
     const data = {
-        labels: ['18', '20', '30', '40', '50','60+'],
+        labels: ['18', '20', '30', '40', '50','60'],
         datasets: [
             {
                 label: 'Percentagem',
