@@ -66,6 +66,7 @@ const dataSSFase1=[];
 const dataSSFase2=[];
 const dataSSFase3=[];
 
+
 <!-- NOTAS DA FASE 1 De Soft Skills-->
     @foreach($gradesFase1 as $key => $grade1)
         dataSSFase1[{{$key}}]={{$grade1}}

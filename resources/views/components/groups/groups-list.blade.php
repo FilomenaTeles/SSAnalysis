@@ -13,6 +13,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th scope="col">ID</th>
         <th scope="col">Turma</th>
         <th scope="col">Curso</th>
         <th scope="col">Editar</th>
@@ -21,6 +22,7 @@
     <tbody>
     @foreach($groups as $group)
         <tr>
+            <th>{{$group->id}}</th>
             <th scope="row">{{$group->edition}}</th>
             @foreach($courses as $course)
                 @if(($course -> id) == ($group -> course_id))
