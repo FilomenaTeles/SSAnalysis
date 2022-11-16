@@ -62,7 +62,7 @@ $grade_SS = [];
                     </button>
 
                     <div class="collapse" id="collapse{{$student->id}}">
-                        <div class="cards card-body">
+                        <div class="card card-body">
                             @component('components.charts.chart-student',[
                             'name' =>'chart'.$student->id,
                             'label' => 'label'.$student->id,
