@@ -33,10 +33,11 @@
                             <a href="{{url('/studentTests/'.$groupTest->id.'/'.$test->id)}}" type="button"
                                id="eye-btn" class="btn"><i class="bi bi-eye"></i>
                             </a>
+
                             @if($test->test_type_id == 1)
                                 @if($student->pivot->grade == 0)
                                     <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
-                                       type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
+                                       type="button" class="btn btn-primary @if($test->test_date >= date('Y-m-d')) disable_btn @endif"><i class="bi bi-journal-plus"></i>
                                     </a>
                                 @else
                                     <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/edit')}}"
@@ -47,13 +48,14 @@
 
                                 @if($student->pivot->grade == 0)
                                     <a href="{{url('studentTests/'.$groupTest->id.'/'.$test->id.'/editss')}}"
-                                       type="button" class="btn btn-primary"><i class="bi bi-journal-plus"></i>
+                                       type="button" class="btn btn-primary @if($test->test_date >= date('Y-m-d')) disable_btn @endif"><i class="bi bi-journal-plus"></i>
                                     </a>
                                 @else
                                     <a href="{{url('studentTests/'.$groupTest->id .'/'.$test->id.'/editss2')}}"
                                        type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                 @endif
                             @endif
+
 
 
                         </td>
