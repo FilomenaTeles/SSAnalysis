@@ -73,7 +73,10 @@
             <tbody>
             @foreach($students as $student)
                 <tr>
-
+                    <td>{{$student->birth_date}}</td>
+                    <td>{{$student->name}}</td>
+                    <td>{{$student->email}}</td>
+                    <td>{{$student->group->edition}}</td>
                 </tr>
             @endforeach
             </tbody>

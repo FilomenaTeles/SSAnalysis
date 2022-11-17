@@ -86,7 +86,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 3,
             'test_id'      => 2,
-            'grade'      => 15
+            'grade'      => 13
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 3,
@@ -114,7 +114,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 4,
             'test_id'      => 1,
-            'grade'      => 15
+            'grade'      => 18
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 4,
@@ -147,7 +147,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 5,
             'test_id'      => 1,
-            'grade'      => 13
+            'grade'      => 12
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 5,
@@ -195,7 +195,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 6,
             'test_id'      => 4,
-            'grade'      => 15
+            'grade'      => 17
         ]);
 
         \DB::table('student_test')->insert([
@@ -206,7 +206,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 6,
             'test_id'      => 6,
-            'grade'      => 14
+            'grade'      => 19
         ]);
 
         //ALUNO 7
@@ -416,7 +416,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 13,
             'test_id'      => 2,
-            'grade'      => 15
+            'grade'      => 13
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 13,
@@ -515,7 +515,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 16,
             'test_id'      => 2,
-            'grade'      => 14
+            'grade'      => 12
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 16,
@@ -536,7 +536,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 16,
             'test_id'      => 6,
-            'grade'      => 13
+            'grade'      => 16
         ]);
 
         //ALUNO 17
@@ -614,7 +614,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 19,
             'test_id'      => 2,
-            'grade'      => 14
+            'grade'      => 16
         ]);
         \DB::table('student_test')->insert([
             'student_id'   => 19,
@@ -624,7 +624,7 @@ class StudentTestSeeder extends Seeder
         \DB::table('student_test')->insert([
             'student_id'   => 19,
             'test_id'      => 4,
-            'grade'      => 14
+            'grade'      => 15
         ]);
 
         \DB::table('student_test')->insert([

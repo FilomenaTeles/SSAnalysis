@@ -2,9 +2,12 @@
 <br>
 <div class="container">
 
+    <?php $contador = 0 ?>
+
 <form method="POST" action="{{ url('/tests/'.$test->id) }}">
 {{ csrf_field() }}
 {{ method_field('put') }}
+
     <div class="form-group">
         <label for="test_date">Data do teste</label>
         <input
@@ -47,8 +50,9 @@
         <label for="group_id">Escolha a turma</label>
         <select name="group_id" id="group_id" class="custom-select" >
             @foreach($test->students as $student)
-                @if($student->id === $student-> group_id)
-                <option selected value="{{ $student->group->id }}">{{ $student-> group->edition }} </option>
+                @if($contador == 0)
+                <option value="{{ $student->group->id }}" selected>{{ $student->group->edition }} </option>
+                    <input type="text" value="{{$contador++}}"hidden>
                 @endif
             @endforeach
         </select>
