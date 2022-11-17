@@ -35,14 +35,14 @@
 
             {
             label: 'Teste Técnico',
-            backgroundColor: '#00adef',
+            backgroundColor: '#0080ff',
             data: {{$dataTec}},
 
         },
 
             {
                 label: 'Dinâmica de Grupo',
-                backgroundColor: '#ec008b',
+                backgroundColor: '#80bfff',
                 data: {{$dataSS}},
 
             },
