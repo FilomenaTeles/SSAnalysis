@@ -70,7 +70,7 @@ class StudentSeeder extends Seeder
             'group_id'      => 1,
             'name'          => 'Jorge Nunes',
             'city'          => 'Vila Nova de Gaia',
-            'birth_date'    => '2000-03-14',
+            'birth_date'    => '2000-01-03',
             'email'         => 'jorge@mail.com',
             'phone_number'  => '911001000',
         ]);
@@ -79,7 +79,7 @@ class StudentSeeder extends Seeder
             'group_id'      => 1,
             'name'          => 'Marcos Sousa',
             'city'          => 'Porto',
-            'birth_date'    => '2002-03-14',
+            'birth_date'    => '2002-11-24',
             'email'         => 'marco@mail.com',
             'phone_number'  => '911001000',
         ]);
@@ -88,7 +88,7 @@ class StudentSeeder extends Seeder
             'group_id'      => 1,
             'name'          => 'Ana Marques',
             'city'          => 'Vila Nova de Gaia',
-            'birth_date'    => '184-06-23',
+            'birth_date'    => '1984-06-23',
             'email'         => 'ana@mail.com',
             'phone_number'  => '931001200',
         ]);
@@ -106,7 +106,7 @@ class StudentSeeder extends Seeder
             'group_id'      => 1,
             'name'          => 'Tiago Rios',
             'city'          => 'Valongo',
-            'birth_date'    => '2001-04-25',
+            'birth_date'    => '2001-12-01',
             'email'         => 'tiago@mail.com',
             'phone_number'  => '960001000',
         ]);

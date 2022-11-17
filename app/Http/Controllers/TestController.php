@@ -132,24 +132,31 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
+        $turma_id = $request->group_id;
 
-        $testsAll = Test::all()->where('test_phase_id', $request->test_phase_id);
+        $student = Student::all()->where('group_id', '=', $turma_id)->first();
 
-        foreach ($testsAll as $testAll){
-            if (($test->id != $testAll->id) && ($testAll->test_type_id == $request->test_type_id) && ($testAll->test_phase_id == $request->test_phase_id)){
-                return redirect('tests')->with('erro', 'Já existe um teste com estes dados.');
+        $studentTests2 = StudentTest::all()->where('student_id', '=', $student->id);
+
+        $testsAll = Test::all();
+
+        foreach ($testsAll as $testAll) {
+            foreach ($studentTests2 as $studentTest2) {
+                if (($test->id != $testAll->id) && ($testAll->test_type_id == $request->test_type_id) && ($testAll->test_phase_id == $request->test_phase_id) && ($testAll->id == $studentTest2->test_id)) {
+
+                    return redirect('tests')->with('erro', 'Já existe um teste com estes dados.');
+                }
             }
+            }
+            $test = Test::find($test->id);
+            $test->test_type_id = $request->test_type_id;
+            $test->test_phase_id = $request->test_phase_id;
+            $test->test_date = $request->test_date;
+            $test->save();
+
+            return redirect('tests')->with('status', 'Teste editado com sucesso!');
 
         }
-        $test = Test::find($test->id);
-        $test->test_type_id = $request->test_type_id;
-        $test->test_phase_id = $request->test_phase_id;
-        $test->test_date = $request->test_date;
-        $test->save();
-
-        return redirect('tests')->with('status', 'Teste editado com sucesso!');
-
-    }
 
     /**
      * Remove the specified resource from storage.

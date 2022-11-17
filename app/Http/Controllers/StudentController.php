@@ -119,7 +119,10 @@ class StudentController extends Controller
         $student -> isActive        = $request -> isActive;
 
         $student->save();
-        return redirect('students')->with('status','Aluno editado com sucesso!');
+
+
+        return redirect('groups/'.$request->group_id)->with('status','Aluno editado com sucesso!');
+
     }
 
     /**

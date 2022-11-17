@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         //return view('home');
         $tests = Test::all()->where('test_date','>',date('Y-m-d'))->sortBy('test_date')->take(5);
-        $students = Student::all()->where('birth_date')->sortBy('birth_date');
+        $students = Student::all()->sortByDesc('birth_date')->take(5);
 
      //   $b_day = DB:: table('students') -> select('id','name','birth_date','email')->where(DB::raw(DATE_FORMAT($birth,'%m-%d'),$today)) ->get();
 
