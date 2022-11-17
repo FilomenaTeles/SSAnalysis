@@ -98,8 +98,7 @@
                         @if($student -> isActive)
                             checked
                         @endif
-                        required
-                        readonly>
+                        disabled>
 
                 </div>
                 <div class="form-group col-3 ml-0">
@@ -112,8 +111,8 @@
                         @if(!$student -> isActive)
                             checked
                         @endif
-                        required
-                        readonly>
+                        disabled
+                        >
 
                 </div>
             </div>
